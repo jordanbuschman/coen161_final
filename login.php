@@ -1,5 +1,3 @@
-<?
-?>
 <form name="login" method="post" action="check.php">
 	<table>
 		<tr>
