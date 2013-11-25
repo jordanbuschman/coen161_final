@@ -1,6 +1,6 @@
 <?php
 	$host = "localhost";
-	$sql_username = "";
+	$sql_username = "root";
 	$sql_password = "";
 	$db = "kidzcamp";
 	$tbl = "user";
