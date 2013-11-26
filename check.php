@@ -1,7 +1,7 @@
 <?php
 	$host = "localhost";
 	$sql_username = "root";
-	$sql_password = "";
+	$sql_password = "root";
 	$db = "kidzcamp";
 	$tbl = "user";
 
