@@ -24,5 +24,6 @@ INSERT INTO user (username, password, firstName, lastName) VALUES ("maryyyyyy32"
 INSERT INTO user (username, password, firstName, lastName) VALUES ("cocksucker", "dickbag", "Cocky", "McGee");
 INSERT INTO user (username, password, firstName, lastName) VALUES ("hsolo", "starwarz", "Han", "Solo");
 
-
-INSERT INTO item (location, name, price) VALUES ("images/potato.jpg", "potato", 29.99);
+INSERT INTO item (location, name, price) VALUES ("potato.jpg", "potato", 29.99);
+INSERT INTO item (location, name, price) VALUES ("shirt.jpg", "shirt", 15.00);
+INSERT INTO item (location, name, price) VALUES ("shotglass.jpg", "shot glass", 4.99);
