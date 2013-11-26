@@ -1,5 +1,5 @@
 coen161_final file descriptions
-===============================
+================================
 
 YOU MUST BE LOGGED IN AS ROOT TO CONNECT TO SQL SERVER!
 
