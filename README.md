@@ -1,6 +1,7 @@
 coen161_final file descriptions
 ===============================
 
+POTATO!
 YOU MUST BE LOGGED IN AS ROOT TO CONNECT TO SQL SERVER!
 
 /images: Where all the image files for the website are located
