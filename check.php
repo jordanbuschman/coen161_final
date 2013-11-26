@@ -21,6 +21,6 @@
 		die ("Invalid username or password.");
 	else {
 		$user = mysql_fetch_object($result);
-		var_dump($user);
+		echo("Welcome " . $user->firstName . " " . $user->lastName . "!");
 	}
 ?>
