@@ -5,13 +5,13 @@
 	<table>
 		<tr>
 			<th>Username</th>
-			<td><input name="username" type="text" id="username"></td>
+			<td><input name="username" type="text"></td>
 		</tr>
 		<tr>
 			<th>Password</th>
-			<td><input name="password" type="password" id="password"></td>
+			<td><input name="password" type="password"></td>
 		</tr>
-		<tr colspan=2">
+		<tr>
 			<td><input type="submit" name="Submit" value="Login"></input>
 		</tr>
 	</table>
