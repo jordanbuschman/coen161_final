@@ -13,8 +13,6 @@
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	
-//	echo "<p>INPUT - USERNAME: $username, PASSWORD: $password</p>";
-
 	$query = "SELECT * FROM $tbl WHERE username='$username' AND password='$password'";	
 	$result = mysql_query($query);
 	
