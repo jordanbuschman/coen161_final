@@ -56,15 +56,18 @@ function logout(){
 				<div id="login">
 					<?php
 						if(isset($_SESSION['user'])){
-							$username = $_SESSION['user']->username;
-							echo "Welcome $username!";
+							$name = $_SESSION['user']->firstName;
+							echo "Welcome $name!";
 							echo '<button type="button" onclick="logout();" >Logout</button>';
 						} else {  ?>
 							<form action="javascript:handleLogin();">
 							Username: <input type="text" name="username" size="15" /><br />
 							Password: <input type="password" name="password" size="15" /><br />
 							<div align="right" style="margin-top: -12px;">
-								<p><input type="submit" value="Login" /></p>
+								<p>
+									<input type="button" onclick="displaySignup()" value="Create account" />
+									<input type="submit" value="Login" />
+								</p>
 							</div>
 							</form>
 						<?php }
