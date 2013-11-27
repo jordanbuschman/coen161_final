@@ -17,9 +17,11 @@
 	
 	$search_query = "SELECT * FROM $tbl WHERE username='$username'";
 	$result = mysql_query($query);
-	$user = mysql_fetch_array($result);
+	$user = mysql_fetch_object($result);
 	
+	session_start();
 	$_SESSION["user"] = $user;
 	header("location: index.php");
+
 	ob_end_flush();
 ?>
