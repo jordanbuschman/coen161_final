@@ -5,6 +5,8 @@
 	$db = "kidzcamp";
 	$tbl = "user";
 
+	session_start();
+
 	mysql_connect($host, $sql_username, $sql_password) or die ("Cannot connect to SQL server.");
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
 	
@@ -21,6 +23,7 @@
 		die ("Invalid username or password.");
 	else {
 		$user = mysql_fetch_object($result);
-		echo("Welcome " . $user->firstName . " " . $user->lastName . "!");
+		$_SESSION["username"] = $username;
+		header("location:testSession.php");
 	}
 ?>
