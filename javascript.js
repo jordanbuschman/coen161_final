@@ -58,7 +58,7 @@ $(document).ready(function() {
 		var pattern = /\s/;
 		if (usr.match(pattern) || usr.trim() == "") {
 			validUser = false;
-			$('#validUsername').html("<p style='color:red'>Username is invalid (No whitespace allowed)</p>");
+			$('#validUsername').html("<span style='color:red'>Username is invalid (No whitespace allowed)</span>");
 			$('#create').attr('disabled', 'disabled');
 			return;
 		}
@@ -66,11 +66,11 @@ $(document).ready(function() {
   			.done(function( data ) {
     				if( data == "F") {
 					validUser = true;
-					$('#validUsername').html("<p style='color:green'>Username is valid</p>");
+					$('#validUsername').html("<span style='color:green'>Username is valid</span>");
 				}
 				else {
 					validUser = false;
-					$('#validUsername').html("<p style='color:red'>Username is invalid (Name already taken)</p>");
+					$('#validUsername').html("<span style='color:red'>Username is invalid (Name already taken)</span>");
 				}
   			}).fail(function() {
     				alert( "AJAX FAILED" );
@@ -83,17 +83,17 @@ $(document).ready(function() {
 	});
 	$(document).on('change keyup input', '#newPassword', function() { //Check if desired password is between 8-12 characters with at least 1 capital letter and 1 number (and if passwords match)
 		validPassword2 = false;
-		$('#validPassword2').html("<p style='color:red'>Passwords do not match</p>");
+		$('#validPassword2').html("<span style='color:red'>Passwords do not match</span>");
 
 		var password = $(this).val();
 		var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/; 
 
 		if (password.match(pattern)) {
-			$('#validPassword').html("<p style='color:green'>Password is valid</p>");
+			$('#validPassword').html("<span style='color:green'>Password is valid</span>");
 			validPassword = true;
 		}
 		else {
-			$('#validPassword').html("<p style='color:red'>Password must be 8-16 chars long with at least 1 capital letter and 1 number</p>");
+			$('#validPassword').html("<span style='color:red'>Password must be 8-16 chars long with at least 1 capital letter and 1 number</span>");
 			validPassword = false;
 		}
 
@@ -106,11 +106,11 @@ $(document).ready(function() {
 		var password = $(this).val();
 
 		if (password == $('#newPassword').val()) {
-			$('#validPassword2').html("<p style='color:green'>Passwords match</p>");
+			$('#validPassword2').html("<span style='color:green'>Passwords match</span>");
 			validPassword2 = true;
 		}
 		else {
-			$('#validPassword2').html("<p style='color:red'>Passwords do not match</p>");
+			$('#validPassword2').html("<span style='color:red'>Passwords do not match</span>");
 			validPassword2 = false;
 		}
 
