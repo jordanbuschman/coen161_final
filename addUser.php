@@ -1,6 +1,6 @@
 <?php
 	if (isset($_SESSION["user"]))
-		header("location: index.php");
+		header("location: jordanIndex.php");
 
 	ob_start();
 
@@ -24,7 +24,7 @@
 	session_start();
 	$user = mysql_fetch_object($result);
 	$_SESSION["user"] = $user;
-	header("location: index.php");
+	header("location: jordanIndex.php");
 
 	ob_end_flush();
 ?>

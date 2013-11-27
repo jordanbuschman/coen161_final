@@ -23,23 +23,25 @@ function displaySignup() {
 	data.push("<table>",
 		"<tr>",
 		"<th>Username</th>",
-		"<td><input name='username' type='text' id='newUsername'></td>",
+		"<td><input name='username' type='text' id='newUsername' /></td>",
 		"<td id='validUsername'></td>",
 		"</tr>",
 		"<tr>",
 		"<th>Password</th>",
-		"<td><input name='password' type='password' id='newPassword'></td>",
+		"<td><input name='password' type='password' id='newPassword' /></td>",
 		"<td id='validPassword'></td>",
 		"</tr>",
 		"<tr>",
 		"<th>Confirm Password</th>",
-		"<td><input name='password2' type='password' id='newPassword2'></td>",
+		"<td><input name='password2' type='password' id='newPassword2' /></td>",
 		"<td id='validPassword2'></td>",
 		"</tr>",
 		"<tr>",
-		"<td><input type='submit' name='Submit' value='Create' id='create' disabled='disabled'></input>",
+		"<th colspan='2' style='text-align: center'><input type='submit' name='Submit' value='Create' id='create' disabled='disabled' /></td>",
+		"<td></td>",
 		"</tr>",
 		"</table>");
+
 	$('#background').fadeTo( "slow" , 0.6, function() {
 		document.body.appendChild(signup);
 		$('#signup').html(data.join(''));
