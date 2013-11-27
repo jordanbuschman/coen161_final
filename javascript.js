@@ -4,9 +4,16 @@ $(document).ready(function() {
 
 	$('#newUsername').bind('change keyup input', function() { //Check if desired username is valid or not with ajax
 		var usr = $(this).val();
+		var pattern = /\s/;
+		if (usr.match(pattern)) {
+			validUser = false;
+			$('#newUsername').css('color', 'red');
+			$('#create').attr('disabled', 'disabled');
+			return;
+		}
     		$.post( "checkForUsername.php", { username:usr })
   			.done(function( data ) {
-    				if( data == "F" && usr != "") {
+    				if( data == "F" && usr.trim() != "") {
 					validUser = true;
 					$('#newUsername').css('color', 'green');
 				}
