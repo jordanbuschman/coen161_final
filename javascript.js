@@ -1,4 +1,4 @@
-$('document').ready(function() {
+$(document).ready(function() {
 	var validUser = false;
 	var validPassword = false;
 
