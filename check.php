@@ -20,12 +20,12 @@
 	
 	$count = mysql_num_rows($result); 
 	if ($count != 1)
-		echo 0;
+		echo "F";
 	else {
 		session_start();
 		$user = mysql_fetch_object($result);
 		$_SESSION["user"] = $user;
-		echo 1;
+		echo "T";
 	}
 	ob_end_flush();
 ?>
