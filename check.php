@@ -1,4 +1,6 @@
 <?php
+	ob_start();
+
 	$host = "localhost";
 	$sql_username = "root";
 	$sql_password = "";
@@ -11,16 +13,19 @@
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	
-	echo "<p>INPUT - USERNAME: $username, PASSWORD: $password</p>";
+//	echo "<p>INPUT - USERNAME: $username, PASSWORD: $password</p>";
 
 	$query = "SELECT * FROM $tbl WHERE username='$username' AND password='$password'";	
 	$result = mysql_query($query);
 	
 	$count = mysql_num_rows($result); 
 	if ($count != 1)
-		die ("Invalid username or password.");
+		echo "F";
 	else {
+		session_start();
 		$user = mysql_fetch_object($result);
-		echo("Welcome " . $user->firstName . " " . $user->lastName . "!");
+		$_SESSION["user"] = $user;
+		echo "T";
 	}
+	ob_end_flush();
 ?>

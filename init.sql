@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS user, item;
 
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,
-	username VARCHAR(12) NOT NULL,
+	username VARCHAR(16) NOT NULL,
 	password VARCHAR(24) NOT NULL,
 	firstName VARCHAR(32) NOT NULL,
 	lastName VARCHAR(32),
