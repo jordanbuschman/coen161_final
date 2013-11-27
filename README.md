@@ -11,6 +11,8 @@ javascript.js: Also, self-explanatory. All of the JavaScript for the website.
 
 index.html: Main page for kidzcamp website.
 
+index.php: PHP version of index.html that supports login and logout for username
+
 init.sql: Run to set up the kidzcamp database for the first time. Will create database kidzcamp and all necessary tables, as well as populate the tables with test cases. To run, type "mysql -h localhost -u root < init.sql".
 
 login.php: A php script that handles logging in. Passes on the form results to check.php.
