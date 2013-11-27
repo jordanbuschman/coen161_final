@@ -22,6 +22,7 @@
 	if ($count != 1)
 		echo 0;
 	else {
+		session_start();
 		$user = mysql_fetch_object($result);
 		$_SESSION["user"] = $user;
 		echo 1;
