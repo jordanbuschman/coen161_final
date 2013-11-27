@@ -10,3 +10,5 @@ init.sql: Run to set up the kidzcamp database for the first time. Will create da
 login.php: A php script that handles logging in. Passes on the form results to check.php.
 
 check.php: Checks whether or not login data is valid. 
+
+checkForUsername.php: To be used with AJAX. If a username (supplied in $_POST) is already in the user table, return F. Otherwise, return T.
