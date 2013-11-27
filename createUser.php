@@ -1,7 +1,7 @@
 <script src="http://code.jquery.com/jquery-1.7.2.js"></script>
 <script src="javascript.js"></script>
 
-<form name="login" method="post" action="check.php">
+<form name="login" method="post" action="addUser.php">
 	<table>
 		<tr>
 			<th>Username</th>
