@@ -1,11 +1,11 @@
 <?php
+	ob_start();
+
 	$host = "localhost";
 	$sql_username = "root";
 	$sql_password = "";
 	$db = "kidzcamp";
 	$tbl = "user";
-
-	session_start();
 
 	mysql_connect($host, $sql_username, $sql_password) or die ("Cannot connect to SQL server.");
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
@@ -26,4 +26,5 @@
 		$_SESSION["username"] = $username;
 		header("location:testSession.php");
 	}
+	ob_end_flush();
 ?>
