@@ -17,7 +17,7 @@ init.sql: Run to set up the kidzcamp database for the first time. Will create da
 
 login.php: A php script that handles logging in. Passes on the form results to check.php.
 
-addUser.php: Add a new user to the user table. (Make sure you already know that the fields are valid for entry!)
+addUser.php: Add a new user to the user table and starts a session for that user. (Make sure you already know that the fields are valid for entry!)
 
 check.php: Find a user with given username and password in the user table and return it as an array. Start a new session for that user. 
 
