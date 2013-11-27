@@ -1,8 +1,8 @@
 body 
 { 
 	line-height: 100%; 
-    margin-top: 100px; 
-	//margin-left: 0px;
+    	margin-top: 100px; 
+	/* margin-left: 0px; */
 	border:0; 
 	padding:0;
 	font-family: tahoma;
@@ -54,19 +54,19 @@ header.banner
 }
 
 #nav
- {
- background-image: url("images/menu-bg.png");
- width:100%;
- height:95px;
- box-shadow: 0px 1px 50px #000000;
- //border-radius: 15px;
- margin: 0 auto;
- position:fixed;
- //left: 40%;
- top: 0px;
- left: 0px;
- opacity: 1;
- z-index: 100;
+{
+	background-image: url("images/menu-bg.png");
+	width:100%;
+ 	height:95px;
+	box-shadow: 0px 1px 50px #000000;
+	/* border-radius: 15px; */
+	margin: 0 auto;
+	position:fixed;
+	/* left: 40%; */
+	top: 0px;
+	left: 0px;
+	opacity: 1;
+ 	z-index: 100;
 }
 
 #nav2
@@ -100,7 +100,7 @@ header.banner
 	right: 1%;
 	color: white;
 	opacity: 1;
-	//height: 100px;
+	/* height: 100px; */
 	border-radius: 10px;
 	padding: 5px;
 	text-align: right;
@@ -115,7 +115,7 @@ div#centerpage
 	margin-top: 200px;
 	margin-bottom: 15px;
 	width: 70%;
-	//height: 1000px;
+	/* height: 1000px; */
 	/*border: 4px solid darkblue; */
 	border-radius: 10px;
 	overflow-x: hidden;
@@ -193,7 +193,7 @@ h1
 	padding-top: 10px;
 }
 
-h2 , div#centerpage.h2
+h2, div#centerpage.h2
 {
 	font-size: 18px;
 	color: darkblue;
@@ -249,118 +249,119 @@ footer
 	text-align: center;
 }
 
-/* Menu CSS */#cssmenu,
+/* Menu CSS */
+#cssmenu,
 #cssmenu > ul {
-  background: url(highlight-bg.png) repeat;
-  padding-bottom: 3px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
+	background: url(highlight-bg.png) repeat;
+	padding-bottom: 3px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
 }
 #cssmenu:before,
 #cssmenu:after,
 #cssmenu > ul:before,
 #cssmenu > ul:after {
-  content: '';
-  display: table;
+	content: '';
+	display: table;
 }
 #cssmenu:after,
 #cssmenu > ul:after {
-  clear: both;
+	clear: both;
 }
 #cssmenu {
-  width: auto;
-  zoom: 1;
+	width: auto;
+	zoom: 1;
 }
 #cssmenu > ul {
-  background: url(menu-bg.png) repeat;
-  margin: 0;
-  padding: 0;
-  position: relative;
+	background: url(menu-bg.png) repeat;
+	margin: 0;
+	padding: 0;
+	position: relative;
 }
 #cssmenu > ul li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 #cssmenu > ul > li {
-  float: left;
-  position: relative;
+	float: left;
+	position: relative;
 }
 #cssmenu > ul > li > a {
-  padding: 23px 26px;
-  display: block;
-  color: white;
-  font-size: 18px;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-shadow: 0 -1px 0 #0d0d0d;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
-  line-height: 18px;
+	padding: 23px 26px;
+	display: block;
+	color: white;
+	font-size: 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-shadow: 0 -1px 0 #0d0d0d;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
+	line-height: 18px;
 }
 #cssmenu > ul > li:hover > a {
-  background: url(highlight-bg.png) repeat;
-  text-shadow: 0 -1px 0 #97321f;
-  text-shadow: 0 -1px 0 rgba(122, 42, 26, 0.64);
+	background: url(highlight-bg.png) repeat;
+	text-shadow: 0 -1px 0 #97321f;
+	text-shadow: 0 -1px 0 rgba(122, 42, 26, 0.64);
 }
 #cssmenu > ul > li > a > span {
-  line-height: 18px;
+	line-height: 18px;
 }
 #cssmenu > ul > li.active > a,
 #cssmenu > ul > li > a:active {
-  background: url(hover.png) repeat;
+	background: url(hover.png) repeat;
 }
 /* Childs */
 #cssmenu > ul ul {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 120px;
-  background: url(menu-bg.png) repeat;
-  margin: 0;
-  padding: 0;
-  z-index: -1;
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 120px;
+	background: url(menu-bg.png) repeat;
+	margin: 0;
+	padding: 0;
+	z-index: -1;
 }
 #cssmenu > ul li:hover ul {
-  opacity: 1;
-  visibility: visible;
-  margin: 0;
-  color: #000;
-  z-index: 2;
-  top: 64px;
-  left: 0;
+	opacity: 1;
+	visibility: visible;
+	margin: 0;
+	color: #000;
+	z-index: 2;
+	top: 64px;
+	left: 0;
 }
 #cssmenu > ul ul:before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  width: 100%;
-  height: 20px;
-  background: transparent;
+	content: '';
+	position: absolute;
+	top: -10px;
+	width: 100%;
+	height: 20px;
+	background: transparent;
 }
 #cssmenu > ul ul li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
 }
 #cssmenu > ul ul li a {
-  padding: 18px 26px;
-  display: block;
-  color: white;
-  font-size: 24px;
-  text-decoration: none;
-  text-transform: uppercase;
-  width: 150px;
-  border-left: 4px solid transparent;
-  -webkit-transition: all 0.35s ease-in-out;
-  -moz-transition: all 0.35s ease-in-out;
-  -ms-transition: all 0.35s ease-in-out;
-  transition: all 0.35s ease-in-out;
+	padding: 18px 26px;
+ 	display: block;
+	color: white;
+	font-size: 24px;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 150px;
+	border-left: 4px solid transparent;
+	-webkit-transition: all 0.35s ease-in-out;
+	-moz-transition: all 0.35s ease-in-out;
+	-ms-transition: all 0.35s ease-in-out;
+	transition: all 0.35s ease-in-out;
 }
 #cssmenu > ul ul li a:hover {
-  border-left: 4px solid #d64e34;
-  background: url(hover.png) repeat;
+	border-left: 4px solid #d64e34;
+	background: url(hover.png) repeat;
 }
 #cssmenu > ul ul li a:active {
-  background: url(menu-bg.png) repeat;
+	background: url(menu-bg.png) repeat;
 }
