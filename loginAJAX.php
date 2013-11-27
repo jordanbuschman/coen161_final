@@ -26,7 +26,7 @@ function handleLogin(){
 
 </script>
 
-<form name="login" action="javascript:handleLogin(); return false;">
+<form name="login" action="javascript:handleLogin();">
     <table>
    		<tr>
             <th>Username</th>
