@@ -30,9 +30,7 @@ function handleLogin() {
 }
 
 function logout(){
-	$.post( "logout.php" );
-	//Refresh the page
-	window.location = window.location.pathname;
+	window.location.href = "logout.php";
 }
 </script>
 
