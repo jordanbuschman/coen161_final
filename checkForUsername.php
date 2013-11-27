@@ -9,10 +9,10 @@
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
 	
 	$username = $_POST['username'];
-	$query = "SELECT COUNT(*) FROM $tbl WHERE username='$username'";	
+	$query = "SELECT * FROM $tbl WHERE username='$username'";	
 	$result = mysql_query($query);
-	$count=mysql_fetch_assoc($result);
-	
-	if ($count['total'] == 0) echo "F";
-	else echo "T";
+	$count=mysql_num_rows($result);
+
+	if ($count > 0) echo "T";
+	else echo "F";
 ?>

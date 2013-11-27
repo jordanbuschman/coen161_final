@@ -2,13 +2,18 @@ $(document).ready(function() {
 	var validUser = false;
 	var validPassword = false;
 
-	$('#newUsername').change(function() { //Check if desired username is valid or not with ajax
-		var username = $(this).val();
-
-		//if (name is not in SQL database)
-		//	validUser = false;
-		//else validUser == true;
-
+	$('#newUsername').keyup(function() { //Check if desired username is valid or not with ajax
+		var usr = $(this).val();
+		validUser = false;
+    	$.post( "checkForUsername.php", { username:usr })
+  		.done(function( data ) {
+    		if( data == "F" ){
+    			validUser = true;
+    		}
+  		}).fail(function() {
+    		alert( "AJAX FAILED" );
+  		});
+  	
 		if (validPassword && validUser){
 			$('#create').removeAttr('disabled');
 		}

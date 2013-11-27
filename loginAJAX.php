@@ -7,7 +7,7 @@
 
 <script>
 
-function handleLogin(){
+function handleLogin() {
 
     var usr = document.getElementsByName('username')[0].value;
     var pwd = document.getElementsByName('password')[0].value;
@@ -21,7 +21,7 @@ function handleLogin(){
   	}).fail(function() {
     	alert( "AJAX FAILED" );
   	});
-
+  	
 }
 
 </script>
