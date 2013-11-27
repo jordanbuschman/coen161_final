@@ -20,11 +20,11 @@
 	
 	$count = mysql_num_rows($result); 
 	if ($count != 1)
-		die ("Invalid username or password.");
+		echo 0;
 	else {
 		$user = mysql_fetch_object($result);
-		$_SESSION["username"] = $username;
-		header("location:testSession.php");
+		$_SESSION["user"] = $user;
+		echo 1;
 	}
 	ob_end_flush();
 ?>
