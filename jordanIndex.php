@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
-		<link rel="stylesheet" type="text/css" href="mystyles.css">
+		<link rel="stylesheet" type="text/css" href="jordanstyles.css">
 	</head>
 
 	<body>
@@ -39,32 +39,32 @@
 
 		<header>
 			<div class="logo">
-				<img src="images/logo.png" />
+				<img src="images/logo.png" width="250px"/>
 			</div>
 			<div class="links">
-				<a href="jordanIndex.php"><span id="home">Home</span></a>
-				<a href="jordanIndex.php"><span id="theCamp">The Camp</span></a>
-				<a href="jordanIndex.php"><span id="shop">Shop</span></a>
-				<a href="jordanIndex.php"><span id="contact">Contact</span></a>
+				<div class="link"><a href="jordanIndex.php"><span id="home">Home</span></a></div>
+				<div class="link"><a href="jordanIndex.php"><span id="theCamp">The Camp</span></a></div>
+				<div class="link"><a href="jordanIndex.php"><span id="shop">Shop</span></a></div>
+				<div class="link"><a href="jordanIndex.php"><span id="contact">Contact</span></a></div>
 			</div>
 			<div class="loginOrWelcome">
-			<?php
-				if(isset($_SESSION['user'])) {
-					echo '<span>Welcome ' . $_SESSION['user']->firstName . '!</span>';
-					echo '<button type="button" onclick="logout();" >Logout</button>';
-				}
-				else {
-					echo '<form action="javascript:handleLogin();">';
-					echo '<table><tr>';
-					echo '<td colspan="2" style="text-align:center"><input type="text" name="username" size="16" placeholder="Username"></td>';
-					echo '</tr><tr>';
-					echo '<td colspan="2" style="text-align:center"><input type="password" name="password" size="16" placeholder="Password"></td>';
-					echo '</tr><tr>';
-					echo '<td><input type="button" onclick="displaySignup()" value="Create account" /></td>';
-					echo '<td><input type="submit" value="Login" /></td>';
-					echo '</tr></table></form>';
-				}
-			?>
+				<?php
+					if(isset($_SESSION['user'])) {
+						echo '<span>Welcome ' . $_SESSION['user']->firstName . '!</span>';
+						echo '<button type="button" onclick="logout();" >Logout</button>';
+					}
+					else {
+						echo '<form action="javascript:handleLogin();">';
+						echo '<table><tr>';
+						echo '<td colspan="2" style="text-align:center"><input type="text" name="username" width="16" placeholder="Username"></td>';
+						echo '</tr><tr>';
+						echo '<td colspan="2" style="text-align:center"><input type="password" name="password" width="16" maxlength="16" placeholder="Password"></td>';
+						echo '</tr><tr>';
+						echo '<td><input type="button" onclick="displaySignup()" value="Create account" /></td>';
+						echo '<td><input type="submit" value="Login" /></td>';
+						echo '</tr></table></form>';
+					}
+				?>
 			</div>
 		</header>
 		<section id="boxholder">

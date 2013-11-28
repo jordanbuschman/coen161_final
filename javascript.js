@@ -22,7 +22,7 @@ function displaySignup() {
 	signup.style.marginLeft = '-175px';
 	signup.style.zIndex = 300;
 	var data = [];
-	data.push("<table style='background-color: lightGrey; padding:0.5em; border-radius: 15px; width: 100%'>",
+	data.push("<table style='background-color: orange; padding:0.5em; border-radius: 15px; width: 100%'>",
 		"<tr><td><input type='button' value='Go back' onclick='window.location = window.location.pathname;' /><td></tr>",
 		"<tr>",
 		"<th style='text-align: right'>Username</th>",
@@ -40,9 +40,9 @@ function displaySignup() {
 		"<th colspan='2' style='text-align: center'><input type='submit' name='Submit' value='Create' id='create' disabled='disabled' /></td>",
 		"<td></td>",
 		"</tr>",
-		"<tr><td colspan='2' id='validUsername'></td></tr>",
-		"<tr><td colspan='2' id='validPassword'></td></tr>",
-		"<tr><td colspan='2' id='validPassword2'></td></tr>",
+		"<tr><td colspan='2' id='validUsername' style='text-shadow: 1px 1px black'></td></tr>",
+		"<tr><td colspan='2' id='validPassword' style='text-shadow: 1px 1px black'></td></tr>",
+		"<tr><td colspan='2' id='validPassword2' style='text-shadow: 1px 1px black'></td></tr>",
 		"</table>");
 
 	$('#background').fadeTo( "slow" , 0.6, function() {

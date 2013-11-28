@@ -1,0 +1,45 @@
+body {
+	height: 2000px;
+	width: 100%;
+	margin: 0;
+}
+header {
+	padding: 0;
+	position: fixed;
+	background-image: url("images/menu-bg.png"); 
+	width: inherit;
+	overflow: hidden;
+}
+.logo {
+	margin: 0;
+	padding: 0;
+	padding-right: 0;
+	float: left;
+	width: 30%;
+}
+.links {
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 55%;
+
+}
+.link {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	width: 25%;
+	float: left;
+}
+.loginOrWelcome {
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 15%;
+}
+.loginOrWelcome > form {
+	margin: 0;
+	padding: 0;
+	background-color: orange;
+	border-radius: 15px;
+}
