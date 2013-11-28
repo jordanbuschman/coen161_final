@@ -38,6 +38,9 @@
 		</script>
 
 		<header>
+			<div id="logo">
+				<img src="images/logo.png" />
+			</div>
 			<div id="loginOrWelcome">
 			<?php
 				if(isset($_SESSION['user'])) {
@@ -48,10 +51,10 @@
 					echo '<form action="javascript:handleLogin();">';
 					echo '<table><tr>';
 					echo '<th>Username</th>';
-					echo '<td><input type="text" name="username" size="15" /></td>';
+					echo '<td><input type="text" name="username" size="16" /></td>';
 					echo '</tr><tr>';
 					echo '<th>Password</th>';
-					echo '<td><input type="password" name="password" size="15" /></td>';
+					echo '<td><input type="password" name="password" size="16" /></td>';
 					echo '</tr><tr>';
 					echo '<td><input type="button" onclick="displaySignup()" value="Create account" /></td>';
 					echo '<td><input type="submit" value="Login" /></td>';

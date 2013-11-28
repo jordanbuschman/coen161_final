@@ -16,30 +16,33 @@ function displaySignup() {
 	signup.method = 'post';
 	signup.action = 'addUser.php';
 	signup.style.position = 'fixed';
-	signup.style.left = '100px';
-	signup.style.top = '100px';
+	signup.style.width = '350px';
+	signup.style.left = '50%';
+	signup.style.top = '20%';
+	signup.style.marginLeft = '-175px';
 	signup.style.zIndex = 300;
 	var data = [];
-	data.push("<table>",
+	data.push("<table style='background-color: grey; padding:0.5em; border-radius: 15px; width: 100%'>",
+		"<tr><td><input type='button' value='Go back' onclick='window.location = window.location.pathname;' /><td></tr>",
 		"<tr>",
-		"<th>Username</th>",
-		"<td><input name='username' type='text' id='newUsername' /></td>",
-		"<td id='validUsername'></td>",
+		"<th style='text-align: right'>Username</th>",
+		"<td><input type='text' id='newUsername' size='16'/></td>",
 		"</tr>",
 		"<tr>",
-		"<th>Password</th>",
-		"<td><input name='password' type='password' id='newPassword' /></td>",
-		"<td id='validPassword'></td>",
+		"<th style='text-align: right'>Password</th>",
+		"<td><input type='password' id='newPassword' size='16'/></td>",
 		"</tr>",
 		"<tr>",
-		"<th>Confirm Password</th>",
-		"<td><input name='password2' type='password' id='newPassword2' /></td>",
-		"<td id='validPassword2'></td>",
+		"<th style='text-align: right'>Confirm Password</th>",
+		"<td><input type='password' id='newPassword2' size='16'/></td>",
 		"</tr>",
 		"<tr>",
 		"<th colspan='2' style='text-align: center'><input type='submit' name='Submit' value='Create' id='create' disabled='disabled' /></td>",
 		"<td></td>",
 		"</tr>",
+		"<tr><td colspan='2' id='validUsername'></td></tr>",
+		"<tr><td colspan='2' id='validPassword'></td></tr>",
+		"<tr><td colspan='2' id='validPassword2'></td></tr>",
 		"</table>");
 
 	$('#background').fadeTo( "slow" , 0.6, function() {
@@ -93,7 +96,7 @@ $(document).ready(function() {
 			validPassword = true;
 		}
 		else {
-			$('#validPassword').html("<span style='color:red'>Password must be 8-16 chars long with at least 1 capital letter and 1 number</span>");
+			$('#validPassword').html("<span style='color:red'>Password must be 8-16 characters long with at least 1 capital letter and 1 number</span>");
 			validPassword = false;
 		}
 
