@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
-		<link rel="stylesheet" type="text/css" href="jordanstyles.css">
+		<link rel="stylesheet" type="text/css" href="mystyles.css">
 	</head>
 
 	<body>
@@ -56,11 +56,9 @@
 				else {
 					echo '<form action="javascript:handleLogin();">';
 					echo '<table><tr>';
-					echo '<th style = "text-align: right">Username</th>';
-					echo '<td><input type="text" name="username" size="16" /></td>';
+					echo '<td colspan="2" style="text-align:center"><input type="text" name="username" size="16" placeholder="Username"></td>';
 					echo '</tr><tr>';
-					echo '<th style="text-align: right">Password</th>';
-					echo '<td><input type="password" name="password" size="16" /></td>';
+					echo '<td colspan="2" style="text-align:center"><input type="password" name="password" size="16" placeholder="Password"></td>';
 					echo '</tr><tr>';
 					echo '<td><input type="button" onclick="displaySignup()" value="Create account" /></td>';
 					echo '<td><input type="submit" value="Login" /></td>';
