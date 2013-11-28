@@ -38,10 +38,16 @@
 		</script>
 
 		<header>
-			<div id="logo">
+			<div class="logo">
 				<img src="images/logo.png" />
 			</div>
-			<div id="loginOrWelcome">
+			<div class="links">
+				<a href="jordanIndex.php"><span id="home">Home</span></a>
+				<a href="jordanIndex.php"><span id="theCamp">The Camp</span></a>
+				<a href="jordanIndex.php"><span id="shop">Shop</span></a>
+				<a href="jordanIndex.php"><span id="contact">Contact</span></a>
+			</div>
+			<div class="loginOrWelcome">
 			<?php
 				if(isset($_SESSION['user'])) {
 					echo '<span>Welcome ' . $_SESSION['user']->firstName . '!</span>';
@@ -50,10 +56,10 @@
 				else {
 					echo '<form action="javascript:handleLogin();">';
 					echo '<table><tr>';
-					echo '<th>Username</th>';
+					echo '<th style = "text-align: right">Username</th>';
 					echo '<td><input type="text" name="username" size="16" /></td>';
 					echo '</tr><tr>';
-					echo '<th>Password</th>';
+					echo '<th style="text-align: right">Password</th>';
 					echo '<td><input type="password" name="password" size="16" /></td>';
 					echo '</tr><tr>';
 					echo '<td><input type="button" onclick="displaySignup()" value="Create account" /></td>';
@@ -63,12 +69,12 @@
 			?>
 			</div>
 		</header>
-		<div id="boxholder">
+		<section id="boxholder">
 			<div id="box1"></div>
 			<div id="box2"></div>
 			<div id="box3"></div>
 			<div id="box4"></div>
-		</div>
+		</section>
 		<div id="centerpage"></div>
 	</body>
 </html> 

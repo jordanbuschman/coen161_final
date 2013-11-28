@@ -22,7 +22,7 @@ function displaySignup() {
 	signup.style.marginLeft = '-175px';
 	signup.style.zIndex = 300;
 	var data = [];
-	data.push("<table style='background-color: grey; padding:0.5em; border-radius: 15px; width: 100%'>",
+	data.push("<table style='background-color: lightGrey; padding:0.5em; border-radius: 15px; width: 100%'>",
 		"<tr><td><input type='button' value='Go back' onclick='window.location = window.location.pathname;' /><td></tr>",
 		"<tr>",
 		"<th style='text-align: right'>Username</th>",
