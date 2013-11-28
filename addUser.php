@@ -1,8 +1,10 @@
 <?php
-	if (isset($_SESSION["user"]))
-		header("location: jordanIndex.php");
+	session_start();
 
-	ob_start();
+	if (!$_POST['username']){
+		header("location: jordanIndex.php");
+		exit;
+	}
 
 	$host = "localhost";
 	$sql_username = "root";
@@ -21,10 +23,8 @@
 	$search_query = "SELECT * FROM $tbl WHERE username='$username'";
 	$result = mysql_query($search_query);
 	
-	session_start();
 	$user = mysql_fetch_object($result);
 	$_SESSION["user"] = $user;
 	header("location: jordanIndex.php");
 
-	ob_end_flush();
 ?>
