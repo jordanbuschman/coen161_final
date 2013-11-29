@@ -7,6 +7,7 @@ body {
 	line-height: 100%; 
 	margin: 100px 0 0 0;
 	width: 100%;
+	height: 2000px;
 	font-family: tahoma;
 	text-align: justify;
 	background: #19193b;
@@ -17,6 +18,8 @@ header {
 	top: 0;
 	background-image: url("images/menu-bg.png"); 
 	width: inherit;
+	height: 110px;
+	display: table;
 }
 .logo {
 	margin: 0;
@@ -24,27 +27,64 @@ header {
 	padding-right: 0;
 	float: left;
 	width: 30%;
+	height: 110px;
+	display: table-row;
 }
-.links {
+.logo img {
+	margin: 20px;
+	height: 70px;
+}
+.loginOrWelcome {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	float: right;
+	text-align: right;
+	width: 15%;
+	height: 110px;
+}
+.loginOrWelcome > form , .loginOrWelcome > div {
+	position: absolute;
+	right: 0;
+	left: auto;
+	margin: 15px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.loginOrWelcome > div {
+	font-size: 18px;
+}
+/* Menu CSS */
+#cssmenu, #cssmenu > ul {
+	background: url(highlight-bg.png) repeat;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+}
+#cssmenu {
 	margin: 0;
 	padding: 0;
 	float: left;
 	width: 55%;
-
+	height: 110px;
 }
-.link {
-	text-align: center;
-	margin: 0;
-	padding: 0;
+#cssmenu > ul li {
 	width: 25%;
-	float: left;
-}
-.loginOrWelcome {
 	margin: 0;
 	padding: 0;
+	list-style: none;
 	float: left;
-	width: 15%;
+	position: relative;
 }
-.loginOrWelcome > form {
-	margin: 10px;
+#cssmenu > ul > li > a {
+	text-align: center;
+	font-size: 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-shadow: 0 -1px 0 #0d0d0d;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
+}
+#cssmenu > ul > li:hover > a {
+	background: url(highlight-bg.png) repeat;
+	text-shadow: 0 -1px 0 #97321f;
+	text-shadow: 0 -1px 0 rgba(122, 42, 26, 0.64);
 }

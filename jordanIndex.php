@@ -39,19 +39,23 @@
 
 		<header>
 			<div class="logo">
-				<img src="images/logo.png" width="250px"/>
+				<img src="images/logo.png"/>
 			</div>
-			<div class="links">
-				<div class="link"><a href="jordanIndex.php"><span id="home">Home</span></a></div>
-				<div class="link"><a href="jordanIndex.php"><span id="theCamp">The Camp</span></a></div>
-				<div class="link"><a href="jordanIndex.php"><span id="shop">Shop</span></a></div>
-				<div class="link"><a href="jordanIndex.php"><span id="contact">Contact</span></a></div>
+			<div id='cssmenu'>
+				<ul>
+	  				<li class='active'><a href='index.php'><span style="color: yellow">Home</span></a></li>
+					<li class='has-sub'><a href='#'><span style="color: red">The Camp</span></a></li>
+					<li class='has-sub'><a href='#'><span style="color: green">Shop</span></a></li>
+					<li class='last'><a href='#'><span style="color: blue">Contact</span></a></li>
+				</ul>
 			</div>
 			<div class="loginOrWelcome">
 				<?php
 					if(isset($_SESSION['user'])) {
+						echo '<div>';
 						echo '<span style="color: lightBlue">Welcome ' . $_SESSION['user']->firstName . '!</span>';
 						echo '<button type="button" onclick="logout();" >Logout</button>';
+						echo '</div>';
 					}
 					else {
 						echo '<form action="javascript:handleLogin();">';
