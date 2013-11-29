@@ -50,7 +50,7 @@
 			<div class="loginOrWelcome">
 				<?php
 					if(isset($_SESSION['user'])) {
-						echo '<span>Welcome ' . $_SESSION['user']->firstName . '!</span>';
+						echo '<span style="color: lightBlue">Welcome ' . $_SESSION['user']->firstName . '!</span>';
 						echo '<button type="button" onclick="logout();" >Logout</button>';
 					}
 					else {

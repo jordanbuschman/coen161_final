@@ -36,8 +36,6 @@ header {
 	padding: 0;
 	float: left;
 	width: 15%;
-	background-color: orange;
-	border-radius: 15px;
 }
 .loginOrWelcome > form{
 	margin: 10px;

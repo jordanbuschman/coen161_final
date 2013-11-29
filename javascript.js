@@ -25,8 +25,8 @@ function displaySignup() {
 	data.push("<table style='background-color: orange; padding:0.5em; border-radius: 15px; width: 100%'>",
 		"<tr><td><input type='button' value='Go back' onclick='window.location = window.location.pathname;' /><td></tr>",
 		"<tr>",
-		"<td style='text-align: right'><input name='firstName' type='text' size='16' placeholder='First Name'/></td>",
-		"<td><input name='lastName' type='text' size='16' placeholder='Last Name'/></td>",
+		"<td style='text-align: right'><input name='firstName' type='text' size='16' placeholder='First Name' id='firstName'/></td>",
+		"<td><input name='lastName' type='text' size='16' placeholder='Last Name' id='lastName'/></td>",
 		"</tr>",
 		"<tr>",
 		"<th style='text-align: right' id='usernameText'>Username</th>",
@@ -56,21 +56,47 @@ function displaySignup() {
 }
 
 $(document).ready(function() {
+	var validFirstName = false;
+	var validLastName = false;
 	var validUser = false;
 	var validPassword = false;
 	var validPassword2 = false;
 
-	$(document).on('change keyup input', '#newUsername', function() { //Check if desired username is valid or not with ajax
+	$(document).on('change keyup input', '#firstName', function() { //Check if first name field isn't blank
+		var firstName = $(this).val();
+		var pattern = /\s/;
+		if (firstName.match(pattern) || firstName.trim() == "") //If there is a space in the first name field or the box is empty
+			validFirstName = false;
+		else validFirstName = true;
+
+		if (validFirstName && validLastName && validUser && validPassword && validPassword2){
+			$('#create').removeAttr('disabled');
+		}
+		else $('#create').attr('disabled', 'disabled');
+	});
+	$(document).on('change keyup input', '#lastName', function() { //Check if last name field isn't blank
+		var lastName = $(this).val();
+		var pattern = /\s/;
+		if (lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+			validLastName = false;
+		else validLastName = true;
+
+		if (validFirstName && validLastName && validUser && validPassword && validPassword2){
+			$('#create').removeAttr('disabled');
+		}
+		else $('#create').attr('disabled', 'disabled');
+	});
+	$(document).on('change keyup input', '#newUsername', function() { //Check if desired username is valid or not
 		var usr = $(this).val();
 		var pattern = /\s/;
-		if (usr.match(pattern) || usr.trim() == "") {
+		if (usr.match(pattern) || usr.trim() == "") { //If there is a space in the username field or the box is empty
 			validUser = false;
 			$('#validUsername').html("<span style='color:red'>Username is invalid (No whitespace allowed)</span>");
 			$('#usernameText').css("color", "red");
 			$('#create').attr('disabled', 'disabled');
 			return;
 		}
-    		$.post( "checkForUsername.php", { username:usr })
+    		$.post( "checkForUsername.php", { username:usr }) //Runs checkForUsername.php, which checks the current username field against all registered usernames
   			.done(function( data ) {
     				if( data == "F") {
 					validUser = true;
@@ -86,7 +112,7 @@ $(document).ready(function() {
     				alert( "AJAX FAILED" );
   			});
   	
-		if (validUser && validPassword && validPassword2){
+		if (validFirstName && validLastName && validUser && validPassword && validPassword2){
 			$('#create').removeAttr('disabled');
 		}
 		else $('#create').attr('disabled', 'disabled');
@@ -97,7 +123,7 @@ $(document).ready(function() {
 		$('#password2Text').css("color", "red");
 
 		var password = $(this).val();
-		var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/; 
+		var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/; //8-16 characters from a-z, with at least 1 letter from A-Z, and 1 number
 
 		if (password.match(pattern)) {
 			$('#validPassword').html("<span style='color:green'>Password is valid</span>");
@@ -110,7 +136,7 @@ $(document).ready(function() {
 			validPassword = false;
 		}
 
-		if (validUser && validPassword && validPassword2){
+		if (validFirstName && validLastName && validUser && validPassword && validPassword2){
 			$('#create').removeAttr('disabled');
 		}
 		else $('#create').attr('disabled', 'disabled');
@@ -129,7 +155,7 @@ $(document).ready(function() {
 			validPassword2 = false;
 		}
 
-		if (validUser && validPassword && validPassword2){
+		if (validFirstName && validLastName && validUser && validPassword && validPassword2){
 			$('#create').removeAttr('disabled');
 		}
 		else $('#create').attr('disabled', 'disabled');
