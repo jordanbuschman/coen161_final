@@ -53,16 +53,16 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
-						echo '<span style="color: lightBlue">Welcome ' . $_SESSION['user']->firstName . '!</span>';
+						echo '<span>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</span>';
 						echo '<button type="button" onclick="logout();" >Logout</button>';
 						echo '</div>';
 					}
 					else {
 						echo '<form action="javascript:handleLogin();">';
 						echo '<table><tr>';
-						echo '<td colspan="2" style="text-align:center"><input type="text" name="username" width="16" placeholder="Username"></td>';
+						echo '<td colspan="2"><input type="text" name="username" width="16" placeholder="Username"></td>';
 						echo '</tr><tr>';
-						echo '<td colspan="2" style="text-align:center"><input type="password" name="password" width="16" maxlength="16" placeholder="Password"></td>';
+						echo '<td colspan="2"><input type="password" name="password" width="16" maxlength="16" placeholder="Password"></td>';
 						echo '</tr><tr>';
 						echo '<td><input type="button" onclick="displaySignup()" value="Create account" /></td>';
 						echo '<td><input type="submit" value="Login" /></td>';

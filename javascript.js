@@ -1,43 +1,29 @@
 function displaySignup() {
 	var background = document.createElement("div"); //Fade and disable screen by overlaying opaque div to the screen
 	background.id = 'background';
-	background.style.position = 'fixed';
-	background.style.left = 0;
-	background.style.top = 0;
-	background.style.width = '100%';
-	background.style.height = '100%';
-	background.style.backgroundColor = 'white';
-	background.style.opacity = 0;
-	background.style.zIndex = 200;
 	document.body.appendChild(background);
 	
 	var signup = document.createElement("form"); //The actual form to fill out to sign up
 	signup.id = 'signup';
 	signup.method = 'post';
 	signup.action = 'addUser.php';
-	signup.style.position = 'fixed';
-	signup.style.width = '350px';
-	signup.style.left = '50%';
-	signup.style.top = '20%';
-	signup.style.marginLeft = '-175px';
-	signup.style.zIndex = 300;
 	var data = [];
-	data.push("<table style='background-color: orange; padding:0.5em; border-radius: 15px; width: 100%'>",
+	data.push("<table>",
 		"<tr><td><input type='button' value='Go back' onclick='window.location = window.location.pathname;' /><td></tr>",
 		"<tr>",
 		"<td style='text-align: right'><input name='firstName' type='text' size='16' placeholder='First Name' id='firstName'/></td>",
 		"<td><input name='lastName' type='text' size='16' placeholder='Last Name' id='lastName'/></td>",
 		"</tr>",
 		"<tr>",
-		"<th style='text-align: right' id='usernameText'>Username</th>",
+		"<th id='usernameText'>Username</th>",
 		"<td><input name='username' type='text' id='newUsername' size='16'/></td>",
 		"</tr>",
 		"<tr>",
-		"<th style='text-align: right' id='passwordText'>Password</th>",
+		"<th id='passwordText'>Password</th>",
 		"<td><input name='password' type='password' id='newPassword' size='16' maxlength='16'/></td>",
 		"</tr>",
 		"<tr>",
-		"<th style='text-align: right' id='password2Text'>Confirm Password</th>",
+		"<th id='password2Text'>Confirm Password</th>",
 		"<td><input type='password' id='newPassword2' size='16' maxlength='16'/></td>",
 		"</tr>",
 		"<tr>",
