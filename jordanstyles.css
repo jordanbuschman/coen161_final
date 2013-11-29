@@ -1,14 +1,22 @@
+a:link {color: brown;}      /* unvisited link */
+a:visited {color: blue;}  /* visited link */
+a:hover {color: darkblue;}  /* mouse over link */
+a:active {color: yellow;}  /* selected link */
+
 body {
-	height: 2000px;
+	line-height: 100%; 
+	margin: 100px 0 0 0;
 	width: 100%;
-	margin: 0;
+	font-family: tahoma;
+	text-align: justify;
+	background: #19193b;
 }
 header {
 	padding: 0;
 	position: fixed;
+	top: 0;
 	background-image: url("images/menu-bg.png"); 
 	width: inherit;
-	overflow: hidden;
 }
 .logo {
 	margin: 0;
@@ -37,6 +45,6 @@ header {
 	float: left;
 	width: 15%;
 }
-.loginOrWelcome > form{
+.loginOrWelcome > form {
 	margin: 10px;
 }
