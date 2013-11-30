@@ -21,7 +21,7 @@ CREATE TABLE item (
 	discount INT DEFAULT 0,
 	PRIMARY KEY (id));
 
-INSERT INTO user (username, password, firstName, lastName) VALUES ("jbob69", "potato", "Jim", "Bob");
+INSERT INTO user (username, password, firstName, lastName, didEnroll) VALUES ("jbob69", "potato", "Jim", "Bob", 1);
 INSERT INTO user (username, password, firstName, lastName) VALUES ("maryyyyyy32", "mynameismary", "Mary", "Jane");
 INSERT INTO user (username, password, firstName, lastName) VALUES ("cocksucker", "dickbag", "Cocky", "McGee");
 INSERT INTO user (username, password, firstName, lastName) VALUES ("hsolo", "starwarz", "Han", "Solo");

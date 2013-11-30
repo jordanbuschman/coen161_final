@@ -37,16 +37,29 @@
 			}
 
 			$(document).ready(function() { //Access fetchItems.php to get all of the items in the item table;
-				var rows = []; //Result set
-				var items = []; //HTML to be appended
 				$.post("fetchItems.php") 
-					.done(function(data) { rows = JSON.parse(data); alert (rows[0].name); })
-					.fail(function() { alert("AJAX FAILED"); });
+				.done(function(data) {
+					var items = []; //To be appended to #itembox 
+					var rows = JSON.parse(data);
 
-				for (var i = 0; i < rows.length; i++) {
-					items.push('<p>NAME: ', rows[i].name, ' LOCATION: ', rows[i].location, ' PRICE: ', rows[i].price, '</p>');
-				}
-				$('#itemBox').html(items.join(''));
+					for (var i = 0; i < rows.length; i++) {
+						if (i % 5 == 0 && i != 0) items.push ('<div class="item" style="clear: both">'); //5 items per row
+						else items.push('<div class="item">');
+						items.push('<img src="images/', rows[i].location, '" />');
+						items.push('<p>Price: $', rows[i].price, '</p>');
+						<?php if(!$_SESSION['user'] || !$_SESSION['user']->didEnroll) { ?> //If person is not logged in/did not enroll
+							if (rows[i].discount != 0)
+								items.push('<p style="color: red">Sign up and enroll to get a ', rows[i].discount, '% discount!</p>');
+						<?php } else { ?>
+							if (rows[i].discount != 0)
+								items.push('<p style="color: red">Camper price: $',
+									Math.round((100 - rows[i].discount) * rows[i].price, 2) / 100, ' (', rows[i].discount, '% off!)</p>');
+						<?php } ?>
+						items.push('</div>');
+					}
+					$('#itemBox').html(items.join(''));
+				})
+				.fail(function() { alert("AJAX FAILED"); });
 			});	
 		</script>
 
