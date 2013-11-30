@@ -16,7 +16,7 @@ header {
 	box-shadow: 0 1px 20px #000000;
 }
 .centerpage
-{  
+{ 
 	margin: 20px 80px;
 	border-radius: 10px;
 	min-height: 314px;
@@ -163,4 +163,29 @@ header {
 }
 #boxholder img {
 	width: 250px;
+}
+
+/* Shop page */
+.item {
+	float: left;
+	width: 33%;
+}
+.item > div {
+	margin: auto;
+	font-size: 12px;
+	height: 250px;
+	width: 250px;
+	overflow: hidden;
+	border: 1px solid black;
+	border-radius: 10px;
+	text-align: center;
+}
+.itemImg {
+	margin: auto;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+}
+.itemImg > img {
+	height: 100px;
 }

@@ -43,19 +43,23 @@
 					var rows = JSON.parse(data);
 
 					for (var i = 0; i < rows.length; i++) {
-						if (i % 5 == 0 && i != 0) items.push ('<div class="item" style="clear: both">'); //5 items per row
-						else items.push('<div class="item">');
-						items.push('<img src="images/', rows[i].location, '" />');
+						if (i % 3 == 0 && i != 0) items.push ('<div class="item" style="clear: both">'); //3 items per row
+						else items.push('<div class="item"><div>');
+						items.push('<h3>', rows[i].name, '</h3>');
+						items.push('<div class="itemImg"><img src="images/', rows[i].location, '" /></div>');
 						items.push('<p>Price: $', rows[i].price, '</p>');
-						<?php if(!$_SESSION['user'] || !$_SESSION['user']->didEnroll) { ?> //If person is not logged in/did not enroll
+						<?php if(!isset($_SESSION['user']) || !$_SESSION['user']->didEnroll) { ?> //If person is not logged in/did not enroll
 							if (rows[i].discount != 0)
-								items.push('<p style="color: red">Sign up and enroll to get a ', rows[i].discount, '% discount!</p>');
+								items.push('<p style="color: red">Enroll in a class to get a ', rows[i].discount, '% discount!</p>');
 						<?php } else { ?>
 							if (rows[i].discount != 0)
 								items.push('<p style="color: red">Camper price: $',
 									Math.round((100 - rows[i].discount) * rows[i].price, 2) / 100, ' (', rows[i].discount, '% off!)</p>');
-						<?php } ?>
-						items.push('</div>');
+							<?php if (isset($_SESSION['user'])) { ?>
+								items.push('<input type="button" value="Add to cart" />');
+							<?php }
+						} ?>
+						items.push('</div></div>');
 					}
 					$('#itemBox').html(items.join(''));
 				})
