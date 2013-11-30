@@ -15,7 +15,7 @@
 		<script src="javascript.js" ></script>
 
 		<script type="text/javascript">
-			function handleLogin() {
+			function handleLogin() { //Calls check.php to handle logging in
 				var usr = document.getElementsByName('username')[0].value;
 				var pwd = document.getElementsByName('password')[0].value;
 			    
@@ -31,7 +31,12 @@
 			    		alert( "AJAX FAILED" );
 			  	});
 			}
-			
+			$(document).ready(function() { //Access fetchItems.php to get all of the items in the item table;
+				var rows = []; //Result set
+				$.post("fetchItems.php") 
+					.done(function(data) { rows = data; alert(rows);})
+					.fail(function() { alert("AJAX FAILED"); });
+			});	
 			function logout() {
 				window.location.href = "logout.php";
 			}
@@ -93,6 +98,11 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage"></section>
+		<section class="centerpage">
+			<h1>KidzCamp Shop</h1>
+			<h3>Purchace fun and exciting KidzCamp memorabilia. <span style="color: red">We offer discounts for all KidzCampers, past and present!</span></h3>
+			<?php
+			?>
+		</section>
 	</body>
 </html> 

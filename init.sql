@@ -18,6 +18,7 @@ CREATE TABLE item (
 	location VARCHAR(32) NOT NULL,
 	name VARCHAR(32) NOT NULL,
 	price FLOAT(24, 2) NOT NULL,
+	discount INT DEFAULT 0,
 	PRIMARY KEY (id));
 
 INSERT INTO user (username, password, firstName, lastName) VALUES ("jbob69", "potato", "Jim", "Bob");
@@ -26,5 +27,5 @@ INSERT INTO user (username, password, firstName, lastName) VALUES ("cocksucker",
 INSERT INTO user (username, password, firstName, lastName) VALUES ("hsolo", "starwarz", "Han", "Solo");
 
 INSERT INTO item (location, name, price) VALUES ("potato.jpg", "potato", 29.99);
-INSERT INTO item (location, name, price) VALUES ("shirt.jpg", "shirt", 15.00);
-INSERT INTO item (location, name, price) VALUES ("shotglass.jpg", "shot glass", 4.99);
+INSERT INTO item (location, name, price) VALUES ("shirt.jpg", "shirt", 15.00, 10);
+INSERT INTO item (location, name, price) VALUES ("shotglass.jpg", "shot glass", 4.99, 5);

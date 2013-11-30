@@ -9,9 +9,9 @@ mystyles.css: Self-explanatory. All of the CSS for the website.
 
 javascript.js: Also, self-explanatory. All of the JavaScript for the website.
 
-index.html: Main page for kidzcamp website.
+index.php: PHP version of index.html that supports login and logout for username.
 
-index.php: PHP version of index.html that supports login and logout for username
+shop.php: The KidzCamp shop.
 
 init.sql: Run to set up the kidzcamp database for the first time. Will create database kidzcamp and all necessary tables, as well as populate the tables with test cases. To run, type "mysql -h localhost -u root < init.sql".
 
@@ -22,3 +22,5 @@ addUser.php: Add a new user to the user table and starts a session for that user
 check.php: Find a user with given username and password in the user table and return it as an array. Start a new session for that user. 
 
 checkForUsername.php: To be used with AJAX. If a username (supplied in $_POST) is already in the user table, return F. Otherwise, return T.
+
+fetchItems.php: Returns an array containing all of the rows in the item table. To be accessed by from shop.php.
