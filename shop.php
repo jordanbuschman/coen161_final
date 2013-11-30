@@ -108,7 +108,7 @@
 		</section>
 		<section class="centerpage">
 			<h1>KidzCamp Shop</h1>
-			<h3>Purchace fun and exciting KidzCamp memorabilia. <span style="color: red">We offer discounts for all KidzCampers, past and present!</span></h3>
+			<h3>Purchase fun and exciting KidzCamp memorabilia. <span style="color: red">We offer discounts for all KidzCampers, past and present!</span></h3>
 			<div id="itemBox"></div>
 		</section>
 	</body>
