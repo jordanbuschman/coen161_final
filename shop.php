@@ -31,15 +31,23 @@
 			    		alert( "AJAX FAILED" );
 			  	});
 			}
-			$(document).ready(function() { //Access fetchItems.php to get all of the items in the item table;
-				var rows = []; //Result set
-				$.post("fetchItems.php") 
-					.done(function(data) { rows = data; alert(rows);})
-					.fail(function() { alert("AJAX FAILED"); });
-			});	
+
 			function logout() {
 				window.location.href = "logout.php";
 			}
+
+			$(document).ready(function() { //Access fetchItems.php to get all of the items in the item table;
+				var rows = []; //Result set
+				var items = []; //HTML to be appended
+				$.post("fetchItems.php") 
+					.done(function(data) { rows = data; alert (data); })
+					.fail(function() { alert("AJAX FAILED"); });
+
+				for (var i = 0; i < rows.length; i++) {
+					items.push('<p>NAME: ', rows[i].name, ' LOCATION: ', rows[i].location, ' PRICE: ', rows[i].price, '</p>');
+				}
+				$('#itemBox').html(items.join(''));
+			});	
 		</script>
 
 		<header>
@@ -101,8 +109,7 @@
 		<section class="centerpage">
 			<h1>KidzCamp Shop</h1>
 			<h3>Purchace fun and exciting KidzCamp memorabilia. <span style="color: red">We offer discounts for all KidzCampers, past and present!</span></h3>
-			<?php
-			?>
+			<div id="itemBox"></div>
 		</section>
 	</body>
 </html> 

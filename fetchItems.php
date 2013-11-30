@@ -12,10 +12,10 @@
 	
 	$result = array();
 	$sql = "SELECT * FROM $tbl";
-
 	$query = mysql_query($sql);
-	while ($array = mysql_fetch_row($query))
-		$result[] = $array;
+
+	while ($row = mysql_fetch_assoc($query))
+		array_push($result, $row);
 	
-	echo $result;
+	echo json_encode($result);
 ?>
