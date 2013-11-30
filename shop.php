@@ -40,7 +40,7 @@
 				var rows = []; //Result set
 				var items = []; //HTML to be appended
 				$.post("fetchItems.php") 
-					.done(function(data) { rows = data; alert (data); })
+					.done(function(data) { rows = JSON.parse(data); alert (rows[0].name); })
 					.fail(function() { alert("AJAX FAILED"); });
 
 				for (var i = 0; i < rows.length; i++) {
