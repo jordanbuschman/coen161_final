@@ -1,13 +1,7 @@
-a:link {color: brown;}      /* unvisited link */
-a:visited {color: blue;}  /* visited link */
-a:hover {color: darkblue;}  /* mouse over link */
-a:active {color: yellow;}  /* selected link */
-
 body {
 	line-height: 100%; 
 	margin: 100px 0 0 0;
 	width: 100%;
-	height: 2000px;
 	font-family: tahoma;
 	text-align: justify;
 	background: #19193b;
@@ -18,22 +12,35 @@ header {
 	top: 0;
 	background-image: url("images/menu-bg.png"); 
 	width: inherit;
-	height: 110px;
-	display: table;
+	height: 100px;
+	box-shadow: 0px 1px 20px #000000;
 }
+.centerpage
+{  
+	margin: 20px;
+	border-radius: 10px;
+	min-height: 315px;
+	background: white; 
+	padding: 20px;
+	box-shadow: 10px 10px 90px #000;
+}
+
+/* Logo header item */
 .logo {
 	margin: 0;
 	padding: 0;
 	padding-right: 0;
 	float: left;
 	width: 30%;
-	height: 110px;
+	height: 100px;
 	display: table-row;
 }
 .logo img {
-	margin: 20px;
+	margin: 15px 20px;
 	height: 70px;
 }
+
+/* Login/Welcome header item */
 .loginOrWelcome {
 	position: relative;
 	margin: 0;
@@ -41,7 +48,7 @@ header {
 	float: right;
 	text-align: right;
 	width: 15%;
-	height: 110px;
+	height: 100px;
 }
 .loginOrWelcome > form, .loginOrWelcome > div {
 	position: absolute;
@@ -51,10 +58,10 @@ header {
 	overflow: hidden;
 }
 .loginOrWelcome > form {
-	margin: 15px;
+	margin: 9px 20px;
 }
 .loginOrWelcome > div {
-	margin: 44px 15px;
+	margin: 39px 15px;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 }
@@ -65,7 +72,8 @@ header {
 .loginOrWelcome td {
 	text-align: center;
 }
-/* Register account CSS */
+
+/* Register account header item */
 #background {
 	position: fixed;
 	left: 0;
@@ -84,15 +92,20 @@ header {
 }
 #signup > table {
 	background-color: rgb(151, 50, 31);
+	box-shadow: 0 0 10px #000000;
 	padding:0.5em;
 	border-radius: 15px;
 	width: 100%;
 }
 #usernameText, #passwordText, #password2Text {
 	text-align: right;
-	text-shadow: 0 -1px 2px rgb(13, 13, 13);
+	text-shadow: 0 0 3px #000000;
 	color: red;
 }
+#validUsername, #validPassword, #validPassword2 {
+	text-shadow: 0 0 2px #000000;
+}
+
 /* Menu CSS */
 #cssmenu, #cssmenu > ul {
 	font-family: 'Open Sans', sans-serif;
@@ -103,24 +116,50 @@ header {
 	padding: 0;
 	float: left;
 	width: 55%;
-	height: 110px;
+	height: 100px;
+}
+#cssmenu > ul {
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 #cssmenu > ul > li {
 	width: 25%;
 	margin: 0;
-	padding: 0;
+	padding-top: 41px;
 	list-style: none;
+	text-align: center;
 	float: left;
 	position: relative;
 }
 #cssmenu > ul > li > a {
-	text-align: center;
 	font-size: 18px;
 	text-decoration: none;
 	text-transform: uppercase;
 	text-shadow: 0 -1px 2px rgb(13, 13, 13);
 }
 #cssmenu > ul > li > a:hover {
-	text-shadow: 0 0 7px rgba(122, 42, 26, 0.64),
-	0 0 3px rgb(151, 50, 31);
+	font-size: 19px;
+	text-shadow: 0 -1px 2px rgb(13, 13, 13),
+	0 0 5px rgb(151, 50, 31);
+}
+/* Image container CSS */
+#boxholder {
+	width: inherit;
+	height: 150px;
+	margin: 120px 0 0 0;
+}
+#boxholder > div {
+	width: 25%;
+	float: left;
+}
+.crop {
+	margin: auto;
+	width: 250px;
+	height: 150px;
+	overflow: hidden;
+	border-radius: 10px;
+}
+#boxholder img {
+	width: 250px;
 }

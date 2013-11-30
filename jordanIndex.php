@@ -43,7 +43,7 @@
 			</div>
 			<div id='cssmenu'>
 				<ul>
-	  				<li class='active'><a href='index.php'><span style="color: yellow">Home</span></a></li>
+	  				<li class='active'><a href='jordanIndex.php'><span style="color: yellow">Home</span></a></li>
 					<li class='has-sub'><a href='#'><span style="color: red">The Camp</span></a></li>
 					<li class='has-sub'><a href='#'><span style="color: green">Shop</span></a></li>
 					<li class='last'><a href='#'><span style="color: blue">Contact</span></a></li>
@@ -72,11 +72,27 @@
 			</div>
 		</header>
 		<section id="boxholder">
-			<div id="box1"></div>
-			<div id="box2"></div>
-			<div id="box3"></div>
-			<div id="box4"></div>
+			<div>
+				<div class="crop">
+					<img src="images/childrenplaying.jpg" />
+				</div>
+			</div>
+			<div>
+				<div class="crop">
+					<img src="images/teencomputer.jpg" />
+				</div>
+			</div>
+			<div>
+				<div class="crop">
+					<img src="images/kids.jpg" />
+				</div>
+			</div>
+			<div>
+				<div class="crop">
+					<img src="images/parentsregistration.jpg" />
+				</div>
+			</div>
 		</section>
-		<div id="centerpage"></div>
+		<section class="centerpage"></section>
 	</body>
 </html> 
