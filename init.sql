@@ -21,10 +21,12 @@ CREATE TABLE item (
 	discount INT DEFAULT 0,
 	PRIMARY KEY (id));
 
-INSERT INTO user (username, password, firstName, lastName, didEnroll) VALUES ("jbob69", "potato", "Jim", "Bob", 1);
-INSERT INTO user (username, password, firstName, lastName) VALUES ("maryyyyyy32", "mynameismary", "Mary", "Jane");
-INSERT INTO user (username, password, firstName, lastName) VALUES ("cocksucker", "dickbag", "Cocky", "McGee");
-INSERT INTO user (username, password, firstName, lastName) VALUES ("hsolo", "starwarz", "Han", "Solo");
+INSERT INTO user (username, password, firstName, lastName, didEnroll) VALUES ("jbob93", "potato", "Jim", "Bob", 1);
+INSERT INTO user (username, password, firstName, lastName) VALUES ("maryyyyyy32", "myname15Mary", "Mary", "Doe");
+INSERT INTO user (username, password, firstName, lastName) VALUES ("josh123", "slimShady", "Josh", "Sims");
+INSERT INTO user (username, password, firstName, lastName) VALUES ("hsolo", "starW4rz", "Han", "Solo");
+INSERT INTO user (username, password, firstName, lastName) VALUES ("joshBrah", "jbh3ART", "Josh", "Mann");
+INSERT INTO user (username, password, firstName, lastName) VALUES ("hKudz", "kudz4Lyfe", "Heywood", "Ukuddleme");
 
 INSERT INTO item (location, name, price) VALUES ("potato.jpg", "potato", 29.99);
 INSERT INTO item (location, name, price, discount) VALUES ("shirt.jpg", "shirt", 15.00, 10);
