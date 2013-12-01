@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	ob_start();
 
 	$host = "localhost";
 	$sql_username = "root";
@@ -21,10 +20,8 @@
 	if ($count != 1)
 		echo "F";
 	else {
-		session_start();
 		$user = mysql_fetch_object($result);
 		$_SESSION["user"] = $user;
 		echo "T";
 	}
-	ob_end_flush();
 ?>
