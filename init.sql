@@ -32,8 +32,8 @@ INSERT INTO user (username, password, firstName, lastName) VALUES ("adeartola", 
 INSERT INTO item (location, name, price) VALUES ("potato.jpg", "Potato", 29.99);
 INSERT INTO item (location, name, price, discount) VALUES ("shirt.jpg", "Shirt", 15.00, 10);
 INSERT INTO item (location, name, price, discount) VALUES ("shotglass.jpg", "Shot Glass", 4.99, 5);
-INSERT INTO item (location, name, price) VALUES ("sweatpants.jpg", "Sweatpants", 4.99, 15);
+INSERT INTO item (location, name, price, discount) VALUES ("sweatpants.jpg", "Sweatpants", 4.99, 15);
 INSERT INTO item (location, name, price, discount) VALUES ("backpack.jpg", "Backpack", 24.99, 15);
-INSERT INTO item (location, name, price, discount) VALUES ("keychain.jpg", "Keychain", 4.99, 15)
-INSERT INTO item (location, name, price) VALUES ("laptopbag.jpg", "Laptop Case", 19.99, 15);
+INSERT INTO item (location, name, price, discount) VALUES ("keychain.jpg", "Keychain", 4.99, 15);
+INSERT INTO item (location, name, price) VALUES ("laptopbag.jpg", "Laptop Case", 19.99);
 INSERT INTO item (location, name, price, discount) VALUES ("pencils.jpg", "Pencils", 1.99, 15);
