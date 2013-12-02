@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
-		<link rel="stylesheet" type="text/css" href="jordanstyles.css">
+		<link rel="stylesheet" type="text/css" href="mystyles.css">
 	</head>
 
 	<body>
@@ -71,11 +71,11 @@
 
 		<header>
 			<div class="logo">
-				<a href='jordanIndex.php'><img src="images/logo.png"/></a>
+				<a href='index.php'><img src="images/logo.png"/></a>
 			</div>
 			<div id='cssmenu'>
 				<ul>
-	  				<li><a href='jordanIndex.php'><span style="color: yellow">Home</span></a></li>
+	  				<li><a href='index.php'><span style="color: yellow">Home</span></a></li>
 					<li><a href='camp.php'><span style="color: red">The Camp</span></a></li>
 					<li><a href='shop.php'><span style="color: green">Shop</span></a></li>
 					<li><a href='#'><span style="color: blue">About</span></a></li>

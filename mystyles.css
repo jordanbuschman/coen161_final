@@ -1,367 +1,248 @@
-body 
-{ 
+body {
 	line-height: 100%; 
-	margin-top: 100px; 
-	/* margin-left: 0px; */
-	border:0; 
-	padding:0;
+	margin: 100px 0 0 0;
+	width: 100%;
 	font-family: tahoma;
 	text-align: justify;
 	background: #19193b;
 }
-
-fieldset
-{
-	border: none;
-}
-
-div#map
-{
-	margin-left: auto;
-	margin-right: auto;
-	box-shadow: 10px 10px 40px #000;
-	border-radius: 20px;
-	overflow-x: hidden;
-	overflow-y: hidden;
-}
-
-div#qs
-{
-	margin-left: 100px;
-	margin-right: auto;
-	margin-top: 25px;
-	width: 650px;
-}
-div#qc
-{
-	margin-left: 125px;
-	margin-right: auto;
-	margin-top: -20px;
-	width: 650px;
-}
-header.banner 
-{ 
-	/*padding-top: 20px;
-	padding-bottom: 20px;*/
-	background-color: brown;
-	border-radius: 10px;
-	height: 60px;
-	background-image:url("geoback.jpg"); 
-	background-repeat:repeat-x;
-	margin-left: 75px;
-	margin-right: 75px;
-	/*border: 4px solid darkblue;*/
-}
-
-#nav
-{
-	background-image: url("images/menu-bg.png");
-	width:100%;
- 	height:95px;
-	box-shadow: 0px 1px 50px #000000;
-	/* border-radius: 15px; */
-	margin: 0 auto;
-	position:fixed;
-	/* left: 40%; */
-	top: 0px;
-	left: 0px;
-	opacity: 1;
- 	z-index: 100;
-}
-
-#nav2
-{
-	margin-left: 45%;
-	margin-top: 25px;
-	width: 600px;
-	
-}
-#nav3
-{
+header {
+	padding: 0;
 	position: fixed;
-	right: 10px;
-	z-index: 101;
-	margin-top: -95px;
-}
-#logo
-{
-	width: 299px;
-	height: 68px;
-	background-image:url("images/logo.png"); 
-	position: fixed;
-	left: 18%;
-	top: 10px;
-}
-
-#login
-{
-	position: fixed;
-	width: 250px;
-	right: 1%;
-	color: white;
-	opacity: 1;
-	/* height: 100px; */
-	border-radius: 10px;
-	padding: 5px;
-	text-align: right;
-}
-
-
-
-div#centerpage
-{  
-	margin-left: auto; 
-	margin-right: auto; 
-	margin-top: 200px;
-	margin-bottom: 15px;
-	width: 70%;
-	/* height: 1000px; */
-	/*border: 4px solid darkblue; */
-	border-radius: 10px;
-	overflow-x: hidden;
-	min-height: 550px;
-	background: white; 
-	opacity: 1;
-	padding: 20px;
-	box-shadow: 10px 10px 90px #000;
-	z-index: 50;
-	/*font-size: 10px; I would keep the page at 10px but thought it looked better at the default*/
-}
-
-#boxholder
-{
-	width: 1180px;
-	margin: 0 auto;
-}
-
-div#box1
-{
-	background-image:url("images/childrenplaying.jpg"); 
-	height: 150px;
-	width: 250px;
-	float: left;
-	background-size: 100%;
-	margin: 15px;
-	margin-left: 42.5px;
-	opacity: 1;
-	z-index: 51;
-	border-radius: 10px;
-}
-div#box2
-{
-	background-image:url("images/teencomputer.jpg"); 
-	height: 150px;
-	width: 250px;
-	float: left;
-	background-size: 100%;
-	margin: 15px;
-	opacity: 1;
-	z-index: 52;
-	border-radius: 10px;
-}
-div#box3
-{
-	background-image:url("images/kids.jpg"); 
-	height: 150px;
-	width: 250px;
-	float: left;
-	background-size: 100%;
-	margin: 15px;
-	opacity: 1;
-	z-index: 53;
-	border-radius: 10px;
-}
-div#box4
-{	
-	background-image:url("images/parentsregistration.jpg"); 
-	height: 150px;
-	width: 250px;
-	float: left;
-	background-size: 100%;
-	margin: 15px;
-	opacity: 1;
-	z-index: 54;
-	border-radius: 10px;
-}
-
-h1
-{
-	font-size: 24px;
-	font-family: arial;
-	color: white;
-	margin-left: 50px;
-	padding-top: 10px;
-}
-
-h2, div#centerpage.h2
-{
-	font-size: 18px;
-	color: darkblue;
-	text-align: center;
-	font-weight: bold;
-
-}
-
-h3
-{
-	font-size: 16px;
-	color: #074158;
-	text-align: center;
-}
-
-h4
-{
-	font-size: 18px;
-	color: darkblue;
-	font-weight: bold;
-}
-
-img
-{
-	/*border: 4px solid #074158;*/
-	/*margin-left: 40px;*/
-	margin-left: 100px;
-	margin-top: -15px;
-	border-radius: 10px;
-	float: left;
+	top: 0;
+	background-image: url("images/menu-bg.png"); 
+	width: inherit;
 	height: 100px;
-	width: 100px;
-	/*box-shadow: 5px 5px 20px #000;*/
+	box-shadow: 0 1px 20px #000000;
+	z-index: 100;
 }
 
-a:link {color: brown;}      /* unvisited link */
-a:visited {color: blue;}  /* visited link */
-a:hover {color: darkblue;}  /* mouse over link */
-a:active {color: yellow;}  /* selected link */
-
-address
-{
-	color: white;
+#shoppingcart {
+	height: 25px;
+	width: 50px;
+	background-color: white;
+	position: absolute;
+	right: 25px;
+	top: 150px;
 }
 
-footer
-{
-	width: 200px;
-	bottom: 10px;
-	color: white;
+.centerpage
+{ 
+	margin-top: 40px;
+	border-radius: 10px;
+	min-height: 200px;
+	background: white; 
+	padding: 20px;
+	box-shadow: 0 0 10px #000000;
+	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
+	height: auto;
+	overflow: auto;
+
+}
+
+/* Logo header item */
+.logo {
+	margin: 0;
+	padding: 0;
+	padding-right: 0;
+	float: left;
+	width: 30%;
+	height: 100px;
+	display: table-row;
+}
+.logo img {
+	margin: 15px 20px;
+	height: 70px;
+}
+
+/* Login/Welcome header item */
+.loginOrWelcome {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	float: right;
+	text-align: right;
+	width: 15%;
+	height: 100px;
+}
+.loginOrWelcome > form, .loginOrWelcome > div {
+	position: absolute;
+	right: 0;
+	left: auto;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.loginOrWelcome > form {
+	margin: 9px 20px;
+}
+.loginOrWelcome > div {
+	margin: 39px 15px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+.loginOrWelcome span {
+	/*color: rgb(151,50,31);*/
+	color: white;
+	font-size: 20px;
+	text-shadow: 0 -1px 2px rgb(13, 13, 13);
+}
+.loginOrWelcome td {
 	text-align: center;
+}
+
+/* Register account header item */
+#background {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	opacity: 0;
+}
+/*#signup {
+	position: fixed;
+	width: 350px;
+	left: 50%;
+	top: 20%;
+	margin-left: -175px;
+}*/
+#signup1 {
+	background-color: white;
+	position: fixed;
+	margin-left: auto;
+	margin-right: auto;
+	width: 350px;
+	top: 20%;
+	left: 38%;
+	border-radius: 15px;
+	box-shadow: 0 0 10px #000000;
+	padding:0.5em;
+}
+#signup > table {
+	/*background-color: rgb(151, 50, 31);*/
+	background-color: white;
+	box-shadow: 0 0 10px #000000;
+	padding:0.5em;
+	border-radius: 15px;
+	width: 100%;
+}
+#usernameText, #passwordText, #password2Text {
+	text-align: right;
+	
+	color: red;
+}
+#validUsername, #validPassword, #validPassword2 {
+	/*text-shadow: 0 0 2px #000000;*/
 }
 
 /* Menu CSS */
-#cssmenu,
-#cssmenu > ul {
-	background: url(highlight-bg.png) repeat;
-	padding-bottom: 3px;
+#cssmenu, #cssmenu > ul {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 600;
 }
-#cssmenu:before,
-#cssmenu:after,
-#cssmenu > ul:before,
-#cssmenu > ul:after {
-	content: '';
-	display: table;
-}
-#cssmenu:after,
-#cssmenu > ul:after {
-	clear: both;
-}
 #cssmenu {
-	width: auto;
-	zoom: 1;
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 55%;
+	min-width: 651px;
+	height: 100px;
 }
 #cssmenu > ul {
-	background: url(menu-bg.png) repeat;
+	height: 100%;
 	margin: 0;
 	padding: 0;
-	position: relative;
-}
-#cssmenu > ul li {
-	margin: 0;
-	padding: 0;
-	list-style: none;
 }
 #cssmenu > ul > li {
+	width: 25%;
+	min-width: 150px;
+	margin: 0;
+	padding-top: 41px;
+	list-style: none;
+	text-align: center;
 	float: left;
 	position: relative;
 }
 #cssmenu > ul > li > a {
-	padding: 23px 26px;
-	display: block;
-	color: white;
 	font-size: 18px;
 	text-decoration: none;
 	text-transform: uppercase;
-	text-shadow: 0 -1px 0 #0d0d0d;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
-	line-height: 18px;
+	text-shadow: 0 -1px 2px rgb(13, 13, 13);
 }
-#cssmenu > ul > li:hover > a {
-	background: url(highlight-bg.png) repeat;
-	text-shadow: 0 -1px 0 #97321f;
-	text-shadow: 0 -1px 0 rgba(122, 42, 26, 0.64);
+#cssmenu > ul > li > a:hover {
+	font-size: 20px;
+	text-shadow: 0 -1px 2px rgb(13, 13, 13),
+	0 0 5px rgb(151, 50, 31);
 }
-#cssmenu > ul > li > a > span {
-	line-height: 18px;
+/* Image container CSS */
+#boxholder {
+	width: inherit;
+	height: 150px;
+	margin: 110px 0 0 0;
+	margin-left: auto;
+	margin-right: auto;
 }
-#cssmenu > ul > li.active > a,
-#cssmenu > ul > li > a:active {
-	background: url(hover.png) repeat;
+
+#boxes {
+	width: 25%;
+	max-width: 290px;
+	min-width: 259px;
+	float: left;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: .7;
+	z-index: 1;
 }
-/* Childs */
-#cssmenu > ul ul {
-	opacity: 0;
-	visibility: hidden;
-	position: absolute;
-	top: 120px;
-	background: url(menu-bg.png) repeat;
-	margin: 0;
-	padding: 0;
-	z-index: -1;
-}
-#cssmenu > ul li:hover ul {
+#boxes:hover {
 	opacity: 1;
-	visibility: visible;
-	margin: 0;
-	color: #000;
-	z-index: 2;
-	top: 64px;
-	left: 0;
 }
-#cssmenu > ul ul:before {
-	content: '';
-	position: absolute;
-	top: -10px;
-	width: 100%;
-	height: 20px;
-	background: transparent;
+#outer {
+	height: 150px;
+	max-width: 1160px;
+	min-width: 1100px;
 }
-#cssmenu > ul ul li {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	width: 100%;
+
+
+.crop {
+	box-shadow: 0 0 10px #000000;
+	margin: auto;
+	width: 250px;
+	height: 150px;
+	overflow: hidden;
+	border-radius: 10px;
 }
-#cssmenu > ul ul li a {
-	padding: 18px 26px;
- 	display: block;
+#boxholder img {
+	width: 250px;
+}
+
+/* Shop page */
+.item {
+	float: left;
+	width: 25%;
+	margin-top: 20px;
+}
+.item > div {
+	margin: auto;
+	font-size: 12px;
+	height: 250px;
+	width: 250px;
+	overflow: hidden;
+	border: 1px solid black;
+	border-radius: 10px;
+	text-align: center;
+	background-image: url("images/menu-bg.png"); 
 	color: white;
-	font-size: 24px;
-	text-decoration: none;
-	text-transform: uppercase;
-	width: 150px;
-	border-left: 4px solid transparent;
-	-webkit-transition: all 0.35s ease-in-out;
-	-moz-transition: all 0.35s ease-in-out;
-	-ms-transition: all 0.35s ease-in-out;
-	transition: all 0.35s ease-in-out;
 }
-#cssmenu > ul ul li a:hover {
-	border-left: 4px solid #d64e34;
-	background: url(hover.png) repeat;
+.itemImg {
+	margin: auto;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
 }
-#cssmenu > ul ul li a:active {
-	background: url(menu-bg.png) repeat;
+.itemImg > img {
+	height: 100px;
 }
