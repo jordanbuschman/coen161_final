@@ -43,24 +43,24 @@
 					var rows = JSON.parse(data);
 
 					for (var i = 0; i < rows.length; i++) {
-						items.push('<div class="item"><div>');
+						if (i % 8 == 0 && i != 0) items.push ('<div class="item" style="clear: both">'); //4 items per row
+						else items.push('<div class="item"><div>');
 						items.push('<h3>', rows[i].name, '</h3>');
 						items.push('<div class="itemImg"><img src="images/', rows[i].location, '" /></div>');
 						items.push('<p>Price: $', rows[i].price, '</p>');
-						if (<?php echo ($_SESSION['user']->didEnroll ? 0 : 1); ?>) { //If person is not logged in/did not enroll
+						<?php if(!isset($_SESSION['user']) /* && !$_SESSION['user']->didEnroll*/) { ?> //If person is not logged in/did not enroll
 							if (rows[i].discount != 0)
 								items.push('<p style="color: red">Enroll in a class to get a ', rows[i].discount, '% discount!</p>');
-						}
-						else {
+						<?php } else { ?>
 							if (rows[i].discount != 0)
 								items.push('<p style="color: red">Camper price: $',
 									Math.round((100 - rows[i].discount) * rows[i].price, 2) / 100, ' (', rows[i].discount, '% off!)</p>');
 							else
 								items.push('<p></br></p>');
-							if (<?php echo (isset($_SESSION['user']) ? 1 : 0); ?>) {
+							<?php if (isset($_SESSION['user'])) { ?>
 								items.push('<input type="submit" value="Add to cart" fromaction="cart.php?add=', rows[i].name,'" />');
-							}
-						}
+							<?php }
+						} ?>
 						items.push('</div></div>');
 					}
 					$('#itemBox').html(items.join(''));
