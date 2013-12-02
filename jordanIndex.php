@@ -39,7 +39,7 @@
 
 		<header>
 			<div class="logo">
-				<img src="images/logo.png"/>
+				<a href='jordanIndex.php'><img src="images/logo.png"/></a>
 			</div>
 			<div id='cssmenu'>
 				<ul>
