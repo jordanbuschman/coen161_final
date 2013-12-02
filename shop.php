@@ -48,7 +48,7 @@
 						items.push('<h3>', rows[i].name, '</h3>');
 						items.push('<div class="itemImg"><img src="images/', rows[i].location, '" /></div>');
 						items.push('<p>Price: $', rows[i].price, '</p>');
-						<?php if(!isset($_SESSION['user']) && !$_SESSION['user']->didEnroll) { ?> //If person is not logged in/did not enroll
+						<?php if(!isset($_SESSION['user']) /* && !$_SESSION['user']->didEnroll*/) { ?> //If person is not logged in/did not enroll
 							if (rows[i].discount != 0)
 								items.push('<p style="color: red">Enroll in a class to get a ', rows[i].discount, '% discount!</p>');
 						<?php } else { ?>
@@ -58,7 +58,7 @@
 							else
 								items.push('<p></br></p>');
 							<?php if (isset($_SESSION['user'])) { ?>
-								items.push('<input type="button" value="Add to cart" />');
+								items.push('<input type="submit" value="Add to cart" fromaction="cart.php?add=', rows[i].name,'" />');
 							<?php }
 						} ?>
 						items.push('</div></div>');
@@ -78,7 +78,7 @@
 	  				<li><a href='jordanIndex.php'><span style="color: yellow">Home</span></a></li>
 					<li><a href='camp.php'><span style="color: red">The Camp</span></a></li>
 					<li><a href='shop.php'><span style="color: green">Shop</span></a></li>
-					<li><a href='#'><span style="color: blue">Contact</span></a></li>
+					<li><a href='#'><span style="color: blue">About</span></a></li>
 				</ul>
 			</div>
 			<div class="loginOrWelcome">
@@ -103,6 +103,7 @@
 				?>
 			</div>
 		</header>
+		<div id="shoppingcart"></div>
 		<section id="boxholder">
 			<div id="outer" style="margin-left: auto; margin-right: auto;">
 				<div id="boxes">

@@ -46,7 +46,7 @@
 	  				<li><a href='jordanIndex.php'><span style="color: yellow">Home</span></a></li>
 					<li><a href='camp.php'><span style="color: red">The Camp</span></a></li>
 					<li><a href='shop.php'><span style="color: green">Shop</span></a></li>
-					<li><a href='#'><span style="color: blue">Contact</span></a></li>
+					<li><a href='#'><span style="color: blue">About</span></a></li>
 				</ul>
 			</div>
 			<div class="loginOrWelcome">
