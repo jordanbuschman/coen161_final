@@ -48,7 +48,7 @@
 						items.push('<h3>', rows[i].name, '</h3>');
 						items.push('<div class="itemImg"><img src="images/', rows[i].location, '" /></div>');
 						items.push('<p>Price: $', rows[i].price, '</p>');
-						<?php if($_SESSION['user']->didEnroll != 1) { ?> //If person is not logged in/did not enroll
+						<?php if(!$_SESSION['user']->didEnroll) { ?> //If person is not logged in/did not enroll
 							if (rows[i].discount != 0)
 								items.push('<p style="color: red">Enroll in a class to get a ', rows[i].discount, '% discount!</p>');
 						<?php } else { ?>
