@@ -123,11 +123,11 @@ header {
 }
 #usernameText, #passwordText, #password2Text {
 	text-align: right;
-	text-shadow: 0 0 3px #000000;
+	
 	color: red;
 }
 #validUsername, #validPassword, #validPassword2 {
-	text-shadow: 0 0 2px #000000;
+	/*text-shadow: 0 0 2px #000000;*/
 }
 
 /* Menu CSS */

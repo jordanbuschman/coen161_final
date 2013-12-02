@@ -27,7 +27,13 @@ INSERT INTO user (username, password, firstName, lastName) VALUES ("josh123", "s
 INSERT INTO user (username, password, firstName, lastName) VALUES ("hsolo", "starW4rz", "Han", "Solo");
 INSERT INTO user (username, password, firstName, lastName) VALUES ("joshBrah", "jbh3ART", "Josh", "Mann");
 INSERT INTO user (username, password, firstName, lastName) VALUES ("hKudz", "kudz4Lyfe", "Heywood", "Ukuddleme");
+INSERT INTO user (username, password, firstName, lastName) VALUES ("adeartola", "Ioe45682", "Andy", "de Artola");
 
-INSERT INTO item (location, name, price) VALUES ("potato.jpg", "potato", 29.99);
-INSERT INTO item (location, name, price, discount) VALUES ("shirt.jpg", "shirt", 15.00, 10);
-INSERT INTO item (location, name, price, discount) VALUES ("shotglass.jpg", "shot glass", 4.99, 5);
+INSERT INTO item (location, name, price) VALUES ("potato.jpg", "Potato", 29.99);
+INSERT INTO item (location, name, price, discount) VALUES ("shirt.jpg", "Shirt", 15.00, 10);
+INSERT INTO item (location, name, price, discount) VALUES ("shotglass.jpg", "Shot Glass", 4.99, 5);
+INSERT INTO item (location, name, price) VALUES ("sweatpants.jpg", "Sweatpants", 4.99, 15);
+INSERT INTO item (location, name, price, discount) VALUES ("backpack.jpg", "Backpack", 24.99, 15);
+INSERT INTO item (location, name, price, discount) VALUES ("keychain.jpg", "Keychain", 4.99, 15)
+INSERT INTO item (location, name, price) VALUES ("laptopbag.jpg", "Laptop Case", 19.99, 15);
+INSERT INTO item (location, name, price, discount) VALUES ("pencils.jpg", "Pencils", 1.99, 15);
