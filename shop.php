@@ -86,7 +86,7 @@
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
 						echo '<span>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</span><br />';
-						echo '<button type="button" onclick="logout();" >Logout</button>';
+						echo '<button type="button" onclick="logout();" style="margin-top: 5px;">Logout</button>';
 						echo '</div>';
 					}
 					else {
