@@ -53,8 +53,8 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
-						echo '<span>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</span>';
-						echo '<button type="button" onclick="logout();" >Logout</button>';
+						echo '<span>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</span><br />';
+						echo '<button type="button" onclick="logout();" style="margin-top: 5px;">Logout</button>';
 						echo '</div>';
 					}
 					else {
@@ -72,24 +72,26 @@
 			</div>
 		</header>
 		<section id="boxholder">
-			<div>
-				<div class="crop">
-					<img src="images/childrenplaying.jpg" />
+			<div id="outer" style="margin-left: auto; margin-right: auto;">
+				<div id="boxes">
+					<div class="crop">
+						<img src="images/childrenplaying.jpg" />
+					</div>
 				</div>
-			</div>
-			<div>
-				<div class="crop">
-					<img src="images/teencomputer.jpg" />
+				<div id="boxes">
+					<div class="crop">
+						<img src="images/teencomputer.jpg" />
+					</div>
 				</div>
-			</div>
-			<div>
-				<div class="crop">
-					<img src="images/kids.jpg" />
+				<div id="boxes">
+					<div class="crop">
+						<img src="images/kids.jpg" />
+					</div>
 				</div>
-			</div>
-			<div>
-				<div class="crop">
-					<img src="images/parentsregistration.jpg" />
+				<div id="boxes">
+					<div class="crop">
+					<a href="registration.php"><img src="images/parentsregistration.jpg" /></a>
+					</div>
 				</div>
 			</div>
 		</section>

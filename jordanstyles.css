@@ -15,14 +15,22 @@ header {
 	height: 100px;
 	box-shadow: 0 1px 20px #000000;
 }
+
+
+
 .centerpage
 { 
-	margin: 20px 40px;
+	margin-top: 40px;
 	border-radius: 10px;
-	min-height: 314px;
+	min-height: 200px;
 	background: white; 
 	padding: 20px;
 	box-shadow: 0 0 10px #000000;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	overflow: auto;
 }
 
 /* Logo header item */
@@ -66,7 +74,9 @@ header {
 	font-size: 14px;
 }
 .loginOrWelcome span {
-	color: rgb(151,50,31);
+	/*color: rgb(151,50,31);*/
+	color: white;
+	font-size: 20px;
 	text-shadow: 0 -1px 2px rgb(13, 13, 13);
 }
 .loginOrWelcome td {
@@ -83,15 +93,28 @@ header {
 	background-color: white;
 	opacity: 0;
 }
-#signup {
+/*#signup {
 	position: fixed;
 	width: 350px;
 	left: 50%;
 	top: 20%;
 	margin-left: -175px;
+}*/
+#signup1 {
+	background-color: white;
+	position: fixed;
+	margin-left: auto;
+	margin-right: auto;
+	width: 350px;
+	top: 20%;
+	left: 38%;
+	border-radius: 15px;
+	box-shadow: 0 0 10px #000000;
+	padding:0.5em;
 }
 #signup > table {
-	background-color: rgb(151, 50, 31);
+	/*background-color: rgb(151, 50, 31);*/
+	background-color: white;
 	box-shadow: 0 0 10px #000000;
 	padding:0.5em;
 	border-radius: 15px;
@@ -116,6 +139,7 @@ header {
 	padding: 0;
 	float: left;
 	width: 55%;
+	min-width: 651px;
 	height: 100px;
 }
 #cssmenu > ul {
@@ -125,6 +149,7 @@ header {
 }
 #cssmenu > ul > li {
 	width: 25%;
+	min-width: 150px;
 	margin: 0;
 	padding-top: 41px;
 	list-style: none;
@@ -139,7 +164,7 @@ header {
 	text-shadow: 0 -1px 2px rgb(13, 13, 13);
 }
 #cssmenu > ul > li > a:hover {
-	font-size: 19px;
+	font-size: 20px;
 	text-shadow: 0 -1px 2px rgb(13, 13, 13),
 	0 0 5px rgb(151, 50, 31);
 }
@@ -147,12 +172,27 @@ header {
 #boxholder {
 	width: inherit;
 	height: 150px;
-	margin: 120px 0 0 0;
+	margin: 110px 0 0 0;
+	margin-left: auto;
+	margin-right: auto;
 }
-#boxholder > div {
+
+#boxes {
 	width: 25%;
+	max-width: 290px;
+	min-width: 259px;
 	float: left;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
 }
+#outer {
+	height: 150px;
+	max-width: 1160px;
+	min-width: 1100px;
+}
+
+
 .crop {
 	box-shadow: 0 0 10px #000000;
 	margin: auto;
@@ -168,7 +208,8 @@ header {
 /* Shop page */
 .item {
 	float: left;
-	width: 33%;
+	width: 25%;
+	margin-top: 20px;
 }
 .item > div {
 	margin: auto;
@@ -179,6 +220,8 @@ header {
 	border: 1px solid black;
 	border-radius: 10px;
 	text-align: center;
+	background-image: url("images/menu-bg.png"); 
+	color: white;
 }
 .itemImg {
 	margin: auto;

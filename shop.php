@@ -43,7 +43,7 @@
 					var rows = JSON.parse(data);
 
 					for (var i = 0; i < rows.length; i++) {
-						if (i % 3 == 0 && i != 0) items.push ('<div class="item" style="clear: both">'); //3 items per row
+						if (i % 8 == 0 && i != 0) items.push ('<div class="item" style="clear: both">'); //4 items per row
 						else items.push('<div class="item"><div>');
 						items.push('<h3>', rows[i].name, '</h3>');
 						items.push('<div class="itemImg"><img src="images/', rows[i].location, '" /></div>');
@@ -55,6 +55,8 @@
 							if (rows[i].discount != 0)
 								items.push('<p style="color: red">Camper price: $',
 									Math.round((100 - rows[i].discount) * rows[i].price, 2) / 100, ' (', rows[i].discount, '% off!)</p>');
+							else
+								items.push('<p></br></p>');
 							<?php if (isset($_SESSION['user'])) { ?>
 								items.push('<input type="button" value="Add to cart" />');
 							<?php }
@@ -83,7 +85,7 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
-						echo '<span>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</span>';
+						echo '<span>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</span><br />';
 						echo '<button type="button" onclick="logout();" >Logout</button>';
 						echo '</div>';
 					}
@@ -102,24 +104,26 @@
 			</div>
 		</header>
 		<section id="boxholder">
-			<div>
-				<div class="crop">
-					<img src="images/childrenplaying.jpg" />
+			<div id="outer" style="margin-left: auto; margin-right: auto;">
+				<div id="boxes">
+					<div class="crop">
+						<img src="images/childrenplaying.jpg" />
+					</div>
 				</div>
-			</div>
-			<div>
-				<div class="crop">
-					<img src="images/teencomputer.jpg" />
+				<div id="boxes">
+					<div class="crop">
+						<img src="images/teencomputer.jpg" />
+					</div>
 				</div>
-			</div>
-			<div>
-				<div class="crop">
-					<img src="images/kids.jpg" />
+				<div id="boxes">
+					<div class="crop">
+						<img src="images/kids.jpg" />
+					</div>
 				</div>
-			</div>
-			<div>
-				<div class="crop">
-					<img src="images/parentsregistration.jpg" />
+				<div id="boxes">
+					<div class="crop">
+					<a href="registration.php"><img src="images/parentsregistration.jpg" /></a>
+					</div>
 				</div>
 			</div>
 		</section>

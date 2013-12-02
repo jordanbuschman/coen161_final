@@ -8,8 +8,8 @@ function displaySignup() {
 	signup.method = 'post';
 	signup.action = 'addUser.php';
 	var data = [];
-	data.push("<table>",
-		"<tr><td><input type='button' value='Go back' onclick='window.location = window.location.pathname;' /><td></tr>",
+	data.push("<div id='signup1'>It's easy to create an account with us, simply complete the following fields.",
+		"<table>",
 		"<tr>",
 		"<td style='text-align: right'><input name='firstName' type='text' size='16' placeholder='First Name' id='firstName'/></td>",
 		"<td><input name='lastName' type='text' size='16' placeholder='Last Name' id='lastName'/></td>",
@@ -33,7 +33,8 @@ function displaySignup() {
 		"<tr><td colspan='2' id='validUsername'></td></tr>",
 		"<tr><td colspan='2' id='validPassword'></td></tr>",
 		"<tr><td colspan='2' id='validPassword2'></td></tr>",
-		"</table>");
+		"<tr><td><input type='button' value='Go back' onclick='window.location = window.location.pathname;' /><td></tr>",
+		"</table></div>");
 
 	$('#background').fadeTo( "slow" , 0.6, function() {
 		document.body.appendChild(signup);
