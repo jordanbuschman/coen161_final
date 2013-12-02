@@ -186,6 +186,10 @@ header {
 	margin-top: 10px;
 	margin-left: auto;
 	margin-right: auto;
+	opacity: .6;
+}
+#boxes:hover {
+	opacity: 1;
 }
 #outer {
 	height: 150px;
