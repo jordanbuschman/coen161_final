@@ -9,7 +9,7 @@ mystyles.css: Self-explanatory. All of the CSS for the website.
 
 javascript.js: Also, self-explanatory. All of the JavaScript for the website.
 
-index.php: PHP version of index.html that supports login and logout for username.
+index.php: Homepage for the website. Supports logging in/out and registering.
 
 shop.php: The KidzCamp shop.
 
