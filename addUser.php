@@ -2,7 +2,7 @@
 	session_start();
 
 	if (!$_POST['username']){ //Return if you maliciously navigated to the page
-		header("location: jordanIndex.php");
+		header("location: index.php");
 		exit;
 	}
 
@@ -28,6 +28,6 @@
 	
 	$user = mysql_fetch_object($result);
 	$_SESSION["user"] = $user;
-	header("location: jordanIndex.php");
+	header("location: index.php");
 
 ?>
