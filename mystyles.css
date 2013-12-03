@@ -119,10 +119,10 @@ header {
 	margin-right: auto;
 	width: 350px;
 	top: 20%;
-	left: 38%;
+	left: 35%;
 	border-radius: 15px;
 	box-shadow: 0 0 10px #000000;
-	padding:0.5em;
+	padding:1em;
 }
 #signup > table {
 	/*background-color: rgb(151, 50, 31);*/
