@@ -54,7 +54,8 @@
 						<?php } else { ?>
 							if (rows[i].discount != 0)
 								items.push('<p style="color: red">Camper price: $',
-									Math.round((100 - rows[i].discount) * rows[i].price, 2) / 100, ' (', rows[i].discount, '% off!)</p>');
+									(Math.round((100 - rows[i].discount) * rows[i].price, 2) / 100).toFixed(2),
+									' (', rows[i].discount, '% off!)</p>');
 							else
 								items.push('<p></br></p>');
 							<?php if (isset($_SESSION['user'])) { ?>
