@@ -52,7 +52,7 @@ function displayRegistration() {
 	signup.method = 'post';
 	signup.action = 'registration.php';
 	var data = [];
-	data.push("<div id='left'><h2>Registration Form</h2> <br /> Please complete the following information.<br />",
+	data.push("<div id='left'><h2>Registration Form</h2> Please complete the following information.<br />",
 					"<input name='firstName' type='text' size='16' placeholder='First Name' id='firstName'/>",
 					"<input name='lastName' type='text' size='16' placeholder='Last Name' id='lastName'/><br />",
 					"Birthday: <input name='bdate' type='date' id='bdate'/><br />",

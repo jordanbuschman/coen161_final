@@ -129,6 +129,7 @@ header {
 	width: 33%;
 	float:left;
 	font-size: 14px;
+	line-height: 28px;
 }
 #right {
 	position: relative;
