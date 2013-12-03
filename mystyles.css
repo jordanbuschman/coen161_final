@@ -21,11 +21,19 @@ header {
 
 #shoppingcart {
 	height: 25px;
-	width: 50px;
+	min-width: 50px;
 	background-color: white;
-	position: absolute;
-	right: 25px;
-	top: 150px;
+	position: fixed;
+	right: 5px;
+	top: 105px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	border-radius: 10px;
+}
+#cartnum {
+	color: red;
+	text-decoration: strong;
 }
 
 .centerpage

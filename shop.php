@@ -104,7 +104,7 @@
 				?>
 			</div>
 		</header>
-		<div id="shoppingcart"></div>
+		<div id="shoppingcart">Cart: <span id="cartnum">0</span> item(s)</div>
 		<section id="boxholder">
 			<div id="outer" style="margin-left: auto; margin-right: auto;">
 				<div id="boxes">
