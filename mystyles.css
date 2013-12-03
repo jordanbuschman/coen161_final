@@ -174,8 +174,8 @@ header {
 }
 #cssmenu > ul > li > a:hover {
 	font-size: 20px;
-	text-shadow: 0 -1px 2px rgb(13, 13, 13),
-	0 0 5px rgb(151, 50, 31);
+	text-shadow: 0 -1px 2px /*rgb(13, 13, 13)*/ #000000;
+	/*0 0 5px rgb(151, 50, 31);*/
 }
 /* Image container CSS */
 #boxholder {

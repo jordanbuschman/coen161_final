@@ -15,7 +15,7 @@
 		<script src="javascript.js" ></script>
 
 		<script type="text/javascript">
-			function handleLogin() { //Calls check.php to handle logging in
+			function handleLogin() {
 				var usr = document.getElementsByName('username')[0].value;
 				var pwd = document.getElementsByName('password')[0].value;
 			    
@@ -31,42 +31,10 @@
 			    		alert( "AJAX FAILED" );
 			  	});
 			}
-
+			
 			function logout() {
 				window.location.href = "logout.php";
 			}
-
-			$(document).ready(function() { //Access fetchItems.php to get all of the items in the item table;
-				$.post("fetchItems.php") 
-				.done(function(data) {
-					var items = []; //To be appended to #itembox 
-					var rows = JSON.parse(data);
-
-					for (var i = 0; i < rows.length; i++) {
-						if (i % 8 == 0 && i != 0) items.push ('<div class="item" style="clear: both">'); //4 items per row
-						else items.push('<div class="item"><div>');
-						items.push('<h3>', rows[i].name, '</h3>');
-						items.push('<div class="itemImg"><img src="images/', rows[i].location, '" /></div>');
-						items.push('<p>Price: $', rows[i].price, '</p>');
-						<?php if(!$_SESSION['user']->didEnroll) { ?> //If person is not logged in/did not enroll
-							if (rows[i].discount != 0)
-								items.push('<p style="color: red">Enroll in a class to get a ', rows[i].discount, '% discount!</p>');
-						<?php } else { ?>
-							if (rows[i].discount != 0)
-								items.push('<p style="color: red">Camper price: $',
-									Math.round((100 - rows[i].discount) * rows[i].price, 2) / 100, ' (', rows[i].discount, '% off!)</p>');
-							else
-								items.push('<p></br></p>');
-							<?php if (isset($_SESSION['user'])) { ?>
-								items.push('<input type="submit" value="Add to cart" fromaction="cart.php?add=', rows[i].name,'" />');
-							<?php }
-						} ?>
-						items.push('</div></div>');
-					}
-					$('#itemBox').html(items.join(''));
-				})
-				.fail(function() { alert("AJAX FAILED"); });
-			});	
 		</script>
 
 		<header>
@@ -76,9 +44,9 @@
 			<div id='cssmenu'>
 				<ul>
 	  				<li><a href='index.php'><span style="color: yellow">Home</span></a></li>
-					<li><a href='camp.php'><span style="color: red">The Camp</span></a></li>
+					<li><a href='camp.html'><span style="color: red">The Camp</span></a></li>
 					<li><a href='shop.php'><span style="color: green">Shop</span></a></li>
-					<li><a href='#'><span style="color: blue">About</span></a></li>
+					<li><a href='#'><span style="color: blue">Contact</span></a></li>
 				</ul>
 			</div>
 			<div class="loginOrWelcome">
@@ -103,7 +71,6 @@
 				?>
 			</div>
 		</header>
-		<div id="shoppingcart"></div>
 		<section id="boxholder">
 			<div id="outer" style="margin-left: auto; margin-right: auto;">
 				<div id="boxes">
@@ -118,7 +85,7 @@
 				</div>
 				<div id="boxes">
 					<div class="crop">
-						<a href="forum.php"><img src="images/kids.jpg" /></a>
+						<img src="images/kids.jpg" />
 					</div>
 				</div>
 				<div id="boxes">
@@ -128,10 +95,9 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage">
-			<h1>KidzCamp Shop</h1>
-			<h3>Purchase fun and exciting KidzCamp memorabilia. <span style="color: red">We offer discounts for all KidzCampers, past and present!</span></h3>
-			<div id="itemBox"></div>
-		</section>
+		<section class="centerpage"><iframe src="http://www.google.com/calendar/embed?src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles" 
+style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></section>
 	</body>
 </html> 
+
+
