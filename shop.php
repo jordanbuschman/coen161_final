@@ -124,7 +124,7 @@
 				</div>
 				<div id="boxes">
 					<div class="crop">
-					<a onclick="displaySignup()"><img src="images/parentsregistration.jpg" /></a>
+					<a onclick="displayRegistration()"><img src="images/parentsregistration.jpg" /></a>
 					</div>
 				</div>
 			</div>
