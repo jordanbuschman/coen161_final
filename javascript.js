@@ -64,7 +64,7 @@ function displayRegistration() {
 					"<input name='school' type='text' size='16' placeholder='School Name' id='school'/><br />",
 					"How many children do you have currently enrolled? <input name='numchild' type='number' id='numchild' min='0' max ='3'/><br />",
 					"Which camp session will you be attending? <input name='session' type='number' id='session' min='1' max ='9'/><br />",
-					"<input type='submit' name='Submit' value='Create' id='create' disabled='disabled' />",
+					"<input type='submit' name='Submit' value='Enroll' id='create' disabled='disabled' />",
 					
 					"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
 					"</div><div id='right'>",
