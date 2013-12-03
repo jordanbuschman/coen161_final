@@ -102,7 +102,17 @@ header {
 .loginOrWelcome td {
 	text-align: center;
 }
+/* Registration */
+#regback {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	opacity: 0;
 
+}
 /* Register account header item */
 #background {
 	position: fixed;
@@ -113,13 +123,30 @@ header {
 	background-color: white;
 	opacity: 0;
 }
-/*#signup {
+#left {
+	padding-left: 10px;
+	position: relative;
+	width: 33%;
+	float:left;
+	font-size: 14px;
+}
+#right {
+	position: relative;
+	width:65%;
+	float:right;
+}
+#signup2 {
+	background-color: white;
 	position: fixed;
-	width: 350px;
-	left: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
 	top: 20%;
-	margin-left: -175px;
-}*/
+	left: 17.5%;
+	border-radius: 15px;
+	box-shadow: 0 0 10px #000000;
+	padding:1em;
+}
 #signup1 {
 	background-color: white;
 	position: fixed;

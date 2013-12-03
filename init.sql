@@ -10,6 +10,16 @@ CREATE TABLE user (
 	firstName VARCHAR(32) NOT NULL,
 	lastName VARCHAR(32) NOT NULL,
 	didEnroll BOOLEAN DEFAULT 0,
+	child1first varchar(32) NOT NULL,
+	child1last	varchar(32) NOT NULL,
+	phone		INT NOT NULL,
+	email	VARCHAR(32) NOT NULL,
+	grade INT NOT NULL,
+	school VARCHAR(32) NOT NULL,
+	child2first varchar(32) NOT NULL,
+	child2last	varchar(32) NOT NULL,
+	child3first varchar(32) NOT NULL,
+	child3last	varchar(32) NOT NULL,
 	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id));
 

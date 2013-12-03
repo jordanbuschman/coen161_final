@@ -90,7 +90,7 @@
 				</div>
 				<div id="boxes">
 					<div class="crop">
-					<a href="registration.php"><img src="images/parentsregistration.jpg" /></a>
+					<a onclick="displaySignup()"><img src="images/parentsregistration.jpg" /></a>
 					</div>
 				</div>
 			</div>
