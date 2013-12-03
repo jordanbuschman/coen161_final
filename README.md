@@ -11,7 +11,9 @@ javascript.js: Also, self-explanatory. All of the JavaScript for the website.
 
 index.php: Homepage for the website. Supports logging in/out and registering.
 
-shop.php: The KidzCamp shop.
+shop.php: The KidzCamp shop. Lists items available for purchace.
+
+camp.php: Calendar and registration for classes.
 
 init.sql: Run to set up the kidzcamp database for the first time. Will create database kidzcamp and all necessary tables, as well as populate the tables with test cases. To run, type "mysql -h localhost -u root < init.sql".
 
