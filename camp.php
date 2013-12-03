@@ -85,7 +85,7 @@
 				</div>
 				<div id="boxes">
 					<div class="crop">
-						<img src="images/kids.jpg" />
+						<a href="forum.php"><img src="images/kids.jpg" /></a>
 					</div>
 				</div>
 				<div id="boxes">
