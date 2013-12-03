@@ -41,6 +41,7 @@ header {
 	margin-right: auto;
 	height: auto;
 	overflow: auto;
+	min-width: 1084px;
 
 }
 
