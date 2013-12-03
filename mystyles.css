@@ -5,6 +5,7 @@ body {
 	font-family: tahoma;
 	text-align: justify;
 	background: #19193b;
+	min-width: 1100px;
 }
 header {
 	padding: 0;
@@ -15,6 +16,7 @@ header {
 	height: 100px;
 	box-shadow: 0 1px 20px #000000;
 	z-index: 100;
+	min-width: 1194px;
 }
 
 #shoppingcart {
