@@ -26,3 +26,5 @@ check.php: Find a user with given username and password in the user table and re
 checkForUsername.php: To be used with AJAX. If a username (supplied in $_POST) is already in the user table, return F. Otherwise, return T.
 
 fetchItems.php: Returns an array containing all of the rows in the item table. To be accessed by from shop.php.
+
+addToCart.php: Takes in a user id, item id, and item count to add to a user's cart.
