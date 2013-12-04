@@ -31,11 +31,13 @@
 			    		alert( "AJAX FAILED" );
 			  	});
 			}
-			function handleCart(index) {
+			function handleCart(index, iId) {
 				var id = "#qty" + index;
 				var qty = $(id).find(":selected").val();
 				if (qty != "Qty") {
-					alert(qty);
+					var userId = <?php echo $_SESSION['user']->id; ?>;
+					var itemId = iId;
+					alert(userId + ", " + itemId);
 				}
 			}
 			function logout() {
@@ -64,7 +66,7 @@
 							else
 								items.push('<p></br></p>');
 							<?php if (isset($_SESSION['user'])) { ?>
-								items.push('<form action="javascript:handleCart(', i, ')">');
+								items.push('<form action="javascript:handleCart(', i, ', ', rows[i].id, ')">');
 								items.push('<select id="qty', i, '">');
 								items.push('<option value="Qty">Qty</option>');
 								items.push('<option value="1">1</option>');
