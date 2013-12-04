@@ -58,8 +58,8 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 	signup.action = 'registration.php';
 	var data = [];
 	data.push("<div id='left'><h2>Registration Form</h2> Please complete the following information.<br />",
-					"<input name='firstName' type='text' size='16' placeholder='First Name' id='firstName'/>",
-					"<input name='lastName' type='text' size='16' placeholder='Last Name' id='lastName'/><br />",
+					"<input name='firstName' type='text' size='16' placeholder='Child First Name' id='firstName'/>",
+					"<input name='lastName' type='text' size='16' placeholder='Child Last Name' id='lastName'/><br />",
 					"Birthday: <input name='bdate' type='date' id='bdate'/><br />",
 					"<input name='parentFirstName' type='text' size='16' placeholder='Parent First Name' id='parentfirstName' value='",
 					userfirst,
