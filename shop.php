@@ -41,6 +41,7 @@
 					$.post( "addToCart.php", { userId: userId, itemId: itemId, count: qty })
 					.done(function( data ) {
 						//Append "added to cart" to screen
+						$("#cartnum").text(parseInt($("#cartnum").text()) + parseInt(qty)); //Change number of things in cart
 			  		}).fail(function() {
 			  	  		alert( "AJAX FAILED" );
 			  		});
@@ -92,6 +93,12 @@
 						items.push('</div></div>');
 					}
 					$('#itemBox').html(items.join(''));
+				})
+				.fail(function() { alert("AJAX FAILED"); });
+
+				$.post("getCartCount.php", {userId: <?php echo (isset($_SESSION['user']) ? $_SESSION['user']->id : -1); ?>})
+				.done(function(data) {
+					$("#cartnum").text(data); //Set number of items in cart
 				})
 				.fail(function() { alert("AJAX FAILED"); });
 			});	
