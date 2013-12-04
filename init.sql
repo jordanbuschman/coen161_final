@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS kidzcamp;
 USE kidzcamp;
 
-DROP TABLE IF EXISTS user, item, cart, enrollment;
+DROP TABLE IF EXISTS user, item, cart, enrollment, forum;
 
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -10,27 +10,6 @@ CREATE TABLE user (
 	firstName VARCHAR(32) NOT NULL,
 	lastName VARCHAR(32) NOT NULL,
 	didEnroll BOOLEAN DEFAULT 0,
-	child1first varchar(32) NOT NULL,
-	child1last	varchar(32) NOT NULL,
-	child1birth date NOT NULL,
-	child1grade INT NOT NULL,
-	child1school VARCHAR(32) NOT NULL,
-	child1session INT NOT NULL,
-	phone		VARCHAR(32) NOT NULL,
-	email	VARCHAR(32) NOT NULL,
-	school VARCHAR(32) NOT NULL,
-	child2first varchar(32) NOT NULL,
-	child2last	varchar(32) NOT NULL,
-	child2birth date NOT NULL,
-	child2grade INT NOT NULL,
-	child2school VARCHAR(32) NOT NULL,
-	child2session INT NOT NULL,
-	child3first varchar(32) NOT NULL,
-	child3last	varchar(32) NOT NULL,
-	child3birth date NOT NULL,
-	child3grade INT NOT NULL,
-	child3school VARCHAR(32) NOT NULL,
-	child3session INT NOT NULL,
 	numEnrolled INT DEFAULT 0,
 	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id));
@@ -64,6 +43,13 @@ CREATE TABLE cart (
 	itemId INT NOT NULL, /* Refers to id of item */
 	count INT NOT NULL DEFAULT 1,
 	PRIMARY KEY (id));
+	
+CREATE TABLE forum (
+	id INT NOT NULL AUTO_INCREMENT,
+	username VARCHAR(16) NOT NULL,
+	rating INT NOT NULL,
+	review varchar(512) NOT NULL,
+	PRIMARY KEY (id));
 
 INSERT INTO user (username, password, firstName, lastName, didEnroll) VALUES ("jbob93", "potato", "Jim", "Bob", 1);
 INSERT INTO user (username, password, firstName, lastName) VALUES ("maryyyyyy32", "myname15Mary", "Mary", "Doe");
@@ -72,6 +58,7 @@ INSERT INTO user (username, password, firstName, lastName) VALUES ("hsolo", "sta
 INSERT INTO user (username, password, firstName, lastName) VALUES ("joshBrah", "jbh3ART", "Josh", "Mann");
 INSERT INTO user (username, password, firstName, lastName) VALUES ("hKudz", "kudz4Lyfe", "Heywood", "Ukuddleme");
 INSERT INTO user (username, password, firstName, lastName) VALUES ("adeartola", "Ioe45682", "Andy", "de Artola");
+INSERT INTO user (username, password, firstName, lastName) VALUES ("achung", "asdASD123", "Aaron", "Chung");
 
 INSERT INTO item (location, name, price) VALUES ("potato.jpg", "Potato", 29.99);
 INSERT INTO item (location, name, price, discount) VALUES ("shirt.jpg", "Shirt", 15.00, 10);
@@ -81,3 +68,5 @@ INSERT INTO item (location, name, price, discount) VALUES ("backpack.jpg", "Back
 INSERT INTO item (location, name, price, discount) VALUES ("keychain.jpg", "Keychain", 4.99, 15);
 INSERT INTO item (location, name, price) VALUES ("laptopbag.jpg", "Laptop Case", 19.99);
 INSERT INTO item (location, name, price, discount) VALUES ("pencils.jpg", "Pencils", 1.99, 15);
+
+INSERT INTO forum (username, rating, review) VALUES ("achung", 5, "Wow. Such Camp. Much Website.");

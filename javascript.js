@@ -73,8 +73,9 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 					"<input name='school' type='text' size='16' placeholder='School Name' id='school'/><br />",
 					"You currently have ",
 					numenrolled,
-					" enrolled.<br />",
-					"Which camp session will you be attending? <select name='session'><option value='1'>1</option><option value='2'>2</option><option value=3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option></select><br />",
+					" child(ren) enrolled.<br />",
+					"Which camp session will your child be attending? <select name='session'><option value='1'>1</option><option value='2'>2</option><option value=3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option></select><br />",
+					"How long will your child attend this session?<br /> <select name='length'><option value='1'>1</option><option value='2'>2</option></select> week(s)<br />",
 					"<input type='submit' name='Submit' value='Enroll' />",
 					
 					"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
