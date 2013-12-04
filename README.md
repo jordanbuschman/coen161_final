@@ -28,3 +28,5 @@ checkForUsername.php: To be used with AJAX. If a username (supplied in $_POST) i
 fetchItems.php: Returns an array containing all of the rows in the item table. To be accessed by from shop.php.
 
 addToCart.php: Takes in a user id, item id, and item count to add to a user's cart.
+
+getCartCount.php: Takes in a user id and outputs total items in that user's cart (or 0, if user id is not valid).
