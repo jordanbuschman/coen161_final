@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS kidzcamp;
 USE kidzcamp;
 
-DROP TABLE IF EXISTS user, item, cart;
+DROP TABLE IF EXISTS user, item, cart, enrollment;
 
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -35,6 +35,20 @@ CREATE TABLE user (
 	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id));
 	
+CREATE TABLE enrollment (
+	id INT NOT NULL AUTO_INCREMENT,
+	userId INT NOT NULL,
+	childNum INT NOT NULL,
+	firstName varchar(32) NOT NULL,
+	lastName varchar(32) NOT NULL,
+	birth date NOT NULL,
+	grade INT NOT NULL,
+	school VARCHAR(32) NOT NULL,
+	sessionNum INT NOT NULL,
+	sessionLength INT NOT NULL,
+	phone VARCHAR(32) NOT NULL,
+	email VARCHAR(32) NOT NULL,
+	PRIMARY KEY (id));
 
 CREATE TABLE item (
 	id INT NOT NULL AUTO_INCREMENT,
