@@ -31,9 +31,12 @@
 			    		alert( "AJAX FAILED" );
 			  	});
 			}
-			function handleCart() {
-				var qty = $("#qty").find("option:selected").text();
-				if ($("#qty").find(":selected").text() == "Qty") alert(qty);
+			function handleCart(index) {
+				var id = "#qty" + index;
+				var qty = $(id).find(":selected").val();
+				if (qty != "Qty") {
+					alert(qty);
+				}
 			}
 			function logout() {
 				window.location.href = "logout.php";
@@ -46,8 +49,7 @@
 					var rows = JSON.parse(data);
 
 					for (var i = 0; i < rows.length; i++) {
-						if (i % 8 == 0 && i != 0) items.push ('<div class="item" style="clear: both">'); //4 items per row
-						else items.push('<div class="item"><div>');
+						items.push('<div class="item"><div>');
 						items.push('<h3>', rows[i].name, '</h3>');
 						items.push('<div class="itemImg"><img src="images/', rows[i].location, '" /></div>');
 						items.push('<p>Price: $', rows[i].price, '</p>');
@@ -62,8 +64,8 @@
 							else
 								items.push('<p></br></p>');
 							<?php if (isset($_SESSION['user'])) { ?>
-								items.push('<form action="javascript:handleCart()">');
-								items.push('<select id="qty">');
+								items.push('<form action="javascript:handleCart(', i, ')">');
+								items.push('<select id="qty', i, '">');
 								items.push('<option value="Qty">Qty</option>');
 								items.push('<option value="1">1</option>');
 								items.push('<option value="2">2</option>');
