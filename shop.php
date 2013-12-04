@@ -64,32 +64,31 @@
 						<?php if(!$_SESSION['user']->didEnroll) { ?> //If person is not logged in/did not enroll
 							if (rows[i].discount != 0)
 								items.push('<p style="color: red">Enroll in a class to get a ', rows[i].discount, '% discount!</p>');
+							else items.push('<p></br></p>');
 						<?php } else { ?>
 							if (rows[i].discount != 0)
 								items.push('<p style="color: red">Camper price: $',
 									(Math.round((100 - rows[i].discount) * rows[i].price, 2) / 100).toFixed(2),
 									' (', rows[i].discount, '% off!)</p>');
-							else
-								items.push('<p></br></p>');
-							<?php if (isset($_SESSION['user'])) { ?>
-								items.push('<form action="javascript:handleCart(', i, ', ', rows[i].id, ')">');
-								items.push('<select id="qty', i, '">');
-								items.push('<option value="Qty">Qty</option>');
-								items.push('<option value="1">1</option>');
-								items.push('<option value="2">2</option>');
-								items.push('<option value="3">3</option>');
-								items.push('<option value="4">4</option>');
-								items.push('<option value="5">5</option>');
-								items.push('<option value="6">6</option>');
-								items.push('<option value="7">7</option>');
-								items.push('<option value="8">8</option>');
-								items.push('<option value="9">9</option>');
-								items.push('<option value="10">10</option>');
-								items.push('</select>');
-								items.push('<input type="submit" value="Add to cart"/>');
-								items.push('</form>');
-							<?php }
-						} ?>
+							else items.push('<p></br></p>');
+						<?php } if (isset($_SESSION['user'])) { ?>
+							items.push('<form action="javascript:handleCart(', i, ', ', rows[i].id, ')">');
+							items.push('<select id="qty', i, '">');
+							items.push('<option value="Qty">Qty</option>');
+							items.push('<option value="1">1</option>');
+							items.push('<option value="2">2</option>');
+							items.push('<option value="3">3</option>');
+							items.push('<option value="4">4</option>');
+							items.push('<option value="5">5</option>');
+							items.push('<option value="6">6</option>');
+							items.push('<option value="7">7</option>');
+							items.push('<option value="8">8</option>');
+							items.push('<option value="9">9</option>');
+							items.push('<option value="10">10</option>');
+							items.push('</select>');
+							items.push('<input type="submit" value="Add to cart"/>');
+							items.push('</form>');
+						<?php } ?>
 						items.push('</div></div>');
 					}
 					$('#itemBox').html(items.join(''));
