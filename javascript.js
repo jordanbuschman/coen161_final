@@ -52,7 +52,6 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 	document.body.appendChild(background);
 	
 	
-	
 	var signup = document.createElement("form"); //The actual form to fill out to sign up
 	signup.id = 'signup2';
 	signup.method = 'post';

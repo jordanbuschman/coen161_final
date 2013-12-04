@@ -34,7 +34,7 @@
 			function handleCart(index, iId) {
 				var id = "#qty" + index;
 				var qty = $(id).find(":selected").val();
-				if (<? echo (isset($_SESSION['user']) ? 0 : 1) ?>) return; //Return if session is not registered
+				if (<?php echo (isset($_SESSION['user']) ? 0 : 1) ?>) return; //Return if session is not registered
 				if (qty != "Qty") {
 					var userId = <?php echo (isset($_SESSION['user']) ? $_SESSION['user']->id : -1); ?>; //Should never have to deal with an index of -1, otherwise you have a serious problem
 					var itemId = iId;

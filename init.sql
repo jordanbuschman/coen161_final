@@ -16,7 +16,7 @@ CREATE TABLE user (
 	child1grade INT NOT NULL,
 	child1school VARCHAR(32) NOT NULL,
 	child1session INT NOT NULL,
-	phone		INT NOT NULL,
+	phone		VARCHAR(32) NOT NULL,
 	email	VARCHAR(32) NOT NULL,
 	school VARCHAR(32) NOT NULL,
 	child2first varchar(32) NOT NULL,
