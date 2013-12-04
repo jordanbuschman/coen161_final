@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS kidzcamp;
 USE kidzcamp;
 
-DROP TABLE IF EXISTS user, item;
+DROP TABLE IF EXISTS user, item, cart;
 
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,

@@ -19,14 +19,15 @@
 	mysql_connect($host, $sql_username, $sql_password) or die ("Cannot connect to SQL server.");
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
 	
-	$query = "INSERT INTO $tbl (userId, itemId, count) VALUES ('$userId', '$itemId', '$count')"; //Register new user
-	mysql_query($query);
-	
-	$search_query = "SELECT * FROM $tbl WHERE username='$username'";
-	$result = mysql_query($search_query);
-	
-	$user = mysql_fetch_object($result);
-	$_SESSION["user"] = $user;
-	header("location: index.php");
+	$query = "SELECT * FROM $tbl WHERE userId=$userId AND itemId=$itemId";
+	$result = mysql_query($query);
+	$row = mysql_fetch_row($result);
 
+	if ($row) { //Person already has this item in their cart, so all that needs to be done is incrementing count
+		$query = "UPDATE $tbl SET count=count+$count WHERE userId=$userId AND itemId=$itemId";
+	}
+	else { //Add new item to user's cart
+		$query = "INSERT INTO $tbl (userId, itemId, count) VALUES ('$userId', '$itemId', '$count')";
+	}
+	mysql_query($query);
 ?>
