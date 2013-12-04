@@ -20,6 +20,7 @@ CREATE TABLE user (
 	child2last	varchar(32) NOT NULL,
 	child3first varchar(32) NOT NULL,
 	child3last	varchar(32) NOT NULL,
+	numEnrolled INT DEFAULT 0,
 	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id));
 

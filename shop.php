@@ -124,7 +124,14 @@
 				</div>
 				<div id="boxes">
 					<div class="crop">
-					<a onclick="displayRegistration()"><img src="images/parentsregistration.jpg" /></a>
+					<?php
+					if(isset($_SESSION['user'])) {
+						echo '<a href="javascript:displayRegistration()"><img src="images/parentsregistration.jpg" /></a>';
+					}
+					else {
+						echo "<a href='javascript:alertLogin()'><img src='images/parentsregistration.jpg' /></a>";
+					}
+					?>
 					</div>
 				</div>
 			</div>

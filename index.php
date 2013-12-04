@@ -90,7 +90,24 @@
 				</div>
 				<div id="boxes">
 					<div class="crop">
-					<a onclick="displayRegistration()"><img src="images/parentsregistration.jpg" /></a>
+					<?php
+					if(isset($_SESSION['user'])) {
+						$a = $_SESSION['user']->firstName;
+						$b = $_SESSION['user']->lastName;
+						$c = $_SESSION['user']->numEnrolled;
+						echo '<a href="javascript:displayRegistration(';
+						echo "'" . $a . "'";
+						echo ', ';
+						echo "'" . $b . "'";
+						echo ', ';
+						echo "'" . $c . "'";
+						echo ')"><img src="images/parentsregistration.jpg" /></a>';
+					}
+					else {
+						echo "<a href='javascript:alertLogin()'><img src='images/parentsregistration.jpg' /></a>";
+					}
+					?>
+					<a href="javascript:displayRegistration()"><img src="images/parentsregistration.jpg" /></a>
 					</div>
 				</div>
 			</div>

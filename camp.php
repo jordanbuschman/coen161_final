@@ -46,7 +46,7 @@
 	  				<li><a href='index.php'><span style="color: yellow">Home</span></a></li>
 					<li><a href='camp.php'><span style="color: red">The Camp</span></a></li>
 					<li><a href='shop.php'><span style="color: green">Shop</span></a></li>
-					<li><a href='#'><span style="color: blue">Contact</span></a></li>
+					<li><a href='#'><span style="color: blue">About</span></a></li>
 				</ul>
 			</div>
 			<div class="loginOrWelcome">
@@ -90,7 +90,14 @@
 				</div>
 				<div id="boxes">
 					<div class="crop">
-					<a onclick="displayRegistration()"><img src="images/parentsregistration.jpg" /></a>
+					<?php
+					if(isset($_SESSION['user'])) {
+						echo '<a href="javascript:displayRegistration()"><img src="images/parentsregistration.jpg" /></a>';
+					}
+					else {
+						echo "<a href='javascript:alertLogin()'><img src='images/parentsregistration.jpg' /></a>";
+					}
+					?>
 					</div>
 				</div>
 			</div>
