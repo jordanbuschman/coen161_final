@@ -32,6 +32,13 @@ CREATE TABLE item (
 	discount INT DEFAULT 0,
 	PRIMARY KEY (id));
 
+CREATE TABLE cart (
+	id INT NOT NULL AUTO_INCREMENT,
+	userId INT NOT NULL, /* Refers to id of user */
+	itemId INT NOT NULL, /* Refers to id of item */
+	count INT NOT NULL DEFAULT 1,
+	PRIMARY KEY (id));
+
 INSERT INTO user (username, password, firstName, lastName, didEnroll) VALUES ("jbob93", "potato", "Jim", "Bob", 1);
 INSERT INTO user (username, password, firstName, lastName) VALUES ("maryyyyyy32", "myname15Mary", "Mary", "Doe");
 INSERT INTO user (username, password, firstName, lastName) VALUES ("josh123", "slimShady", "Josh", "Sims");

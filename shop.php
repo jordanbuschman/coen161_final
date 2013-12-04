@@ -31,7 +31,10 @@
 			    		alert( "AJAX FAILED" );
 			  	});
 			}
-
+			function handleCart() {
+				var qty = $("#qty").find("option:selected").text();
+				if ($("#qty").find(":selected").text() == "Qty") alert(qty);
+			}
 			function logout() {
 				window.location.href = "logout.php";
 			}
@@ -59,7 +62,22 @@
 							else
 								items.push('<p></br></p>');
 							<?php if (isset($_SESSION['user'])) { ?>
-								items.push('<input type="submit" value="Add to cart" fromaction="cart.php?add=', rows[i].name,'" />');
+								items.push('<form action="javascript:handleCart()">');
+								items.push('<select id="qty">');
+								items.push('<option value="Qty">Qty</option>');
+								items.push('<option value="1">1</option>');
+								items.push('<option value="2">2</option>');
+								items.push('<option value="3">3</option>');
+								items.push('<option value="4">4</option>');
+								items.push('<option value="5">5</option>');
+								items.push('<option value="6">6</option>');
+								items.push('<option value="7">7</option>');
+								items.push('<option value="8">8</option>');
+								items.push('<option value="9">9</option>');
+								items.push('<option value="10">10</option>');
+								items.push('</select>');
+								items.push('<input type="submit" value="Add to cart"/>');
+								items.push('</form>');
 							<?php }
 						} ?>
 						items.push('</div></div>');
