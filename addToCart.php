@@ -2,7 +2,7 @@
 	session_start();
 
 	if (!$_POST['userId'] || !$_POST['itemId'] || !$_POST['count']){ //Return if you maliciously navigated to the page
-		header("location: index.php");
+		header("location: shop.php");
 		exit;
 	}
 
