@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS kidzcamp;
 USE kidzcamp;
 
-DROP TABLE IF EXISTS user, item;
+DROP TABLE IF EXISTS user, item, cart;
 
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -42,6 +42,13 @@ CREATE TABLE item (
 	name VARCHAR(32) NOT NULL,
 	price FLOAT(24, 2) NOT NULL,
 	discount INT DEFAULT 0,
+	PRIMARY KEY (id));
+
+CREATE TABLE cart (
+	id INT NOT NULL AUTO_INCREMENT,
+	userId INT NOT NULL, /* Refers to id of user */
+	itemId INT NOT NULL, /* Refers to id of item */
+	count INT NOT NULL DEFAULT 1,
 	PRIMARY KEY (id));
 
 INSERT INTO user (username, password, firstName, lastName, didEnroll) VALUES ("jbob93", "potato", "Jim", "Bob", 1);

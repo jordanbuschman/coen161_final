@@ -31,7 +31,21 @@
 			    		alert( "AJAX FAILED" );
 			  	});
 			}
-
+			function handleCart(index, iId) {
+				var id = "#qty" + index;
+				var qty = $(id).find(":selected").val();
+				if (<? echo (isset($_SESSION['user']) ? 0 : 1) ?>) return; //Return if session is not registered
+				if (qty != "Qty") {
+					var userId = <?php echo (isset($_SESSION['user']) ? $_SESSION['user']->id : -1); ?>; //Should never have to deal with an index of -1, otherwise you have a serious problem
+					var itemId = iId;
+					$.post( "addToCart.php", { userId: userId, itemId: itemId, count: qty })
+					.done(function( data ) {
+						//Append "added to cart" to screen
+			  		}).fail(function() {
+			  	  		alert( "AJAX FAILED" );
+			  		});
+				}
+			}
 			function logout() {
 				window.location.href = "logout.php";
 			}
@@ -43,25 +57,38 @@
 					var rows = JSON.parse(data);
 
 					for (var i = 0; i < rows.length; i++) {
-						if (i % 8 == 0 && i != 0) items.push ('<div class="item" style="clear: both">'); //4 items per row
-						else items.push('<div class="item"><div>');
+						items.push('<div class="item"><div>');
 						items.push('<h3>', rows[i].name, '</h3>');
 						items.push('<div class="itemImg"><img src="images/', rows[i].location, '" /></div>');
 						items.push('<p>Price: $', rows[i].price, '</p>');
 						<?php if(!$_SESSION['user']->didEnroll) { ?> //If person is not logged in/did not enroll
 							if (rows[i].discount != 0)
 								items.push('<p style="color: red">Enroll in a class to get a ', rows[i].discount, '% discount!</p>');
+							else items.push('<p></br></p>');
 						<?php } else { ?>
 							if (rows[i].discount != 0)
 								items.push('<p style="color: red">Camper price: $',
 									(Math.round((100 - rows[i].discount) * rows[i].price, 2) / 100).toFixed(2),
 									' (', rows[i].discount, '% off!)</p>');
-							else
-								items.push('<p></br></p>');
-							<?php if (isset($_SESSION['user'])) { ?>
-								items.push('<input type="submit" value="Add to cart" fromaction="cart.php?add=', rows[i].name,'" />');
-							<?php }
-						} ?>
+							else items.push('<p></br></p>');
+						<?php } if (isset($_SESSION['user'])) { ?>
+							items.push('<form action="javascript:handleCart(', i, ', ', rows[i].id, ')">');
+							items.push('<select id="qty', i, '">');
+							items.push('<option value="Qty">Qty</option>');
+							items.push('<option value="1">1</option>');
+							items.push('<option value="2">2</option>');
+							items.push('<option value="3">3</option>');
+							items.push('<option value="4">4</option>');
+							items.push('<option value="5">5</option>');
+							items.push('<option value="6">6</option>');
+							items.push('<option value="7">7</option>');
+							items.push('<option value="8">8</option>');
+							items.push('<option value="9">9</option>');
+							items.push('<option value="10">10</option>');
+							items.push('</select>');
+							items.push('<input type="submit" value="Add to cart"/>');
+							items.push('</form>');
+						<?php } ?>
 						items.push('</div></div>');
 					}
 					$('#itemBox').html(items.join(''));
