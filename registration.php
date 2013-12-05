@@ -35,12 +35,13 @@
 	$cardholder = $_POST['cardholder'];
 	$cardnumber = $_POST['cardnumber'];
 	$enrolled = 1;
-	$cost = 0;
-	if($length == 1)
+	$cost = 900.00;
+	if($length == '1'){
 		$cost = 600.00;
-	else if($length == 2)
+	}
+	else {
 		$cost == 900.00;
-	
+	}
 	mysql_connect($host, $sql_username, $sql_password) or die ("Cannot connect to SQL server.");
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
 	
@@ -133,13 +134,16 @@
 				"<tr><td> Phone Number: ", phone, "</td><td>School: ", school, "</td></tr>",
 				"<tr><td> Your username: ", firstName, " ", lastName, "</td><td>Grade Number: ", grade, "</td></tr>",
 				"<tr><td><br /></td></tr><br /></table></div>",
-				"<center><h3><span style='color: red;'>", childfirst,"</span> is registered for Session ",session," for ",length," week(s).<br/><br/> Total Cost: $",cost, "</h3></center>"
-				);
+				"<center><h3><span style='color: red;'>", childfirst,"</span> is registered for Session ",session," for ",length," week(s).<br/><br/> Total Cost: $",cost, "</h3></center>",
+				"<div style='right: 10px;'><input type='button' value='Finish' onclick='openIndex();' /></div>");
 	$('#background').fadeTo( "slow" , 0.6, function() {
 		document.body.appendChild(signup);
 		$('#signup2').html(data.join(''));
 	});
 	});
+			function openIndex() {
+				window.location.href = "index.php";
+			}
 			function handleLogin() {
 				var usr = document.getElementsByName('username')[0].value;
 				var pwd = document.getElementsByName('password')[0].value;

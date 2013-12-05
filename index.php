@@ -20,7 +20,7 @@
 				.done(function(data) {
 					$("#cartnum").text(data); //Set number of items in cart
 				})
-				.fail(function() { alert("AJAX FAILED"); });
+				.fail(function() { alert("AJAX FAILED 0"); });
 			});
 
 			function handleLogin() {
@@ -36,7 +36,7 @@
 			    			alert( "Password and/or Username Incorrect" );
 			    		}
 			  	}).fail(function() {
-			    		alert( "AJAX FAILED" );
+			    		alert( "AJAX FAILED 1" );
 			  	});
 			}
 			
