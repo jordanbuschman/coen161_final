@@ -152,16 +152,11 @@ header {
 	box-shadow: 0 0 10px #000000;
 	padding:1em;
 }
-#signup > table {
-	background-color: white;
-	box-shadow: 0 0 10px #000000;
-	padding:0.5em;
-	border-radius: 15px;
+#signup table {
 	width: 100%;
 }
 #usernameText, #passwordText, #password2Text {
 	text-align: right;
-	
 	color: red;
 }
 
