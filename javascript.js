@@ -51,14 +51,20 @@ function showCart(uId) {
 		var cartDiv = document.createElement("div");
 		cartDiv.id = "cart";
 		data.push("<p>Your cart:</p>",
-			"<table>");
+			"<table>",
+			"<tr>",
+			"<th>Item</th>",
+			"<th>Price</th>",
+			"<th>Quantity</th>",
+			"</tr>");
 		for (var i = 0; i < cart.length; i++) {
-			var price = (100 - cart[i]['discount']) * cart[i]['price'] / 100 * cart[i]['count'];
-			total += price;
+			var priceForOne = (100 - cart[i]['discount']) * cart[i]['price'] / 100
+			var priceForAll = priceForOne * cart[i]['count'];
+			total += priceForAll;
 			data.push("<tr>",
-				"<td style='text-align: right'>", cart[i]['count'], " x ", cart[i]['name'], "</td>",
-				"<td>-</td>",
-				"<td>$", price.toFixed(2), "</td>",
+				"<td>", cart[i]['name'], "</td>",
+				"<td>$", priceForOne.toFixed(2), "</td>",
+				"<td><input type='text' size='3' onchange='' value='", cart[i]['count'], "'></input></td>",
 				"</tr>");
 		}
 		data.push("</table>",

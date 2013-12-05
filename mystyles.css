@@ -139,9 +139,16 @@ header {
 	padding: 1em;
 	z-index: 102;
 }
-#signup1, #cart{
+#signup1 {
 	width: 350px;
 	left: 35%;
+}
+#cart {
+	width: 425px;
+	left: 30%;
+}
+#cart table {
+	width: 100%;
 }
 #signup2 {
 	width: 60%;
