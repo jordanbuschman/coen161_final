@@ -28,7 +28,13 @@ CREATE TABLE enrollment (
 	phone VARCHAR(32) NOT NULL,
 	email VARCHAR(32) NOT NULL,
 	cost FLOAT NOT NULL,
+	cardtype VARCHAR(32) NOT NULL,
+	csv INT NOT NULL,
+	expiration DATE NOT NULL,
+	cardholder VARCHAR(40) NOT NULL,
+	cardnumber VARCHAR(16) NOT NULL,
 	PRIMARY KEY (id));
+
 
 CREATE TABLE item (
 	id INT NOT NULL AUTO_INCREMENT,

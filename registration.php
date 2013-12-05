@@ -29,11 +29,16 @@
 	$session = $_POST['session'];
 	$phone = $_POST['phone'];
 	$length = $_POST['length'];
+	$cardtype = $_POST['cardtype'];
+	$csv = $_POST['csv'];
+	$expiration = $_POST['expdate'];
+	$cardholder = $_POST['cardholder'];
+	$cardnumber = $_POST['cardnumber'];
 	$enrolled = 1;
 	$cost = 0;
 	if($length == 1)
 		$cost = 600.00;
-	else
+	else if($length == 2)
 		$cost == 900.00;
 	
 	mysql_connect($host, $sql_username, $sql_password) or die ("Cannot connect to SQL server.");
@@ -44,7 +49,7 @@
 	mysql_query($query);
 	
 	
-	$query = "INSERT INTO $tbl2 (userId, childNum, firstName, lastName, birth, grade, school, sessionNum, sessionLength, phone, email, cost) VALUES ('$id', '$numEnrolled', '$childfirst', '$childlast', '$birth', '$grade', '$school', '$session', '$length', '$phone', '$email', '$cost')";
+	$query = "INSERT INTO $tbl2 (userId, childNum, firstName, lastName, birth, grade, school, sessionNum, sessionLength, phone, email, cost, cardtype, csv, expiration, cardholder, cardnumber) VALUES ('$id', '$numEnrolled', '$childfirst', '$childlast', '$birth', '$grade', '$school', '$session', '$length', '$phone', '$email', '$cost', '$cardtype', '$csv', '$expiration', '$cardholder', '$cardnumber')";
 	/*if($_SESSION['user']->numEnrolled == 0){
 		$numEnrolled = $_SESSION['user']->numEnrolled+1;
 		$query = "UPDATE `user` SET `didEnroll`='$enrolled', `child1first`='$childfirst',`child1last`='$childlast',`child1birth`='$birth',`child1grade`='$grade',`child1school`='$school',`child1session`='$session',`phone`='$phone',`email`='$email',`numEnrolled`='$numEnrolled' WHERE `username` = '$username'";
