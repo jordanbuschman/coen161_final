@@ -27,6 +27,7 @@ CREATE TABLE enrollment (
 	sessionLength INT NOT NULL,
 	phone VARCHAR(32) NOT NULL,
 	email VARCHAR(32) NOT NULL,
+	cost FLOAT NOT NULL,
 	PRIMARY KEY (id));
 
 CREATE TABLE item (
