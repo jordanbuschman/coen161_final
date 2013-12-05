@@ -57,10 +57,12 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 	signup.method = 'post';
 	signup.action = 'registration.php';
 	var data = [];
-	data.push("<div id='left'><h2>Registration Form</h2> Please complete the following information.<br />",
+	data.push("<div id='left' style='margin-top: -20px;'><h2>Registration Form</h2> Please complete the following information.<br />",
 					"<input name='firstName' type='text' size='16' placeholder='Child First Name' id='firstName'/>",
 					"<input name='lastName' type='text' size='16' placeholder='Child Last Name' id='lastName'/><br />",
 					"Birthday: <input name='bdate' type='date' id='bdate'/><br />",
+					"Grade Level: <input name='grade' type='number' size='16' id='grade' min='1' max ='9'/>",
+					"<input name='school' type='text' size='16' placeholder='School Name' id='school'/><br />",
 					"<input name='parentFirstName' type='text' size='16' placeholder='Parent First Name' id='parentfirstName' value='",
 					userfirst,
 					"'/>",
@@ -69,15 +71,17 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 					"'/><br />",
 					"<input name='email' type='email' size='16' placeholder='Email' id='email'/>",
 					"<input name='phone' type='tel' size='16' placeholder='Phone' id='phone'/><br />",
-					"Grade Level: <input name='grade' type='number' size='16' id='grade' min='1' max ='9'/>",
-					"<input name='school' type='text' size='16' placeholder='School Name' id='school'/><br />",
 					"You currently have <strong>",
 					numenrolled,
 					"</strong> child(ren) enrolled.<br />",
 					"Which camp session will your child be attending? <select name='session'><option value='1'>1</option><option value='2'>2</option><option value=3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option></select><br />",
-					"How long will your child attend this session?<br /> <select name='length'><option value='1'>1</option><option value='2'>2</option></select> week(s)<br />",
-					"<input type='submit' name='Submit' value='Enroll' />",
-					
+					"How long will your child attend this session?<br /> <select name='length'><option value='1'>1</option><option value='2'>2</option></select> week(s) ($600 for 1 week, $900 for 2)<br />",
+					"<br /><strong>Payment Information:</strong><br />",
+					"Card Type: <select name='cardtype'><option value='visa'>Visa</option><option value='mastercard'>Mastercard</option><option value=discover'>Discover</option><option value='amex'>AMEX</option></select> CSV: <input name='csv' type='text' size='4' placeholder='CSV' id='csv'/><br />",
+					"Expiration:<input name='expdate' type='date' id='expdate'/> <br />",
+					"<input name='cardholder' type='text' size='16' placeholder='Cardholder Name' id='cardholder'/>",
+					"<input name='cardnumber' type='text' size='16' placeholder='Card Number' id='cardnumber'/><br /> <br />",
+					"<input type='submit' name='Submit' value='Enroll' id='submit' disabled='disabled' />",
 					"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
 					"</div><div id='right'>",
 					/*"Session 1: June 24-June 30<br/>",
@@ -89,7 +93,7 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 					"Session 7: June 24-June 30<br/>",
 					"Session 8: June 24-June 30<br/>",
 					"Session 9: June 24-June 30",*/
-					"<iframe src='http://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles&dates=20140601%2F20140830' style='border: 0' width='600' height='400' frameborder='0' scrolling='no'></iframe>",
+					"<iframe src='http://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles&dates=20140601%2F20140830' style='border: 0' width='600' height='525' frameborder='0' scrolling='no'></iframe>",
 					"</div>");
 	$('#background').fadeTo( "slow" , 0.6, function() {
 		document.body.appendChild(signup);
@@ -97,24 +101,7 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 	});
 }
 
-function displayConfirmation() {
-	var background = document.createElement("div"); //Fade and disable screen by overlaying opaque div to the screen
-	background.id = 'background';
-	document.body.appendChild(background);
-	
-	
-	var signup = document.createElement("div"); //The actual form to fill out to sign up
-	signup.id = 'signup2';
-	var data = [];
-	var potato = 'Poop';
-	data.push("<div> ", 
-				potato,
-				"</div>");
-	$('#background').fadeTo( "slow" , 0.6, function() {
-		document.body.appendChild(signup);
-		$('#signup2').html(data.join(''));
-	});
-}
+
 
 $(document).ready(function() {
 	var validFirstName = false;
@@ -222,3 +209,126 @@ $(document).ready(function() {
 		else $('#create').attr('disabled', 'disabled');
 	});
 });
+
+$(document).ready(function() {
+	var validFirstName = false;
+	var validLastName = false;
+	var validBirth = true;
+	var validEmail = false;
+	var validPhone = false;
+	var validCSV = false;
+	var validExpiration = true;
+	var validCardholder = false;
+	var validCardNumber = false;
+
+	$(document).on('change keyup input', '#firstName', function() { //Check if first name field isn't blank
+		var firstName = $(this).val();
+		var pattern = /\s/;
+		if (firstName.match(pattern) || firstName.trim() == "") //If there is a space in the first name field or the box is empty
+			validFirstName = false;
+		else validFirstName = true;
+
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber){
+			$('#submit').removeAttr('disabled');
+		}
+		else $('#submit').attr('disabled', 'disabled');
+	});
+	$(document).on('change keyup input', '#lastName', function() { //Check if last name field isn't blank
+		var lastName = $(this).val();
+		var pattern = /^([A-Za-z]{2}[ éàëA-Za-z]*)$/;
+		if (!lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+			validLastName = false;
+		else validLastName = true;
+
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber){
+			$('#submit').removeAttr('disabled');
+		}
+		else $('#ssubmit').attr('disabled', 'disabled');
+	});
+
+	$(document).on('change keyup input', '#email', function() { //Check if last name field isn't blank
+		var lastName = $(this).val();
+		var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		if (lastName.trim() == "") //If there is a space in the last name field or the box is empty
+			validEmail = false;
+		else validEmail = true;
+
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber){
+			$('#submit').removeAttr('disabled');
+		}
+		else $('#ssubmit').attr('disabled', 'disabled');
+	});
+	$(document).on('change keyup input', '#phone', function() { //Check if last name field isn't blank
+		var lastName = $(this).val();
+		var pattern = /^\d{10}$/;
+		if (!lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+			validPhone = false;
+		else validPhone = true;
+
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber){
+			$('#submit').removeAttr('disabled');
+		}
+		else $('#ssubmit').attr('disabled', 'disabled');
+	});
+	$(document).on('change keyup input', '#csv', function() { //Check if last name field isn't blank
+		var lastName = $(this).val();
+		var pattern = /^\d{3}$/;
+		if (!lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+			validCSV = false;
+		else validCSV = true;
+
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber){
+			$('#submit').removeAttr('disabled');
+		}
+		else $('#ssubmit').attr('disabled', 'disabled');
+	});
+	/*$(document).on('change keyup input', '#expiration', function() { //Check if last name field isn't blank
+		var lastName = $(this).val();
+		var pattern = /(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/;
+		if (lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+			validExpiration = false;
+		else validExpiration = true;
+
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber){
+			$('#submit').removeAttr('disabled');
+		}
+		else $('#ssubmit').attr('disabled', 'disabled');
+	});*/
+	$(document).on('change keyup input', '#cardholder', function() { //Check if last name field isn't blank
+		var lastName = $(this).val();
+		var pattern = /^([A-Za-z]{2}[ éàëA-Za-z]*)$/;
+		if (!lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+			validCardholder = false;
+		else validCardholder = true;
+
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber){
+			$('#submit').removeAttr('disabled');
+		}
+		else $('#ssubmit').attr('disabled', 'disabled');
+	});
+	$(document).on('change keyup input', '#cardnumber', function() { //Check if last name field isn't blank
+		var lastName = $(this).val();
+		var pattern = /^\d{16}$/;
+		if (!lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+			validCardNumber = false;
+		else validCardNumber = true;
+
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber){
+			$('#submit').removeAttr('disabled');
+		}
+		else $('#ssubmit').attr('disabled', 'disabled');
+	});
+	/*$(document).on('change keyup input', '#bdate', function() { //Check if last name field isn't blank
+		var lastName = $(this).val();
+		var pattern = /\s/;
+		if (lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+			validLastName = false;
+		else validLastName = true;
+
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber){
+			$('#submit').removeAttr('disabled');
+		}
+		else $('#ssubmit').attr('disabled', 'disabled');
+	});*/
+});
+

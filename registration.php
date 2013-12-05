@@ -77,6 +77,15 @@
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
 		<link rel="stylesheet" type="text/css" href="mystyles.css">
+		<style type="text/css">
+		#signup2 {
+	width: 47.5%;
+	margin-left: auto;
+	margin-right: auto;
+	left: 26.25%; 
+	min-width: 40%
+}
+		</style>
 	</head>
 
 	<body>
@@ -84,7 +93,48 @@
 		<script src="javascript.js" ></script>
 
 		<script type="text/javascript">
-		displayConfirmation();
+		$(document).ready(function(){
+			var background = document.createElement("div"); //Fade and disable screen by overlaying opaque div to the screen
+			background.id = 'background';
+			document.body.appendChild(background);
+			/*
+			//userId, childNum, firstName, lastName, birth, grade, school, sessionNum, sessionLength, phone, email, cost;*/
+			
+			
+	
+			var signup = document.createElement("div"); //The actual form to fill out to sign up
+			signup.id = 'signup2';
+			var data = [];
+			var childfirst = "<?php echo $_POST['firstName'];?>";
+			var childlast ="<?php echo $_POST['lastName'];?>";
+			var firstName ="<?php echo $_POST['parentFirstName'];?>";
+			var lastName ="<?php echo $_POST['parentLastName'];?>";
+			var username ="<?php echo $_SESSION['user']->username;?>";
+			var id ="<?php echo $_SESSION['user']->id;?>";
+			var birth ="<?php echo $_POST['bdate'];?>";
+			var email ="<?php echo $_POST['email'];?>";
+			var grade ="<?php echo $_POST['grade'];?>";
+			var school ="<?php echo $_POST['school'];?>";
+			var session ="<?php echo $_POST['session'];?>";
+			var phone ="<?php echo $_POST['phone'];?>";
+			var length ="<?php echo $_POST['length'];?>";
+			var cost ="<?php echo $cost;?>";
+			data.push(
+				"<center><h2>Congratulations! You have registered<span style='color: red;'> ", childfirst,"</span> for Kids Camp!</h2></center>",
+				"<div style='width: 75%; margin-left: auto; margin-right:auto;'><table style='margin-left: auto; margin-right:auto;'>",
+				"<tr>",
+				"<td style='width: 300px;'> Your Name: ", firstName, " ", lastName, "</td><td>Your Child's Name: ", childfirst, " ", childlast, "</td></tr>",
+				"<tr><td> Email: ", email, "</td><td>Birth Date: ", birth, "</td></tr>",
+				"<tr><td> Phone Number: ", phone, "</td><td>School: ", school, "</td></tr>",
+				"<tr><td> Your username: ", firstName, " ", lastName, "</td><td>Grade Number: ", grade, "</td></tr>",
+				"<tr><td><br /></td></tr><br /></table></div>",
+				"<center><h3><span style='color: red;'>", childfirst,"</span> is registered for Session ",session," for ",length," week(s).<br/><br/> Total Cost: $",cost, "</h3></center>"
+				);
+	$('#background').fadeTo( "slow" , 0.6, function() {
+		document.body.appendChild(signup);
+		$('#signup2').html(data.join(''));
+	});
+	});
 			function handleLogin() {
 				var usr = document.getElementsByName('username')[0].value;
 				var pwd = document.getElementsByName('password')[0].value;
@@ -105,6 +155,8 @@
 			function logout() {
 				window.location.href = "logout.php";
 			}
+			
+
 		</script>
 
 		<header>
