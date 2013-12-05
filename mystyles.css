@@ -153,7 +153,6 @@ header {
 	padding:1em;
 }
 #signup > table {
-	/*background-color: rgb(151, 50, 31);*/
 	background-color: white;
 	box-shadow: 0 0 10px #000000;
 	padding:0.5em;
@@ -164,9 +163,6 @@ header {
 	text-align: right;
 	
 	color: red;
-}
-#validUsername, #validPassword, #validPassword2 {
-	/*text-shadow: 0 0 2px #000000;*/
 }
 
 /* Menu CSS */
@@ -205,8 +201,7 @@ header {
 }
 #cssmenu > ul > li > a:hover {
 	font-size: 20px;
-	text-shadow: 0 -1px 2px /*rgb(13, 13, 13)*/ #000000;
-	/*0 0 5px rgb(151, 50, 31);*/
+	text-shadow: 0 -1px 2px #000000;
 }
 /* Image container CSS */
 #boxholder {
