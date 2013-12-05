@@ -44,7 +44,7 @@ function displaySignup() {
 function showCart(uId) {
     $.post( "fetchCart.php", { userId: uId }) //Runs fetchCart.php, which fetches the cart for the userUsername.php
   	.done(function( data ) {
-
+		alert(data);
 	}).fail(function() {
     		alert( "AJAX FAILED" );
   	});
