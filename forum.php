@@ -12,8 +12,10 @@
 
 	<style>
   .rating {
+  	  width:140px;
       overflow: hidden;
       display: inline-block;
+      padding-bottom: 10px;
   }
   .rating-input {
       position: absolute;
@@ -28,16 +30,16 @@
       background: url('images/stars.gif') 0 0;
   }
 
+
 	.rating-star:hover,
 	.rating-star:hover ~ .rating-star,
 	.rating-input:checked ~ .rating-star{
 		background-position: 0 -16px;
 	}
-	
+
 	.rating-input:checked ~ .rating-star {
       	background-position: 0 -32px;
   	}
-
 
 	</style>
 
@@ -49,21 +51,29 @@
 		<script src="javascript.js" ></script>
 
 		<script type="text/javascript">
+			$(document).ready(function() {
+				$.post("getCartCount.php", {userId: <?php echo (isset($_SESSION['user']) ? $_SESSION['user']->id : -1); ?>})
+				.done(function(data) {
+					$("#cartnum").text(data); //Set number of items in cart
+				})
+				.fail(function() { alert("AJAX FAILED"); });
+			});
+
 			function handleLogin() {
 				var usr = document.getElementsByName('username')[0].value;
 				var pwd = document.getElementsByName('password')[0].value;
 			    
 				$.post( "check.php", { username:usr, password:pwd })
-				.done(function( data ) {
+					.done(function( data ) {
 			    		if( data == "T" ){
 			    			//Refresh the page
 			    			window.location = window.location.pathname;
 			    		}else {
 			    			alert( "Password and/or Username Incorrect" );
 			    		}
-			  	}).fail(function() {
+			  		}).fail(function() {
 			    		alert( "AJAX FAILED" );
-			  	});
+			  		});
 			}
 			
 			function logout() {
@@ -73,6 +83,21 @@
  				var countfield = document.getElementById(field2);
  				countfield.value = maxlimit - field.value.length;
 			}
+			
+			function submitComment(){
+				
+				var rating = $('input[name="userRating"]:checked').val(); 
+				var comment = document.getElementById("userReview").value
+				if (comment.length == 0)
+					alert("Please enter a comment");
+
+				$.post( "submitForum.php", { numStars:rating, review:comment })
+					.done(function( data ) {
+			  		}).fail(function() {
+			    		alert( "AJAX FAILED" );
+			  		});
+			}
+
 		</script>
 
 		<header>
@@ -91,8 +116,9 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
-						echo '<span>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</span><br />';
-						echo '<button type="button" onclick="logout();" style="margin-top: 5px;">Logout</button>';
+						echo '<p>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</p>';
+						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
+						echo '<button type="button" onclick="logout();">Logout</button>';
 						echo '</div>';
 					}
 					else {
@@ -152,46 +178,49 @@
 		</section>
 		<section class="centerpage">
 			<?php
-					if(isset($_SESSION['user'])) {
-						echo '<p> YOU LOGGED IN </p>';
-						?>
-							<form action="javascript:submitComment();">
-         						<span class="rating">
-									<input type="radio" class="rating-input"
-        								id="rating-input-1-5" name="rating-input-1">
-        							<label for="rating-input-1-5" class="rating-star"></label>
-        							<input type="radio" class="rating-input"
-        								id="rating-input-1-4" name="rating-input-1">
-        							<label for="rating-input-1-4" class="rating-star"></label>
-        							<input type="radio" class="rating-input"
-        								id="rating-input-1-3" name="rating-input-1">
-        							<label for="rating-input-1-3" class="rating-star"></label>
-        							<input type="radio" class="rating-input"
-        								id="rating-input-1-2" name="rating-input-1">
-        							<label for="rating-input-1-2" class="rating-star"></label>
-            						<input type="radio" class="rating-input"
-        								id="rating-input-1-1" name="rating-input-1">
-        							<label for="rating-input-1-1" class="rating-star"></label>
-								</span>
-         						<table>
-        							<tr><td colspan="5">
-        								<textarea maxlength="512" rows="4" cols="50" 
-        								placeholder="Tell us about your experience with KidzCamp!"
-        								onkeyup="textCounter(this,'counter',512);" ></textarea></td>
-        							</tr>
-        							<tr><td colspan="5">Remaining Characters:
-        								<input disabled  maxlength="2" size="2" value="512" id="counter">
-        								</td>
-        							</tr>
-       								<tr><td colspan="2"><input type="submit" name="submit" value="Comment"></td></tr>
-       							 </table>
-        					</form>
-					<?php
-					}
-					else {
-						echo '<p> Please Log In to submit </p>';
-					}
+				if(!isset($_SESSION['user'])) {
+					echo '<p> Please log in to rate. </p>';
+				} else {
+					if( ! $_SESSION['user']->didEnroll ) {
+						echo '<p> You must enroll in at least one session to rate. </p>';
+					} else {
 				?>
+					<form action="javascript:submitComment();">
+         				<span class="rating">
+         					Rating:
+							<input type="radio" value="5" class="rating-input"
+        						id="userRating-5" name="userRating">
+        					<label for="userRating-5" class="rating-star"></label>
+        					<input type="radio" value="4" class="rating-input"
+        						id="userRating-4" name="userRating">
+        					<label for="userRating-4" class="rating-star"></label>
+        					<input type="radio" value="3" class="rating-input"
+        						id="userRating-3" name="userRating">
+        					<label for="userRating-3" class="rating-star"></label>
+        					<input type="radio" value="2" class="rating-input"
+        						id="userRating-2" name="userRating">
+        					<label for="userRating-2" class="rating-star"></label>
+            				<input type="radio" value="1" class="rating-input"
+        						id="userRating-1" name="userRating">
+        					<label for="userRating-1" class="rating-star"></label>
+							
+						</span>
+         				<table>
+        					<tr><td colspan="5">
+        						<textarea id="userReview" maxlength="512" rows="4" cols="50" 
+        						placeholder="Tell us about your experience with KidzCamp!"
+        						onkeyup="textCounter(this,'counter',512);" ></textarea></td>
+        					</tr>
+        					<tr><td colspan="5">Remaining Characters:
+        						<input disabled  maxlength="2" size="2" value="512" id="counter">
+        						</td>
+        					</tr>
+       						<tr><td colspan="2"><input type="submit" name="submit" value="Comment"></td></tr>
+       					 </table>
+        			</form>
+				<?php 
+				} 
+			} ?>
 		</section>
 	</body>
 </html> 

@@ -1,5 +1,5 @@
 body {
-	line-height: 100%; 
+	line-height: 100%;
 	margin: 100px 0 0 0;
 	width: 100%;
 	font-family: tahoma;
@@ -17,19 +17,6 @@ header {
 	box-shadow: 0 1px 20px #000000;
 	z-index: 100;
 	min-width: 1194px;
-}
-
-#shoppingcart {
-	height: 25px;
-	min-width: 50px;
-	background-color: white;
-	position: fixed;
-	right: 5px;
-	top: 105px;
-	padding-left: 5px;
-	padding-right: 5px;
-	padding-top: 5px;
-	border-radius: 10px;
 }
 #cartnum {
 	color: red;
@@ -78,6 +65,9 @@ header {
 	width: 15%;
 	height: 100px;
 }
+.loginOrWelcome button {
+	margin-top: 5px;
+}
 .loginOrWelcome > form, .loginOrWelcome > div {
 	position: absolute;
 	right: 0;
@@ -93,7 +83,8 @@ header {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 }
-.loginOrWelcome span {
+.loginOrWelcome p {
+	margin: 0;
 	/*color: rgb(151,50,31);*/
 	color: white;
 	font-size: 20px;
@@ -162,7 +153,6 @@ header {
 	padding:1em;
 }
 #signup > table {
-	/*background-color: rgb(151, 50, 31);*/
 	background-color: white;
 	box-shadow: 0 0 10px #000000;
 	padding:0.5em;
@@ -173,9 +163,6 @@ header {
 	text-align: right;
 	
 	color: red;
-}
-#validUsername, #validPassword, #validPassword2 {
-	/*text-shadow: 0 0 2px #000000;*/
 }
 
 /* Menu CSS */
@@ -214,8 +201,7 @@ header {
 }
 #cssmenu > ul > li > a:hover {
 	font-size: 20px;
-	text-shadow: 0 -1px 2px /*rgb(13, 13, 13)*/ #000000;
-	/*0 0 5px rgb(151, 50, 31);*/
+	text-shadow: 0 -1px 2px #000000;
 }
 /* Image container CSS */
 #boxholder {

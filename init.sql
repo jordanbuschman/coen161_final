@@ -49,7 +49,8 @@ CREATE TABLE forum (
 	id INT NOT NULL AUTO_INCREMENT,
 	username VARCHAR(16) NOT NULL,
 	rating INT NOT NULL,
-	review varchar(512) NOT NULL,
+	review VARCHAR(512) NOT NULL,
+	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id));
 
 INSERT INTO user (username, password, firstName, lastName, didEnroll) VALUES ("jbob93", "potato", "Jim", "Bob", 1);
