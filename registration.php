@@ -135,7 +135,7 @@
 				"<tr><td> Your username: ", firstName, " ", lastName, "</td><td>Grade Number: ", grade, "</td></tr>",
 				"<tr><td><br /></td></tr><br /></table></div>",
 				"<center><h3><span style='color: red;'>", childfirst,"</span> is registered for Session ",session," for ",length," week(s).<br/><br/> Total Cost: $",cost, "</h3></center>",
-				"<div style='right: 10px;'><input type='button' value='Finish' onclick='openIndex();' /></div>");
+				"<div style='margin-right: 25px; text-align: right;'><input type='button' value='Finish' onclick='openIndex();' /></div>");
 	$('#background').fadeTo( "slow" , 0.6, function() {
 		document.body.appendChild(signup);
 		$('#signup2').html(data.join(''));
