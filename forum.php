@@ -51,6 +51,14 @@
 		<script src="javascript.js" ></script>
 
 		<script type="text/javascript">
+			$(document).ready(function() {
+				$.post("getCartCount.php", {userId: <?php echo (isset($_SESSION['user']) ? $_SESSION['user']->id : -1); ?>})
+				.done(function(data) {
+					$("#cartnum").text(data); //Set number of items in cart
+				})
+				.fail(function() { alert("AJAX FAILED"); });
+			});
+
 			function handleLogin() {
 				var usr = document.getElementsByName('username')[0].value;
 				var pwd = document.getElementsByName('password')[0].value;
@@ -85,16 +93,9 @@
 
 				$.post( "submitForum.php", { numStars:rating, review:comment })
 					.done(function( data ) {
-			    		if( data == "T" ){
-			    			//Refresh the page
-			    			window.location = window.location.pathname;
-			    		}else {
-			    			alert( "Error" );
-			    		}
 			  		}).fail(function() {
 			    		alert( "AJAX FAILED" );
 			  		});
-			  	*/
 			}
 
 		</script>
@@ -115,8 +116,9 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
-						echo '<span>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</span><br />';
-						echo '<button type="button" onclick="logout();" style="margin-top: 5px;">Logout</button>';
+						echo '<p>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</p>';
+						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
+						echo '<button type="button" onclick="logout();">Logout</button>';
 						echo '</div>';
 					}
 					else {

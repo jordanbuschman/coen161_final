@@ -41,7 +41,14 @@ function displaySignup() {
 		$('#signup').html(data.join(''));
 	});
 }
+function showCart(uId) {
+    $.post( "fetchCart.php", { userId: uId }) //Runs fetchCart.php, which fetches the cart for the userUsername.php
+  	.done(function( data ) {
 
+	}).fail(function() {
+    		alert( "AJAX FAILED" );
+  	});
+}
 function alertLogin() {
 	alert ("Please Login to Register.");
 }

@@ -47,9 +47,10 @@ CREATE TABLE cart (
 	
 CREATE TABLE forum (
 	id INT NOT NULL AUTO_INCREMENT,
-	userId VARCHAR(16) NOT NULL,
+	username VARCHAR(16) NOT NULL,
 	rating INT NOT NULL,
 	review VARCHAR(512) NOT NULL,
+	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id));
 
 INSERT INTO user (username, password, firstName, lastName, didEnroll) VALUES ("jbob93", "potato", "Jim", "Bob", 1);
