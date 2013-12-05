@@ -68,7 +68,7 @@ INSERT INTO user (username, password, firstName, lastName) VALUES ("hKudz", "kud
 INSERT INTO user (username, password, firstName, lastName) VALUES ("adeartola", "Ioe45682", "Andy", "de Artola");
 INSERT INTO user (username, password, firstName, lastName) VALUES ("achung", "asdASD123", "Aaron", "Chung");
 
-INSERT INTO item (location, name, price) VALUES ("potato.jpg", "Potato", 29.99);
+INSERT INTO item (location, name, price) VALUES ("mousepad.jpg", "Mouse Pad", 9.99);
 INSERT INTO item (location, name, price, discount) VALUES ("shirt.jpg", "Shirt", 15.00, 10);
 INSERT INTO item (location, name, price, discount) VALUES ("shotglass.jpg", "Shot Glass", 4.99, 5);
 INSERT INTO item (location, name, price, discount) VALUES ("sweatpants.jpg", "Sweatpants", 4.99, 15);
