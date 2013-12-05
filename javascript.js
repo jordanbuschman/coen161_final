@@ -97,51 +97,19 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 	});
 }
 
-function displayRegistration(userfirst,userlast, numenrolled) {
+function displayConfirmation() {
 	var background = document.createElement("div"); //Fade and disable screen by overlaying opaque div to the screen
 	background.id = 'background';
 	document.body.appendChild(background);
 	
 	
-	var signup = document.createElement("form"); //The actual form to fill out to sign up
+	var signup = document.createElement("div"); //The actual form to fill out to sign up
 	signup.id = 'signup2';
-	signup.method = 'post';
-	signup.action = 'registration.php';
 	var data = [];
-	data.push("<div id='left'><h2>Registration Form</h2> Please complete the following information.<br />",
-					"<input name='firstName' type='text' size='16' placeholder='Child First Name' id='firstName'/>",
-					"<input name='lastName' type='text' size='16' placeholder='Child Last Name' id='lastName'/><br />",
-					"Birthday: <input name='bdate' type='date' id='bdate'/><br />",
-					"<input name='parentFirstName' type='text' size='16' placeholder='Parent First Name' id='parentfirstName' value='",
-					userfirst,
-					"'/>",
-					"<input name='parentLastName' type='text' size='16'  id='parentlastName' value='",
-					userlast,
-					"'/><br />",
-					"<input name='email' type='email' size='16' placeholder='Email' id='email'/>",
-					"<input name='phone' type='tel' size='16' placeholder='Phone' id='phone'/><br />",
-					"Grade Level: <input name='grade' type='number' size='16' id='grade' min='1' max ='9'/>",
-					"<input name='school' type='text' size='16' placeholder='School Name' id='school'/><br />",
-					"You currently have <strong>",
-					numenrolled,
-					"</strong> child(ren) enrolled.<br />",
-					"Which camp session will your child be attending? <select name='session'><option value='1'>1</option><option value='2'>2</option><option value=3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option></select><br />",
-					"How long will your child attend this session?<br /> <select name='length'><option value='1'>1</option><option value='2'>2</option></select> week(s)<br />",
-					"<input type='submit' name='Submit' value='Enroll' />",
-					
-					"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
-					"</div><div id='right'>",
-					/*"Session 1: June 24-June 30<br/>",
-					"Session 2: June 24-June 30<br/>",
-					"Session 3: June 24-June 30<br/>",
-					"Session 4: June 24-June 30<br/>",
-					"Session 5: June 24-June 30<br/>",
-					"Session 6: June 24-June 30<br/>",
-					"Session 7: June 24-June 30<br/>",
-					"Session 8: June 24-June 30<br/>",
-					"Session 9: June 24-June 30",*/
-					"<iframe src='http://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles&dates=20140601%2F20140830' style='border: 0' width='600' height='400' frameborder='0' scrolling='no'></iframe>",
-					"</div>");
+	var potato = 'Poop';
+	data.push("<div> ", 
+				potato,
+				"</div>");
 	$('#background').fadeTo( "slow" , 0.6, function() {
 		document.body.appendChild(signup);
 		$('#signup2').html(data.join(''));
