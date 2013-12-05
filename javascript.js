@@ -50,7 +50,7 @@ function showCart(uId) {
 
 		var cartDiv = document.createElement("div");
 		cartDiv.id = "cart";
-		data.push("<p>Your cart:</p>",
+		data.push("<h3>Your cart:</h3>",
 			"<table>",
 			"<tr>",
 			"<th>Item</th>",
@@ -69,7 +69,8 @@ function showCart(uId) {
 		}
 		data.push("</table>",
 			"<p>Total: $", total.toFixed(2), "</p>",
-			"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />");
+			"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
+			"<input type='button' value='Check out' onclick='' />");
 		
 		var background = document.createElement("div"); //Fade and disable screen by overlaying opaque div to the screen
 		background.id = 'background';
