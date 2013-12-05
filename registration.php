@@ -18,6 +18,7 @@
 	$firstName = $_POST['parentFirstName'];
 	$lastName = $_POST['parentLastName'];
 	$username = $_SESSION['user']->username;
+	$password = $_SESSION['user']->password;
 	$id = $_SESSION['user']->id;
 	$birth = $_POST['bdate'];
 	$email = $_POST['email'];
@@ -54,6 +55,14 @@
 	//$query = "UPDATE `user` SET `child1first`= '$childfirst', `child1last`='$childlast' WHERE `username`= 'adeartola'";*/
 	//$query = "UPDATE  `kidzcamp`.`user` SET  `child1first` =  'Potato' WHERE  `user`.`id` =7";
 	mysql_query($query);
+	
+	$query = "SELECT * FROM $tbl WHERE username='$username' AND password='$password'";	
+	$result = mysql_query($query);
+	
+	$count = mysql_num_rows($result); 
+	$user = mysql_fetch_object($result);
+	$_SESSION["user"] = $user;
+
 
 	header("location: index.php");
 
