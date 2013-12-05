@@ -3,10 +3,10 @@
 <?php
 	session_start();
 
-	/*if (!$_POST['username']){ //Return if you maliciously navigated to the page
+	if (!$_POST['email']){ //Return if you maliciously navigated to the page
 		header("location: index.php");
 		exit;
-	}*/
+	}
 
 	$host = "localhost";
 	$sql_username = "root";
