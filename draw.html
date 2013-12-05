@@ -1,0 +1,86 @@
+<html>
+<script type="text/javascript">
+var canvas;
+var ctx;
+var drawBool = false;
+
+var canvasWidth;
+var canvasHeight;
+
+// Vectoring
+var prevX = 0;
+var prevY = 0;
+var nextX = 0;
+var nextY = 0;
+
+var color = "black"; 
+var radius = 3;
+
+function initializeCanvas() {
+    canvas = document.getElementById('can');
+    ctx = canvas.getContext("2d");
+    canvasWidth = canvas.width;
+    canvasHeight = canvas.height;
+
+	// Listener for moving mouse
+    canvas.addEventListener("mousemove", function (e) {
+        if (drawBool) {
+            prevX = nextX;
+            prevY = nextY;
+            nextX = e.clientX - canvas.offsetLeft;
+            nextY = e.clientY - canvas.offsetTop;
+            
+        	//Draw Vector
+            ctx.beginPath();
+    		ctx.moveTo(prevX, prevY);
+    		ctx.lineTo(nextX, nextY);
+    		ctx.lineWidth = radius;
+    		ctx.strokeStyle = color;
+   	 		ctx.stroke();
+    		ctx.closePath();
+        }
+    }, false);
+    
+    // Listener for mouse click down
+    canvas.addEventListener("mousedown", function (e) {
+        
+        drawBool = true;
+        prevX = nextX;
+        prevY = nextY;
+        nextX = e.clientX - canvas.offsetLeft;
+        nextY = e.clientY - canvas.offsetTop;
+
+    }, false);
+    
+    // Listener for mouse click up
+    canvas.addEventListener("mouseup", function (e) {
+        drawBool = false;
+    }, false);
+
+    
+}
+
+function clearCanvas() {
+    var m = confirm("Want to clear");
+    if (m) {
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        document.getElementById("canvasimg").style.display = "none";
+    }
+}
+
+function save() {
+    window.location = canvas.toDataURL();
+}
+
+</script>
+<body onload="initializeCanvas()">
+    <canvas id="can" width="400" height="400" style="border:2px solid;"></canvas>
+	<br>
+    <label><input type="radio" name="size" value="pencil" checked="checked" onclick="color='black';radius=3;" /> Pencil</label>
+    <label><input type="radio" name="size" value="eraser" onclick="color='white';radius=15;" /> Eraser</label>
+    <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
+    <br>
+    <input type="button" value="Download" id="btn" size="30" onclick="save()" >
+    <input type="button" value="Clear" id="clr" size="23" onclick="clearCanvas()" >
+</body>
+</html>
