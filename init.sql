@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS kidzcamp;
 USE kidzcamp;
 
-DROP TABLE IF EXISTS user, item, cart, forum;
+DROP TABLE IF EXISTS user, item, cart, enrollment, forum;
 
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -10,31 +10,25 @@ CREATE TABLE user (
 	firstName VARCHAR(32) NOT NULL,
 	lastName VARCHAR(32) NOT NULL,
 	didEnroll BOOLEAN DEFAULT 0,
-	child1first varchar(32) NOT NULL,
-	child1last	varchar(32) NOT NULL,
-	child1birth date NOT NULL,
-	child1grade INT NOT NULL,
-	child1school VARCHAR(32) NOT NULL,
-	child1session INT NOT NULL,
-	phone		VARCHAR(32) NOT NULL,
-	email	VARCHAR(32) NOT NULL,
-	school VARCHAR(32) NOT NULL,
-	child2first varchar(32) NOT NULL,
-	child2last	varchar(32) NOT NULL,
-	child2birth date NOT NULL,
-	child2grade INT NOT NULL,
-	child2school VARCHAR(32) NOT NULL,
-	child2session INT NOT NULL,
-	child3first varchar(32) NOT NULL,
-	child3last	varchar(32) NOT NULL,
-	child3birth date NOT NULL,
-	child3grade INT NOT NULL,
-	child3school VARCHAR(32) NOT NULL,
-	child3session INT NOT NULL,
 	numEnrolled INT DEFAULT 0,
 	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id));
 	
+CREATE TABLE enrollment (
+	id INT NOT NULL AUTO_INCREMENT,
+	userId INT NOT NULL,
+	childNum INT NOT NULL,
+	firstName varchar(32) NOT NULL,
+	lastName varchar(32) NOT NULL,
+	birth date NOT NULL,
+	grade INT NOT NULL,
+	school VARCHAR(32) NOT NULL,
+	sessionNum INT NOT NULL,
+	sessionLength INT NOT NULL,
+	phone VARCHAR(32) NOT NULL,
+	email VARCHAR(32) NOT NULL,
+	cost FLOAT NOT NULL,
+	PRIMARY KEY (id));
 
 CREATE TABLE item (
 	id INT NOT NULL AUTO_INCREMENT,
