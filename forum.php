@@ -93,12 +93,6 @@
 
 				$.post( "submitForum.php", { numStars:rating, review:comment })
 					.done(function( data ) {
-			    		if( data == "T" ){
-			    			//Refresh the page
-			    			window.location = window.location.pathname;
-			    		}else {
-			    			alert( "Error" );
-			    		}
 			  		}).fail(function() {
 			    		alert( "AJAX FAILED" );
 			  		});
