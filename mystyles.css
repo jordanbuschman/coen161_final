@@ -113,6 +113,7 @@ header {
 	height: 100%;
 	background-color: white;
 	opacity: 0;
+	z-index: 101;
 }
 #left {
 	padding-left: 10px;
@@ -127,20 +128,27 @@ header {
 	width:65%;
 	float:right;
 }
-#signup2 {
+#signup1, #signup2, #cart {
 	background-color: white;
 	position: fixed;
 	margin-left: auto;
 	margin-right: auto;
-	width: 60%;
-	min-width: 950px;
 	top: 20%;
-	left: 17.5%;
 	border-radius: 15px;
 	box-shadow: 0 0 10px #000000;
-	padding:1em;
+	padding: 1em;
+	z-index: 102;
 }
-#signup1 {
+#signup1, #cart{
+	width: 350px;
+	left: 35%;
+}
+#signup2 {
+	width: 60%;
+	left: 17.5%;
+	min-width: 950px;
+}
+#si {
 	background-color: white;
 	position: fixed;
 	margin-left: auto;
@@ -151,6 +159,7 @@ header {
 	border-radius: 15px;
 	box-shadow: 0 0 10px #000000;
 	padding:1em;
+	z-index: 102;
 }
 #signup table {
 	width: 100%;

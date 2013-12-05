@@ -30,3 +30,5 @@ fetchItems.php: Returns an array containing all of the rows in the item table. T
 addToCart.php: Takes in a user id, item id, and item count to add to a user's cart.
 
 getCartCount.php: Takes in a user id and outputs total items in that user's cart (or 0, if user id is not valid).
+
+fetchCart: Takes in a user id and returns all items in that user's cart, count of those items, and number of items in the cart.

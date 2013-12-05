@@ -43,8 +43,27 @@ function displaySignup() {
 }
 function showCart(uId) {
     $.post( "fetchCart.php", { userId: uId }) //Runs fetchCart.php, which fetches the cart for the userUsername.php
-  	.done(function( data ) {
-		alert(data);
+  	.done(function( encoded ) {
+		var cart = JSON.parse(encoded);
+		var data = [];
+
+		var cartDiv = document.createElement("div");
+		cartDiv.id = "cart"
+		data.push("<p>Your cart:<br/>");
+		for (var i = 0; i < cart.length; i++) {
+			data.push(cart[i]['count'], " x ", cart[i]['name'], "<br/>");
+		}
+		data.push("<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
+			"</p>");
+		
+		var background = document.createElement("div"); //Fade and disable screen by overlaying opaque div to the screen
+		background.id = 'background';
+		document.body.appendChild(background);
+		
+		$('#background').fadeTo( "slow" , 0.6, function() {
+			document.body.appendChild(cartDiv);
+			$('#cart').html(data.join(''));
+		});	
 	}).fail(function() {
     		alert( "AJAX FAILED" );
   	});
@@ -107,7 +126,6 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 		$('#signup2').html(data.join(''));
 	});
 }
-
 
 
 $(document).ready(function() {
