@@ -46,15 +46,31 @@ function showCart(uId) {
   	.done(function( encoded ) {
 		var cart = JSON.parse(encoded);
 		var data = [];
+		var total = 0;
 
 		var cartDiv = document.createElement("div");
-		cartDiv.id = "cart"
-		data.push("<p>Your cart:<br/>");
+		cartDiv.id = "cart";
+		data.push("<h3>Your cart:</h3>",
+			"<table>",
+			"<tr>",
+			"<th>Item</th>",
+			"<th>Price</th>",
+			"<th>Quantity</th>",
+			"</tr>");
 		for (var i = 0; i < cart.length; i++) {
-			data.push(cart[i]['count'], " x ", cart[i]['name'], "<br/>");
+			var priceForOne = (100 - cart[i]['discount']) * cart[i]['price'] / 100
+			var priceForAll = priceForOne * cart[i]['count'];
+			total += priceForAll;
+			data.push("<tr>",
+				"<td>", cart[i]['name'], "</td>",
+				"<td>$", priceForOne.toFixed(2), "</td>",
+				"<td><input type='text' size='3' onchange='' value='", cart[i]['count'], "'></input></td>",
+				"</tr>");
 		}
-		data.push("<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
-			"</p>");
+		data.push("</table>",
+			"<p>Total: $", total.toFixed(2), "</p>",
+			"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
+			"<input type='button' value='Check out' onclick='' />");
 		
 		var background = document.createElement("div"); //Fade and disable screen by overlaying opaque div to the screen
 		background.id = 'background';
