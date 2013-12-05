@@ -41,7 +41,9 @@ function displaySignup() {
 		$('#signup').html(data.join(''));
 	});
 }
-
+function showCart(uId) {
+	alert(uId);
+}
 function alertLogin() {
 	alert ("Please Login to Register.");
 }

@@ -62,7 +62,7 @@
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
 						echo '<p>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</p>';
-						echo '<button type="button" onclick="showCart()">Cart: <span id="cartnum">0</span> item(s)</button>';
+						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
 						echo '<button type="button" onclick="logout();">Logout</button>';
 						echo '</div>';
 					}
