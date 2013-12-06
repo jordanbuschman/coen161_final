@@ -58,17 +58,17 @@ function showCart(uId) {
 			"<th>Quantity</th>",
 			"</tr>");
 		for (var i = 0; i < cart.length; i++) {
-			var priceForOne = (100 - cart[i]['discount']) * cart[i]['price'] / 100
+			var priceForOne = ((100 - cart[i]['discount']) * cart[i]['price'] / 100).toFixed(2);
 			var priceForAll = priceForOne * cart[i]['count'];
 			total += priceForAll;
 			data.push("<tr>",
 				"<td>", cart[i]['name'], "</td>",
-				"<td>$", priceForOne.toFixed(2), "</td>",
-				"<td><input type='text' size='3' onchange='' value='", cart[i]['count'], "'></input></td>",
+				"<td>$<span>", priceForOne, "</span></td>",
+				"<td><input type='text' size='3' onfocusin='javascript: updateOld(", i, ")' onfocusout='javascript:updateCart(", i, ");' value='", cart[i]['count'], "' /></td>",
 				"</tr>");
 		}
 		data.push("</table>",
-			"<p>Total: $", total.toFixed(2), "</p>",
+			"<p>Total: $<span>", total.toFixed(2), "</span></p>",
 			"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
 			"<input type='button' value='Check out' onclick='' />");
 		
@@ -88,6 +88,20 @@ function showCart(uId) {
 	}).fail(function() {
     		alert( "AJAX FAILED" );
   	});
+}
+function updateOld(index) {
+	quantity = $('#cart tr:eq(' + (index + 1) + ') td:eq(' + 2 + ') input');
+	quantity.data("oldVal", quantity.val());
+}
+function updateCart(index) {
+	var row = $('#cart tr:eq(' + (index + 1) + ')');
+	var item = $('#cart tr:eq(' + (index + 1) + ') td:eq(' + 0 + ')');
+	var price = $('#cart tr:eq(' + (index + 1) + ') td:eq(' + 1 + ') span');
+	var quantity = $('#cart tr:eq(' + (index + 1) + ') td:eq(' + 2 + ') input');
+	var total = $('#cart > p > span');
+
+	var newTotal = (total.html() - price.html() * (quantity.data("oldVal") - quantity.val())).toFixed(2);
+	total.html((isNaN(newTotal) || newTotal < 0 || quantity.val() < 0) ? 0.00 : newTotal);
 }
 function alertLogin() {
 	alert ("Please Login to continue.");
