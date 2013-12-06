@@ -133,7 +133,7 @@ function checkOut2(uId, total) {
 		}).fail(function() {
 			alert( "AJAX FAILED" );
 		});
-	alert("Thank you for your purchace! Your item(s) should arrive within 8-10 business days.");
+	alert("Thank you for your purchase! Your item(s) should arrive within 8-10 business days.");
 }
 function alertLogin() {
 	alert ("Please Login to continue.");
