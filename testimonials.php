@@ -158,7 +158,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage">
+		<section class="centerpage" style="min-width: 600px; width:600px; font-size: 18px; line-height: 20px;">
 		<h1> Testimonials and Reviews </h1>
 		<?php
 
@@ -187,11 +187,11 @@
 	$i = 1;
 	
 	while($row = mysql_fetch_assoc($result)){
-		echo "<strong>";
+		echo "&nbsp&nbsp&nbsp&nbsp<strong>";
 		echo $row['username'];
 		echo "</strong> gives a rating of <strong>";
 		echo $row['rating'];
-		echo "</strong> and says:<br /> &nbsp&nbsp&nbsp&nbsp''";
+		echo "</strong> and says:<br /> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp''";
 		echo $row['review'];
 		echo "'' <br /><br />";
 	}

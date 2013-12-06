@@ -77,3 +77,7 @@ INSERT INTO item (location, name, price) VALUES ("laptopbag.jpg", "Laptop Case",
 INSERT INTO item (location, name, price, discount) VALUES ("pencils.jpg", "Pencils", 1.99, 15);
 
 INSERT INTO forum (username, rating, review) VALUES ("achung", 5, "Wow. Such Camp. Much Website.");
+INSERT INTO forum (username, rating, review) VALUES ("adeartola", 4, "Kidz Camp is a great place to learn about computers. The staff is great and really take an interest in all the kids.");
+INSERT INTO forum (username, rating, review) VALUES ("hsolo", 3, "I can't complain when it comes to Kidz Camp. However my only suggestion is that they add more emphasis on space and other worlds.");
+INSERT INTO forum (username, rating, review) VALUES ("joshBrah", 4, "Dude, this camp is totally cool. Learned some great stuff from the raddest camp counselors out there! Right on brah!");
+INSERT INTO forum (username, rating, review) VALUES ("jbob93", 5, "Kidz Camp really knows how to please parents and kids. They offer the most interactive activities and allow for kids to express themselves. Keep it up Kidz Camp.");
