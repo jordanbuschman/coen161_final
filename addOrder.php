@@ -15,6 +15,6 @@
 	mysql_connect($host, $sql_username, $sql_password) or die ("Cannot connect to SQL server.");
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
 
-	$query = "INSERT INTO $tbl (userId, total, creditCard, csv) VALUES ($userId, $total, $creditCard, $csv)";
+	$query = "INSERT INTO $tbl (userId, total, cardnumber, CSV) VALUES ('$userId', '$total', '$creditCard', '$csv')";
 	mysql_query($query);
 ?>
