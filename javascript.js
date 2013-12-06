@@ -79,6 +79,11 @@ function showCart(uId) {
 		$('#background').fadeTo( "slow" , 0.6, function() {
 			document.body.appendChild(cartDiv);
 			$('#cart').html(data.join(''));
+
+			if (cart.length == 0)
+				$('#cart input').last().attr('disabled', 'disabled');
+			else
+				$('#cart input').last().removeAttr('disabled');
 		});	
 	}).fail(function() {
     		alert( "AJAX FAILED" );
