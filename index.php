@@ -82,7 +82,14 @@
 	  				<li><a href='index.php'><span style="color: yellow">Home</span></a></li>
 					<li><a href='camp.php'><span style="color: red">The Camp</span></a></li>
 					<li><a href='shop.php'><span style="color: green">Shop</span></a></li>
-					<li><a href='forum.php'><span style="color: blue">The Forum</span></a></li>
+					<li><?php
+					if(isset($_SESSION['user'])) {
+						echo '<a href="account.php"><span style="color: blue">Your Account</span></a></li>';
+					}
+					else {
+						echo '<a href="javascript:alertLogin()"><span style="color: blue">Your Account</span></a>';
+					}
+					?></li>
 				</ul>
 			</div>
 			<div class="loginOrWelcome">
@@ -149,6 +156,15 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage"><div id="map1" style="width: 900px; height: 400px;"></div></section>
+		<section class="centerpage">
+		<div id="left1" style="float: left; width: 600px; margin-left: 25px;">
+		<h1>Welcome to KidzCamp!</h1>
+		<p>KidzCamp Inc. is an organization that offers educational summer camps for children aged 10-14. Our camps our offered during the summer and each session lasts 2 weeks, although you can attend our shorter 1 week camp for a discounted price. </p>
+		<p>We aim to give our participants an experience they will cherish and lessons that will help them grow and succeed. Here at KidzCamp we focus on teaching kids the importance of computers in our lives as well as teaching them valuable skills in Computer Science.</p>
+		<p>All of our camps are hosted at universities throughout California. The map to the right shows where we currently offer camps.</p>
+		<p>We invite you to navigate through our site where you have the opportunity to <span style="color:red;">Sign-Up</span> and <span style="color:red;">Register</span> your child, Look through our online catalog, leave comments and suggestions, and even take a look at some of the activities we offer at the camp.</p>
+		</div>
+		<div id="map1" style="width: 600px; height: 400px; float:right;">
+		</div></section>
 	</body>
 </html> 

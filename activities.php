@@ -2,7 +2,9 @@
 	session_start();
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html
+		PUBLIC "-//W3C//DTD HTML 4.01//EN"
+		"http://www.w3.org/TR/html4/strict.dtd">
 	<html lang="en">
 	<head>
 		<meta charset="utf-8"/>
@@ -11,6 +13,7 @@
 		<script src="draw.js" ></script>
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="javascript.js" ></script>
+		<link rel="icon" href="images/flavicon.png" type="image/x-icon" />
 	</head>
 	
 	<body onload="initializeCanvas()">

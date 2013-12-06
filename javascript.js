@@ -90,7 +90,7 @@ function showCart(uId) {
   	});
 }
 function alertLogin() {
-	alert ("Please Login to Register.");
+	alert ("Please Login to continue.");
 }
 
 function displayRegistration(userfirst,userlast, numenrolled) {
