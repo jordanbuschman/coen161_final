@@ -42,6 +42,8 @@
 	else {
 		$cost == 900.00;
 	}
+	if($numEnrolled = $_SESSION['user']->numEnrolled > 0)
+		$cost = $cost * .90;
 	mysql_connect($host, $sql_username, $sql_password) or die ("Cannot connect to SQL server.");
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
 	
@@ -134,7 +136,7 @@
 				"<tr><td> Phone Number: ", phone, "</td><td>School: ", school, "</td></tr>",
 				"<tr><td> Your username: ", firstName, " ", lastName, "</td><td>Grade Number: ", grade, "</td></tr>",
 				"<tr><td><br /></td></tr><br /></table></div>",
-				"<center><h3><span style='color: red;'>", childfirst,"</span> is registered for Session ",session," for ",length," week(s).<br/><br/> Total Cost: $",cost, "</h3></center>",
+				"<center><h3><span style='color: red;'>", childfirst,"</span> is registered for Session ",session," for ",length," week(s).<br/><br/> Total Cost: $",cost, ".00</h3></center>",
 				"<div style='margin-right: 25px; text-align: right;'><input type='button' value='Finish' onclick='openIndex();' /></div>");
 	$('#background').fadeTo( "slow" , 0.6, function() {
 		document.body.appendChild(signup);
