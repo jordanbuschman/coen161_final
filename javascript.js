@@ -122,7 +122,7 @@ function checkOut2(uId, total) {
 	var creditCard = $('#checkoutCreditCard').val();
 	var csv = $('#checkoutCsv').val();
 
-	$.post( "addOrder.php", { userId:uId, creditCart:creditCard, csv:csv, total:total})
+	$.post( "addOrder.php", { userId:uId, creditCard:creditCard, csv:csv, total:total})
 		.done(function( data ) {
 			$.post( "deleteCart.php", { userId:uId })
 				.done(function( data ) {
