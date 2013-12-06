@@ -13,7 +13,7 @@
 		<script src="histogram.js" type="text/javascript" ></script>
 	</head>
 
-	<body>
+	<body onload="initHistogram();">
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$.post("getCartCount.php", {userId: <?php echo (isset($_SESSION['user']) ? $_SESSION['user']->id : -1); ?>})

@@ -12,15 +12,17 @@
  		//For window resize
         var smallestWidth = 525;
  		
-		$.post("fetchEnrollment.php") 
-		.done(function(data) {
-			var parsedData = JSON.parse(data);
-			dataPerWeek.push.apply(dataPerWeek, parsedData);
-			numWeeks = dataPerWeek.length;
-			displayData();
-		})		
-		.fail(function() { alert("AJAX FAILED"); });       
-
+ 		function initHistogram(){
+			$.post("fetchEnrollment.php") 
+			.done(function(data) {
+				var parsedData = JSON.parse(data);
+				dataPerWeek.push.apply(dataPerWeek, parsedData);
+				numWeeks = dataPerWeek.length;
+				displayData();
+			})		
+			.fail(function() { alert("AJAX FAILED"); });       
+		}
+		
 		// resizes canvas on window resize
         window.onresize = function(event) {
         		displayData()
