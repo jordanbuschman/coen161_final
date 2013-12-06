@@ -58,6 +58,14 @@ CREATE TABLE forum (
 	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id));
 
+CREATE TABLE orderHistory (
+	id INT NOT NULL AUTO_INCREMENT,
+	userId INT NOT NULL,
+	itemString VARCHAR(32) NOT NULL,
+	total INT NOT NULL,
+	cardnumber INT NOT NULL,
+	CSV INT NOT NULL);
+
 INSERT INTO user (username, password, firstName, lastName, didEnroll) VALUES ("jbob93", "potato", "Jim", "Bob", 1);
 INSERT INTO user (username, password, firstName, lastName) VALUES ("maryyyyyy32", "myname15Mary", "Mary", "Doe");
 INSERT INTO user (username, password, firstName, lastName) VALUES ("josh123", "slimShady", "Josh", "Sims");

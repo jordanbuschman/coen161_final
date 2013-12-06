@@ -70,7 +70,7 @@ function showCart(uId) {
 		data.push("</table>",
 			"<p>Total: $<span>", total.toFixed(2), "</span></p>",
 			"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
-			"<input id='checkOut' type='button' value='Check out' />");
+			"<input id='checkOut' type='button' value='Check out' onclick='javascript: checkOut1()' />");
 		
 		var background = document.createElement("div"); //Fade and disable screen by overlaying opaque div to the screen
 		background.id = 'background';
@@ -111,6 +111,12 @@ function updateCart(index, uId, iId) {
 			alert( "AJAX FAILED" );
 		});
 }
+function checkOut1() {
+	$('#checkOut').attr('disabled', 'disabled');	
+
+	$('#cart').append('<div>Credit Card number <input size="16" id="checkoutCreditCard" maxlength="16"/><input size="4" id="checkoutCsv" maxlength="4" placeholder="CSV"/></div><br/>');
+	$('#cart').append('<input id="purchace" type="button" disabled="disabled" value="Place purchace"/>');
+}
 function alertLogin() {
 	alert ("Please Login to continue.");
 }
@@ -139,7 +145,7 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 					userlast,
 					"'/><br />",
 					"<input name='email' type='email' size='16' placeholder='Email' id='email'/>",
-					"<input name='phone' type='tel' size='16' maxlength='10' placeholder='Phone' id='phone'/><br />",
+					"<input name='phone' type='tel' size='16' maxlength='10' placeholder='Phone' id='phone'/>",
 					"You currently have <strong><input hidden id='numenroll' value='",numenrolled,"' />",
 					numenrolled,
 					"</strong> child(ren) enrolled.<br />",
