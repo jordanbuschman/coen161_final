@@ -8,7 +8,7 @@
 	$tbl = "orderHistory";
 
 	$userId = $_POST['userId'];
-	$creditCard = $_POST['creditCard'];
+	$creditCard = (string)$_POST['creditCard'];
 	$csv = $_POST['csv'];
 	$total = $_POST['total'];
 

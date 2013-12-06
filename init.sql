@@ -62,7 +62,7 @@ CREATE TABLE orderHistory (
 	id INT NOT NULL AUTO_INCREMENT,
 	userId INT NOT NULL,
 	total FLOAT(24, 2) NOT NULL,
-	cardnumber INT NOT NULL,
+	cardnumber VARCHAR(16) NOT NULL,
 	CSV INT NOT NULL,
 	PRIMARY KEY (id));
 
