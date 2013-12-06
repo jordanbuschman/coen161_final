@@ -184,11 +184,12 @@
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
 	$query = "SELECT * FROM $tbl2 WHERE `userId`='$id'";
 	$result = mysql_query($query);
-	if (!$result){
-		echo "You have no children enrolled!";
+	echo "<table><tr><td style='width=150px;'><strong>Your name:</strong></td> <td style='text-align: right;'>$namef $namel </td></tr><tr><td><strong>Username:</strong></td> <td style='text-align: right;'>$username</td></tr><tr><td><strong>Num Enrolled:</strong></td> <td style='text-align: right;'>$nume</td></tr></table> <br />";
+	if ($nume <1){
+		echo "<h1>You have no children enrolled!</h1>";
 	}
 	$i = 1;
-	echo "<table><tr><td style='width=150px;'><strong>Your name:</strong></td> <td style='text-align: right;'>$namef $namel </td></tr><tr><td><strong>Username:</strong></td> <td style='text-align: right;'>$username</td></tr><tr><td><strong>Num Enrolled:</strong></td> <td style='text-align: right;'>$nume</td></tr></table> <br />";
+	
 	while($row = mysql_fetch_assoc($result)){
 		$bday = (string)$row['birth'];
 		echo "Child $i : <br /><table class='accountinfo'><tr><th>Name:</th><td> ";

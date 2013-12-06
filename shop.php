@@ -113,7 +113,14 @@
 	  				<li><a href='index.php'><span style="color: yellow">Home</span></a></li>
 					<li><a href='camp.php'><span style="color: red">The Camp</span></a></li>
 					<li><a href='shop.php'><span style="color: green">Shop</span></a></li>
-					<li><a href='forum.php'><span style="color: blue">The Forum</span></a></li>
+					<li><?php
+					if(isset($_SESSION['user'])) {
+						echo '<a href="account.php"><span style="color: blue">Your Account</span></a></li>';
+					}
+					else {
+						echo '<a href="javascript:alertLogin()"><span style="color: blue">Your Account</span></a>';
+					}
+					?></li>
 				</ul>
 			</div>
 			<div class="loginOrWelcome">
