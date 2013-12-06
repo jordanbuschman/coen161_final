@@ -41,6 +41,18 @@
 					$.post( "addToCart.php", { userId: userId, itemId: itemId, count: qty })
 					.done(function( data ) {
 						//Append "added to cart" to screen
+						var background = document.createElement("div"); //Fade and disable screen by overlaying opaque div to the screen
+						background.id = 'background';
+						background.style.backgroundColor = 'green';
+						document.body.appendChild(background);
+						$('#background').hide();
+
+						$('#background').fadeTo( "fast" , 0.3, function() {
+							$('#background').fadeTo( "fast" , 0.0, function() {
+								$('#background').remove();
+							});
+						});
+
 						$("#cartnum").text(parseInt($("#cartnum").text()) + parseInt(qty)); //Change number of things in cart
 			  		}).fail(function() {
 			  	  		alert( "AJAX FAILED" );
