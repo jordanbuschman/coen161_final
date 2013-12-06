@@ -126,13 +126,14 @@ function checkOut2(uId, total) {
 		.done(function( data ) {
 			$.post( "deleteCart.php", { userId:uId })
 				.done(function( data ) {
+					alert("Thank you for your purchase! Your item(s) should arrive within 8-10 business days.");
+					window.location = "index.php";
 				}).fail(function() {
 					alert( "AJAX FAILED" );
 				});
 		}).fail(function() {
 			alert( "AJAX FAILED" );
 		});
-	alert("Thank you for your purchase! Your item(s) should arrive within 8-10 business days.");
 }
 function alertLogin() {
 	alert ("Please Login to continue.");
