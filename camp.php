@@ -8,12 +8,12 @@
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
 		<link rel="stylesheet" type="text/css" href="mystyles.css">
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="javascript.js" type="text/javascript" ></script>
+		<script src="histogram.js" type="text/javascript" ></script>
 	</head>
 
-	<body>
- 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script src="javascript.js" ></script>
-
+	<body onload="displayData()">
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$.post("getCartCount.php", {userId: <?php echo (isset($_SESSION['user']) ? $_SESSION['user']->id : -1); ?>})
@@ -127,8 +127,12 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage"><iframe src="http://www.google.com/calendar/embed?src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles" 
-style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></section>
+		<section class="centerpage">
+			<iframe src="http://www.google.com/calendar/embed?src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles" 
+				style="border: 0; float:left;" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
+  			<h2 style="padding-left:60%" >Number of Students Enrolled</h2>
+  			<canvas style="border: 0; float:right;" width="540px" height="550px" id="histogram"></canvas>
+    	</section>
 	</body>
 </html> 
 
