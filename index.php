@@ -8,21 +8,25 @@
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
 		<link rel="stylesheet" type="text/css" href="mystyles.css">
+		<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 	</head>
 
 	<body>
  		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="javascript.js" ></script>
-		<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-		<script src="maplocations.js" type="text/javascript"></script>	
+
 
 		<script type="text/javascript">
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 2,
+				center: new google.maps.LatLng(15, 15),
+			});
 			$(document).ready(function() {
 				$.post("getCartCount.php", {userId: <?php echo (isset($_SESSION['user']) ? $_SESSION['user']->id : -1); ?>})
 				.done(function(data) {
 					$("#cartnum").text(data); //Set number of items in cart
 				})
-				.fail(function() { alert("AJAX FAILED 0"); });
+				.fail(function() { alert("AJAX FAILED"); });
 			});
 
 			function handleLogin() {
@@ -45,11 +49,6 @@
 			function logout() {
 				window.location.href = "logout.php";
 			}
-			var map = new google.maps.Map(document.getElementById('map'), {
-			zoom: 2,
-			center: new google.maps.LatLng(15, 15),
-			mapTypeId: google.maps.MapTypeId.TERRAIN
-			});
 		</script>
 
 		<header>
@@ -128,6 +127,6 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage"><div id="map" style="width: 900px; height: 350px;"></div></section>
+		<section class="centerpage"><div id="map"></div></section>
 	</body>
 </html> 

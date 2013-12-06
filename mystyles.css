@@ -22,7 +22,15 @@ header {
 	color: red;
 	text-decoration: strong;
 }
-
+div#map
+{
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 10px 10px 40px #000;
+	border-radius: 20px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
 .centerpage
 { 
 	margin-top: 40px;
