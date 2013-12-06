@@ -107,7 +107,6 @@ function updateCart(index, uId, iId) {
 	var qty = quantity.val();
 	$.post( "updateCart.php", { userId:uId, itemId:iId, count:qty })
 		.done(function( data ) {
-			alert(data);
 		}).fail(function() {
 			alert( "AJAX FAILED" );
 		});
