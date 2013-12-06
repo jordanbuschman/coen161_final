@@ -141,7 +141,7 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 					"<strong>Payment Information:</strong><br />",
 					"Card Type: <select name='cardtype'><option value='visa'>Visa</option><option value='mastercard'>Mastercard</option><option value=discover'>Discover</option><option value='amex'>AMEX</option></select> CSV: <input name='csv' type='text' size='4' maxlength='4' placeholder='CSV' id='csv'/><br />",
 					"Expiration:<input name='expdate' type='date' id='expdate' placeholder='mm/dd/yyyy'/> <br />",
-					"<input name='cardholder' type='text' size='16' maxlength='16' placeholder='Cardholder Name' id='cardholder'/>",
+					"<input name='cardholder' type='text' size='16' placeholder='Cardholder Name' id='cardholder'/>",
 					"<input name='cardnumber' type='text' size='16' maxlength='16' placeholder='Card Number' id='cardnumber'/><br /> <br />",
 					"<input type='submit' name='Submit' value='Enroll' id='submit' disabled='disabled' />",
 					"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
