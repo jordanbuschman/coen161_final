@@ -26,7 +26,13 @@ table.accountinfo {
 	border: 1px solid black;
 	width: 1px;
 }
-
+#maps {
+	width: 250px;
+	height: 35px;
+	color: blue;
+	font-size: 14px;
+	
+}
 
 div#map1
 {
