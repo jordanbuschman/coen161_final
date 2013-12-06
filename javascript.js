@@ -102,7 +102,7 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 	data.push("<div id='left' style='margin-top: -20px;'><h2>Registration Form</h2> Please complete the following information.<br />",
 					"<input name='firstName' type='text' size='16' placeholder='Child First Name' id='firstName'/>",
 					"<input name='lastName' type='text' size='16' placeholder='Child Last Name' id='lastName'/><br />",
-					"Birthday: <input name='bdate' type='date' id='bdate'/><br />",
+					"Birthday: <input name='bdate' type='date' id='bdate' placeholder='mm/dd/yyyy'/><br />",
 					"Grade Level: <input name='grade' type='number' size='16' id='grade' min='4' max ='9'/>",
 					"<input name='school' type='text' size='16' placeholder='School Name' id='school'/><br />",
 					"<input name='parentFirstName' type='text' size='16' placeholder='Parent First Name' id='parentfirstName' value='",
@@ -121,7 +121,7 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 					"<div id='currentcost' style='color: red'><br /></div>",
 					"<strong>Payment Information:</strong><br />",
 					"Card Type: <select name='cardtype'><option value='visa'>Visa</option><option value='mastercard'>Mastercard</option><option value=discover'>Discover</option><option value='amex'>AMEX</option></select> CSV: <input name='csv' type='text' size='4' placeholder='CSV' id='csv'/><br />",
-					"Expiration:<input name='expdate' type='date' id='expdate'/> <br />",
+					"Expiration:<input name='expdate' type='date' id='expdate' placeholder='mm/dd/yyyy'/> <br />",
 					"<input name='cardholder' type='text' size='16' placeholder='Cardholder Name' id='cardholder'/>",
 					"<input name='cardnumber' type='text' size='16' placeholder='Card Number' id='cardnumber'/><br /> <br />",
 					"<input type='submit' name='Submit' value='Enroll' id='submit' disabled='disabled' />",
@@ -136,7 +136,7 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 					"Session 7: June 24-June 30<br/>",
 					"Session 8: June 24-June 30<br/>",
 					"Session 9: June 24-June 30",*/
-					"<iframe src='http://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles&dates=20140601%2F20140830' style='border: 0' width='600' height='525' frameborder='0' scrolling='no'></iframe>",
+					"<center>We appreciate your interest in KidzCamp. The calendar below shows the next sessions we have. Please fill out the form on the left with your child's information (Your information has been autofilled). All fields are required!</center><br /><iframe src='http://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles&dates=20140601%2F20140830' style='border: 0' width='600' height='500' frameborder='0' scrolling='no'></iframe>",
 					"</div>");
 	$('#background').fadeTo( "slow" , 0.6, function() {
 		document.body.appendChild(signup);
