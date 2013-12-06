@@ -28,11 +28,11 @@
 	$sql = mysql_query($query);
 	$result = array();
 	for ($i = 0; $i<7; $i++){
-		$result[i]=0;	
+		$result[] = 0;	
 	}
 	while($row = mysql_fetch_assoc($sql)){
-		$temp= $row['sessionNum'];
-		$result[temp] += 1
+		$temp = $row['sessionNum'];
+		$result[$temp] += 1;
 	}
 	
 	echo json_encode($result);

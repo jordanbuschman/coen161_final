@@ -1,14 +1,6 @@
- var dataPerWeek = [ 50 ,45 , 30 ,60, 50, 2, 5 ];
- 		
-		$.post("fetchEnrollment.php") 
-		.done(function(data) {
-			alert(data);
-			var parsedData = JSON.parse(data);
-			
-		})
-		.fail(function() { alert("AJAX FAILED"); });
- 		
- 		var numWeeks = dataPerWeek.length;
+ 		//var dataPerWeek = [ 50 ,45 , 30 ,60, 50, 2, 5 ];
+ 		var dataPerWeek = new Array();
+ 		var numWeeks;
         var maxY = 60;
         var stepSize = 10;
     	var topPadding = 50;
@@ -17,8 +9,19 @@
         var yName = "Students";
         var xName = "Session";
         
-        //For window resize
+ 		//For window resize
         var smallestWidth = 525;
+ 		
+		$.post("fetchEnrollment.php") 
+		.done(function(data) {
+			alert(data);
+			var parsedData = JSON.parse(data);
+			dataPerWeek.push.apply(dataPerWeek, parsedData);
+			numWeeks = dataPerWeek.length;
+			displayData();
+		})		
+		.fail(function() { alert("AJAX FAILED"); });       
+
         
         window.onresize = function(event) {
         		displayData()

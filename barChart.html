@@ -9,9 +9,9 @@
  		
 		$.post("fetchEnrollment.php") 
 		.done(function(data) {
-			alert(data);
 			var parsedData = JSON.parse(data);
-			
+			alert(data);
+			displayData();
 		})
 		.fail(function() { alert("AJAX FAILED"); });
  		
