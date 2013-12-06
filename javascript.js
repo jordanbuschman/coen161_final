@@ -70,7 +70,7 @@ function showCart(uId) {
 		data.push("</table>",
 			"<p>Total: $<span>", total.toFixed(2), "</span></p>",
 			"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
-			"<input id='checkOut' type='button' value='Check out' onclick='javascript: checkOut1()' />");
+			"<input id='checkOut' type='button' value='Check out' onclick='javascript: checkOut1(", uId, ", ", total, ")' />");
 		
 		var background = document.createElement("div"); //Fade and disable screen by overlaying opaque div to the screen
 		background.id = 'background';
@@ -111,11 +111,29 @@ function updateCart(index, uId, iId) {
 			alert( "AJAX FAILED" );
 		});
 }
-function checkOut1() {
+function checkOut1(uId, total) {
 	$('#checkOut').attr('disabled', 'disabled');	
 
 	$('#cart').append('<div>Credit Card number <input size="16" id="checkoutCreditCard" maxlength="16"/><input size="4" id="checkoutCsv" maxlength="4" placeholder="CSV"/></div><br/>');
-	$('#cart').append('<input id="purchace" type="button" disabled="disabled" value="Place purchace"/>');
+	var text = '<input id="purchace" type="button" value="Place purchace" onclick="javascript: checkOut2(' + uId + ', ' + total + ')" />';
+	$('#cart').append(text);
+}
+function checkOut2(uId, total) {
+	var creditCard = $('#checkoutCreditCard').val();
+	var csv = $('#checkoutCsv').val();
+	alert(total);
+
+	$.post( "addOrder.php", { userId:uId, creditCart:creditCard, csv:csv, total:total})
+		.done(function( data ) {
+			$.post( "deleteCart.php", { userId:uId })
+				.done(function( data ) {
+				}).fail(function() {
+					alert( "AJAX FAILED" );
+				});
+		}).fail(function() {
+			alert( "AJAX FAILED" );
+		});
+	alert("Thank you for your purchace! Your item(s) should arrive within 8-10 business days.");
 }
 function alertLogin() {
 	alert ("Please Login to continue.");

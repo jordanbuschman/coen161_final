@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS kidzcamp;
 USE kidzcamp;
 
-DROP TABLE IF EXISTS user, item, cart, enrollment, forum;
+DROP TABLE IF EXISTS user, item, cart, enrollment, forum, orderHistory;
 
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -61,10 +61,10 @@ CREATE TABLE forum (
 CREATE TABLE orderHistory (
 	id INT NOT NULL AUTO_INCREMENT,
 	userId INT NOT NULL,
-	itemString VARCHAR(32) NOT NULL,
-	total INT NOT NULL,
+	total FLOAT(24, 2) NOT NULL,
 	cardnumber INT NOT NULL,
-	CSV INT NOT NULL);
+	CSV INT NOT NULL,
+	PRIMARY KEY (id));
 
 INSERT INTO user (username, password, firstName, lastName, didEnroll) VALUES ("jbob93", "potato", "Jim", "Bob", 1);
 INSERT INTO user (username, password, firstName, lastName) VALUES ("maryyyyyy32", "myname15Mary", "Mary", "Doe");
