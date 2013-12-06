@@ -115,7 +115,7 @@ function checkOut1(uId, total) {
 	$('#checkOut').attr('disabled', 'disabled');	
 
 	$('#cart').append('<div>Credit Card number <input size="16" id="checkoutCreditCard" maxlength="16"/><input size="4" id="checkoutCsv" maxlength="4" placeholder="CSV"/></div><br/>');
-	var text = '<input id="purchace" type="button" value="Place purchace" onclick="javascript: checkOut2(' + uId + ', ' + total + ')" />';
+	var text = '<input id="purchace" type="button" value="Place purchace" disabled="disabled" onclick="javascript: checkOut2(' + uId + ', ' + total + ')" />';
 	$('#cart').append(text);
 }
 function checkOut2(uId, total) {
@@ -325,6 +325,8 @@ $(document).ready(function() {
 	var validCardNumber = false;
 	var validLength = false;
 	var validBirthday = false;
+	var validCheckoutCreditCard = false;
+	var validCheckoutCsv = false;
 	
 	$(document).bind('change keyup input', '#length', function() {
 	var length1 = $('#length').val();
@@ -496,5 +498,39 @@ $(document).ready(function() {
 		}
 		else $('#ssubmit').attr('disabled', 'disabled');
 	});
+	$(document).on('change keyup input', '#checkoutCreditCard', function() {
+		var creditCard = $(this).val();
+		var pattern = /^\d{16}$/;
+		if (creditCard.match(pattern)) {
+			$('#checkoutCreditCard').css("background-color", "green");
+			validCheckoutCreditCard = true;
+		}
+		else {
+			$('#checkoutCreditCard').css("background-color", "red");
+			validCheckoutCreditCard = false;
+		}
+
+		if (validCheckoutCreditCard && validCheckoutCsv) {
+			$('#purchace').removeAttr('disabled');
+		}
+		else $('#purchace').attr('disabled', 'disabled');
+	})
+	$(document).on('change keyup input', '#checkoutCsv', function() {
+		var csv = $(this).val();
+		var pattern = /^\d{3,}$/;
+		if (csv.match(pattern)) {
+			$('#checkoutCsv').css("background-color", "green");
+			validCheckoutCsv = true;
+		}
+		else {
+			$('#checkoutCsv').css("background-color", "red");
+			validCheckoutCsv = false;
+		}
+
+		if (validCheckoutCreditCard && validCheckoutCsv) {
+			$('#purchace').removeAttr('disabled');
+		}
+		else $('#purchace').attr('disabled', 'disabled');
+	})
 });
 
