@@ -8,12 +8,12 @@
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
 		<link rel="stylesheet" type="text/css" href="mystyles.css">
-	</head>
-
-	<body>
- 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="draw.js" ></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="javascript.js" ></script>
-
+	</head>
+	
+	<body onload="initializeCanvas()">
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$.post("getCartCount.php", {userId: <?php echo (isset($_SESSION['user']) ? $_SESSION['user']->id : -1); ?>})
@@ -121,6 +121,14 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage"></section>
+		<section class="centerpage">
+		    <canvas id="can" width="400" height="400" style="border:2px solid;"></canvas>
+			<br>
+    		<label><input type="radio" name="size" value="pencil" checked="checked" onclick="color='black';radius=3;" /> Pencil</label>
+    		<label><input type="radio" name="size" value="eraser" onclick="color='white';radius=15;" /> Eraser</label>
+    		<br>
+    		<input type="button" value="Download" id="btn" size="30" onclick="save()" >
+    		<input type="button" value="Clear" id="clr" size="23" onclick="clearCanvas()" >
+    	</section>
 	</body>
 </html> 
