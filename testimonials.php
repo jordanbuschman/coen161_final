@@ -191,7 +191,7 @@
 		echo $row['username'];
 		echo "</strong> gives a rating of <strong>";
 		echo $row['rating'];
-		echo "</strong> and says:<br /> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp''";
+		echo "</strong> and says:<br /> ''";
 		echo $row['review'];
 		echo "'' <br /><br />";
 	}
