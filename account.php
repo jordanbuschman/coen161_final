@@ -11,10 +11,12 @@
 		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		<script src="maplocations.js" type="text/javascript"></script>	
 		<style>
-		#map1 {
-        width: 500px;
-        height: 400px;
-      }
+		td {
+			min-width: 100px;
+		}
+		th {
+			min-width: 100px;
+		}
     </style>
 	</head>
 
@@ -173,39 +175,47 @@
 	$tbl2 = "enrollment";
 	$id = $_SESSION['user']->id;
 	$num = $_SESSION['user']->numEnrolled;
+	$namef = $_SESSION['user']->firstName;
+	$namel = $_SESSION['user']->lastName;
+	$username = $_SESSION['user']->username;
+	$nume = $_SESSION['user']->numEnrolled;
 	
 	mysql_connect($host, $sql_username, $sql_password) or die ("Cannot connect to SQL server.");
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
 	$query = "SELECT * FROM $tbl2 WHERE `userId`='$id'";
 	$result = mysql_query($query);
+	if (!$result){
+		echo "You have no children enrolled!";
+	}
 	$i = 1;
+	echo "<table><tr><td style='width=150px;'><strong>Your name:</strong></td> <td style='text-align: right;'>$namef $namel </td></tr><tr><td><strong>Username:</strong></td> <td style='text-align: right;'>$username</td></tr><tr><td><strong>Num Enrolled:</strong></td> <td style='text-align: right;'>$nume</td></tr></table> <br />";
 	while($row = mysql_fetch_assoc($result)){
-		
-		echo "Child $i : <br />";
+		$bday = (string)$row['birth'];
+		echo "Child $i : <br /><table class='accountinfo'><tr><th>Name:</th><td> ";
 		echo $row['firstName'];
 		echo " ";
 		echo $row['lastName'];
-		echo " ";
-		echo $row['birth'];
-		echo " ";
+		echo "</td><th>Birthdate: </th><td>";
+		echo $bday;
+		echo "</td><th>Grade:</th> <td>";
 		echo $row['grade'];
-		echo " ";
+		echo "</td><th>School:</th> <td>";
 		echo $row['school'];
-		echo " ";
+		echo "</td></tr><tr><th> Session#:</th> <td>";
 		echo $row['sessionNum'];
-		echo " ";
+		echo "</td><th>Length:</th> <td>";
 		echo $row['sessionLength'];
-		echo " ";
+		echo " weeks</td> <th>Phone:</th> <td>";
 		echo $row['phone'];
-		echo " ";
+		echo "</td> <th>Email:</th><td>";
 		echo $row['email'];
-		echo " ";
+		echo "</td></tr><tr><th> Payment Information</th> <td>Credit Card</td> <th> Cost:</th> <td>";
 		echo $row['cost'];
-		echo " ";
+		echo "</td> <th>Card Type:</th> <td>";
 		echo $row['cardtype'];
-		echo " ";
+		echo "</td> <th>Card Holder:<td>";
 		echo $row['cardholder'];
-		echo "<br />";
+		echo "</td></tr></table><br /><br />";
 		$i++;
 	}
 	

@@ -22,6 +22,12 @@ header {
 	color: red;
 	text-decoration: strong;
 }
+table.accountinfo {
+	border: 1px solid black;
+	width: 1000px;
+}
+
+
 div#map1
 {
 	margin-left: auto;

@@ -19,7 +19,7 @@ CREATE TABLE enrollment (
 	childNum INT NOT NULL,
 	firstName varchar(32) NOT NULL,
 	lastName varchar(32) NOT NULL,
-	birth date NOT NULL,
+	birth varchar(32) NOT NULL,
 	grade INT NOT NULL,
 	school VARCHAR(32) NOT NULL,
 	sessionNum INT NOT NULL,
