@@ -17,7 +17,7 @@
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
 	
 	$result = array();
-	$query = "SELECT $tbl2.name, $tbl1.count, $tbl2.price, $tbl2.discount FROM $tbl1 JOIN $tbl2 ON $tbl1.userId=$userId && $tbl1.itemId=$tbl2.id ORDER BY $tbl2.name ASC";
+	$query = "SELECT $tbl2.name, $tbl1.count, $tbl2.price, $tbl2.discount, $tbl1.itemId FROM $tbl1 JOIN $tbl2 ON $tbl1.userId=$userId && $tbl1.itemId=$tbl2.id ORDER BY $tbl2.name ASC";
 
 	$sql = mysql_query($query);
 

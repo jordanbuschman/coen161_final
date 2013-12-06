@@ -196,6 +196,7 @@
 					} else {
 				?>
 					<form id="forum" action="javascript:submitComment();">
+					<p>If you had a great time, please leave us a review. We would love to hear from you!</p>
          				<span class="rating">
          					Rating:
 							<input type="radio" value="5" class="rating-input"
