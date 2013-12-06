@@ -94,7 +94,7 @@
 			<div id="outer" style="margin-left: auto; margin-right: auto;">
 				<div id="boxes">
 					<div class="crop">
-						<a href="camp.php"><img src="images/childrenplaying.jpg" /></a>
+						<a href="testimonials.php"><img src="images/childrenplaying.jpg" /></a>
 					</div>
 				</div>
 				<div id="boxes">

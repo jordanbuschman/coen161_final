@@ -149,7 +149,7 @@
 			<div id="outer" style="margin-left: auto; margin-right: auto;">
 				<div id="boxes">
 					<div class="crop">
-						<a href="camp.php"><img src="images/childrenplaying.jpg" /></a>
+						<a href="testimonials.php"><img src="images/childrenplaying.jpg" /></a>
 					</div>
 				</div>
 				<div id="boxes">
@@ -186,7 +186,8 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage">
+		<section class="centerpage" style="min-width: 950px; width: 950px;" >
+		<div style="width: 500px; float: left;">
 			<?php
 				if(!isset($_SESSION['user'])) {
 					echo '<p> Please log in to rate. </p>';
@@ -195,6 +196,8 @@
 						echo '<p> You must enroll in at least one session to rate. </p>';
 					} else {
 				?>
+				<h1>Submit a Testimonial</h1>
+				<p> You may submit a review, testimonial, or suggestion in the comment box below. We appreciate your feedback!</p>
 					<form id="forum" action="javascript:submitComment();">
          				<span class="rating">
          					Rating:
@@ -231,6 +234,8 @@
 				<?php 
 				} 
 			} ?>
+			</div>
+			<img style="float: right;" src='images/testimonial.png' />
 		</section>
 	</body>
 </html> 
