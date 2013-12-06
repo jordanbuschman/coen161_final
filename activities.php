@@ -94,7 +94,7 @@
 			<div id="outer" style="margin-left: auto; margin-right: auto;">
 				<div id="boxes">
 					<div class="crop">
-						<a href="camp.php"><img src="images/childrenplaying.jpg" /></a>
+						<a href="testimonials.php"><img src="images/childrenplaying.jpg" /></a>
 					</div>
 				</div>
 				<div id="boxes">
@@ -146,5 +146,10 @@
     		<input type="button" value="Download" id="btn" size="30" onclick="save()" >
     		<input type="button" value="Clear" id="clr" size="23" onclick="clearCanvas()" >
     	</section>
+		<br />
+		<footer>
+			<center> Web Master:<a href="mailto:jbuschman@scu.edu"> Jordan Buschman </a>  Web Master:<a href="mailto:achung@scu.edu"> Aaron Chung</a> Web Master:<a href="mailto:adeartola@scu.edu"> Andy de Artola</a></center>
+			<center>Copyright 2013 KidzCamp Inc. </center>
+		</footer>
 	</body>
 </html> 
