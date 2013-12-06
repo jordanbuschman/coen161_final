@@ -64,7 +64,7 @@ function showCart(uId) {
 			data.push("<tr>",
 				"<td>", cart[i]['name'], "</td>",
 				"<td>$<span>", priceForOne, "</span></td>",
-				"<td><input type='text' size='3' onclick='javascript: updateOld(", i, ")' onchange='javascript:updateCart(", i, ");' value='", cart[i]['count'], "' /></td>",
+				"<td><input type='text' size='3' onfocusin='javascript: updateOld(", i, ")' onfocusout='javascript:updateCart(", i, ");' value='", cart[i]['count'], "' /></td>",
 				"</tr>");
 		}
 		data.push("</table>",
@@ -100,7 +100,8 @@ function updateCart(index) {
 	var quantity = $('#cart tr:eq(' + (index + 1) + ') td:eq(' + 2 + ') input');
 	var total = $('#cart > p > span');
 
-	total.html((total.html() - price.html() * (quantity.data("oldVal") - quantity.val())).toFixed(2));
+	var newTotal = (total.html() - price.html() * (quantity.data("oldVal") - quantity.val())).toFixed(2);
+	total.html((isNaN(newTotal) || newTotal < 0 || quantity.val() < 0) ? 0.00 : newTotal);
 }
 function alertLogin() {
 	alert ("Please Login to Register.");
