@@ -64,13 +64,13 @@ function showCart(uId) {
 			data.push("<tr>",
 				"<td>", cart[i]['name'], "</td>",
 				"<td>$<span>", priceForOne, "</span></td>",
-				"<td><input type='text' size='3' onfocusin='javascript: updateOld(", i, ")' onfocusout='javascript:updateCart(", i, ");' value='", cart[i]['count'], "' /></td>",
+				"<td><input type='text' size='3' onfocusin='javascript: updateOld(", i, ")' onfocusout='javascript: updateCart(", i, ", ", uId, ", ", cart[i]['itemId'], ");' value='", cart[i]['count'], "' /></td>",
 				"</tr>");
 		}
 		data.push("</table>",
 			"<p>Total: $<span>", total.toFixed(2), "</span></p>",
 			"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
-			"<input type='button' value='Check out' onclick='' />");
+			"<input id='checkOut' type='button' value='Check out' />");
 		
 		var background = document.createElement("div"); //Fade and disable screen by overlaying opaque div to the screen
 		background.id = 'background';
@@ -89,11 +89,12 @@ function showCart(uId) {
     		alert( "AJAX FAILED" );
   	});
 }
+
 function updateOld(index) {
 	quantity = $('#cart tr:eq(' + (index + 1) + ') td:eq(' + 2 + ') input');
 	quantity.data("oldVal", quantity.val());
 }
-function updateCart(index) {
+function updateCart(index, uId, iId) {
 	var row = $('#cart tr:eq(' + (index + 1) + ')');
 	var item = $('#cart tr:eq(' + (index + 1) + ') td:eq(' + 0 + ')');
 	var price = $('#cart tr:eq(' + (index + 1) + ') td:eq(' + 1 + ') span');
@@ -102,6 +103,13 @@ function updateCart(index) {
 
 	var newTotal = (total.html() - price.html() * (quantity.data("oldVal") - quantity.val())).toFixed(2);
 	total.html((isNaN(newTotal) || newTotal < 0 || quantity.val() < 0) ? 0.00 : newTotal);
+
+	var qty = quantity.val();
+	$.post( "updateCart.php", { userId:uId, itemId:iId, count:qty })
+		.done(function( data ) {
+		}).fail(function() {
+			alert( "AJAX FAILED" );
+		});
 }
 function alertLogin() {
 	alert ("Please Login to continue.");
