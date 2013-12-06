@@ -90,13 +90,14 @@
 				var comment = $('#userReview').val();
 				if (comment.length == 0)
 					alert("Please enter a comment");
-
-				$.post( "submitForum.php", { numStars:rating, review:comment })
-					.done(function( data ) {
-						$('#forum').remove();
-			  		}).fail(function() {
-			    		alert( "AJAX FAILED" );
-			  		});
+				else {
+					$.post( "submitForum.php", { numStars:rating, review:comment })
+						.done(function( data ) {
+							$('#forum').remove();
+				  		}).fail(function() {
+				    		alert( "AJAX FAILED" );
+				  		});
+				}
 			}
 
 		</script>
