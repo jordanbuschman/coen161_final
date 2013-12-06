@@ -380,48 +380,68 @@ $(document).ready(function() {
 		}
 		else $('#ssubmit').attr('disabled', 'disabled');
 	});
-	$(document).on('change keyup input', '#csv', function() { //Check if last name field isn't blank
-		var lastName = $(this).val();
-		var pattern = /^\d{3}$/;
-		if (!lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+	$(document).on('change keyup input', '#csv', function() {
+		var csv = $(this).val();
+		var pattern = /^\d{3,}$/;
+		if (csv.match(pattern)) {
+			$('#csv').css("background-color", "green");
+			validCSV = true;
+		}
+		else {
+			$('#csv').css("background-color", "red");
 			validCSV = false;
-		else validCSV = true;
+		}
 
 		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength){
 			$('#submit').removeAttr('disabled');
 		}
 		else $('#ssubmit').attr('disabled', 'disabled');
 	});
-	/*$(document).on('change keyup input', '#expiration', function() { //Check if last name field isn't blank
-		var lastName = $(this).val();
-		var pattern = /(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/;
-		if (lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
-			validExpiration = false;
-		else validExpiration = true;
+	$(document).on('change keyup input', '#expdate', function() {
+		var expiration = $(this).val();
+		var pattern = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
+		if (expiration.match(pattern)) {
+			$('#expdate').css("background-color", "green");
+			validExpiration = true;
+		}
+		else {
+			$('#expdate').css("background-color", "red");
+			 validExpiration = false;
+		}
 
 		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber){
 			$('#submit').removeAttr('disabled');
 		}
 		else $('#ssubmit').attr('disabled', 'disabled');
-	});*/
-	$(document).on('change keyup input', '#cardholder', function() { //Check if last name field isn't blank
-		var lastName = $(this).val();
+	});
+	$(document).on('change keyup input', '#cardholder', function() {
+		var cardholder = $(this).val();
 		var pattern = /^([A-Za-z]{2}[ éàëA-Za-z]*)$/;
-		if (!lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+		if (cardholder.match(pattern)) {
+			$('#cardholder').css("background-color", "green");
+			validCardholder = true;
+		}
+		else {
+			$('#cardholder').css("background-color", "red");
 			validCardholder = false;
-		else validCardholder = true;
+		}
 
 		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength && validBirthday){
 			$('#submit').removeAttr('disabled');
 		}
 		else $('#ssubmit').attr('disabled', 'disabled');
 	});
-	$(document).on('change keyup input', '#cardnumber', function() { //Check if last name field isn't blank
-		var lastName = $(this).val();
+	$(document).on('change keyup input', '#cardnumber', function() {
+		var cardnumber = $(this).val();
 		var pattern = /^\d{16}$/;
-		if (!lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+		if (cardnumber.match(pattern)) {
+			$('#cardnumber').css("background-color", "green");
+			validCardNumber = true;
+		}
+		else {
+			$('#cardnumber').css("background-color", "red");
 			validCardNumber = false;
-		else validCardNumber = true;
+		}
 
 		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength && validBirthday){
 			$('#submit').removeAttr('disabled');
