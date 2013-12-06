@@ -8,7 +8,6 @@
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
 		<link rel="stylesheet" type="text/css" href="mystyles.css">
-		<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -17,10 +16,6 @@
 
 
 		<script type="text/javascript">
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 2,
-				center: new google.maps.LatLng(15, 15),
-			});
 			$(document).ready(function() {
 				$.post("getCartCount.php", {userId: <?php echo (isset($_SESSION['user']) ? $_SESSION['user']->id : -1); ?>})
 				.done(function(data) {
@@ -127,6 +122,6 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage"><div id="map"></div></section>
+		<section class="centerpage"></section>
 	</body>
 </html> 
