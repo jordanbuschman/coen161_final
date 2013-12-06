@@ -1,5 +1,3 @@
-<script src="http://code.jquery.com/jquery-1.7.2.js"></script>
-<script src="javascript.js"></script>
 <?php
 	session_start();
 
@@ -79,6 +77,8 @@
 	$_SESSION["user"] = $user;
 
 ?>
+<script src="http://code.jquery.com/jquery-1.7.2.js"></script>
+<script src="javascript.js"></script>
 <!DOCTYPE html>
 	<html lang="en">
 	<head>

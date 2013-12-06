@@ -1,0 +1,102 @@
+<html>
+<head>
+    <title>Bar Graph</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+       
+        // data sets -- set literally or obtain from an ajax call
+        var dataValue;
+ 		
+		$.post("fetchEnrollment.php") 
+		.done(function(data) {
+			dataValue = JSON.parse(data);
+		})
+		.fail(function() { alert("AJAX FAILED"); });
+ 		
+ 		
+ 		JSON.parse(data);
+ 		
+ 		var numSamples = 5;
+        var maxVal = 60;
+        var stepSize = 10;
+    	var topPadding = 50;
+        var rightPadding = 70;
+        var margin = 12;
+        var yName = "Students";
+        var xName = "Week";
+        
+ 
+        function displayData() {
+            var histogram = document.getElementById("histogram");
+            var ctx = histogram.getContext("2d");
+            ctx.beginPath();
+            
+            // Display axis names
+            ctx.fillStyle = "black";
+            ctx.font = "18pt Ariel";
+            ctx.fillText(yName, 0, topPadding - margin - 20);
+           	ctx.fillText(xName, histogram.width - rightPadding , histogram.height );
+            
+            //Compensate for variable size
+            var yMultiplier = (histogram.height - topPadding - margin) / (maxVal);
+            var xMultiplier = (histogram.width - rightPadding) / (numSamples + 1);
+            
+            //Background Line
+            ctx.strokeStyle = "rgba(128,128,128, 0.5)";
+            //Display Gridlines and Row Numbers
+            ctx.font = "12pt Ariel"
+            for (var position = maxVal, i = 0; position >= 0; position -= stepSize, i++) {
+                var loc = topPadding + (yMultiplier * i * stepSize);
+                ctx.fillText(position, margin, loc - margin);
+                ctx.moveTo(rightPadding, loc - margin)
+                ctx.lineTo(histogram.width, loc - margin)
+            }
+            ctx.stroke();
+            
+            
+            // Label Data
+            ctx.font = "14pt Ariel";
+            ctx.textBaseline = "bottom";
+            for (var i = 0; i < numSamples; i++) {
+                var y = histogram.height - dataValue[i] * yMultiplier - 10;
+                ctx.fillText(dataValue[i], xMultiplier * (i + 1) + 10, y - margin*2);
+                ctx.fillText((i+1), xMultiplier * (i + 1) + 10, histogram.height);
+            }
+			ctx.closePath();
+			
+            // Draw Data Bars
+            ctx.translate(0, histogram.height - margin);
+            for (var i = 0; i < numSamples; i++) {
+            	ctx.fillStyle = "green";
+                ctx.fillRect(xMultiplier*(i + 1), -margin, xMultiplier/3, -(dataValue[i]*yMultiplier));
+                ctx.fillStyle = 'rgba(128,128,128, 0.5)';
+                ctx.fillRect(xMultiplier*(i + 1)+(xMultiplier/3), -margin, xMultiplier/10, -(dataValue[i]+1)*yMultiplier);
+                parallelogram(ctx, (i+1)*xMultiplier, -dataValue[i]*yMultiplier -margin, xMultiplier/3, -yMultiplier , 10) ;
+			}
+        }
+ 		
+ 		// X & Y are top left coordinates
+ 		function parallelogram( ctx, x, y, width, height , offset) {
+ 			ctx.shadowColor = 'rgba(0,0,0, 0.0)';
+    		ctx.fillStyle = '#000000';
+      		ctx.strokeStyle = '#000000';
+    		ctx.beginPath();
+    		ctx.moveTo(x , y);
+    		ctx.lineTo(x + offset, y + height);
+    		ctx.lineTo(x + offset + width, y + height);
+    		ctx.lineTo(x + width, y);
+    		ctx.lineTo(x , y);
+    		ctx.closePath();  
+    		ctx.fill();
+    	}
+ 
+    </script>
+</head>
+<body onload="displayData()">
+    <div align="center">
+        <h2>Number of Students Enrolled</h2>
+        <canvas id="histogram" height="400" width="650">
+        </canvas>
+    </div>
+</body>
+</html>

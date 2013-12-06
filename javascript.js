@@ -127,11 +127,11 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 					"<input name='parentFirstName' type='text' size='16' placeholder='Parent First Name' id='parentfirstName' value='",
 					userfirst,
 					"'/>",
-					"<input name='parentLastName' type='text' size='16'  id='parentlastName' value='",
+					"<input name='parentLastName' type='text' size='16' id='parentlastName' value='",
 					userlast,
 					"'/><br />",
 					"<input name='email' type='email' size='16' placeholder='Email' id='email'/>",
-					"<input name='phone' type='tel' size='16' placeholder='Phone' id='phone'/><br />",
+					"<input name='phone' type='tel' size='16' maxlength='10' placeholder='Phone' id='phone'/><br />",
 					"You currently have <strong><input hidden id='numenroll' value='",numenrolled,"' />",
 					numenrolled,
 					"</strong> child(ren) enrolled.<br />",
@@ -139,10 +139,10 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 					"How long will your child attend this session?<br /> <select name='length' id='length'><option>*</option><option>1</option><option>2</option></select> week(s) ($600 for 1 week, $900 for 2)<br />",
 					"<div id='currentcost' style='color: red'><br /></div>",
 					"<strong>Payment Information:</strong><br />",
-					"Card Type: <select name='cardtype'><option value='visa'>Visa</option><option value='mastercard'>Mastercard</option><option value=discover'>Discover</option><option value='amex'>AMEX</option></select> CSV: <input name='csv' type='text' size='4' placeholder='CSV' id='csv'/><br />",
+					"Card Type: <select name='cardtype'><option value='visa'>Visa</option><option value='mastercard'>Mastercard</option><option value=discover'>Discover</option><option value='amex'>AMEX</option></select> CSV: <input name='csv' type='text' size='4' maxlength='4' placeholder='CSV' id='csv'/><br />",
 					"Expiration:<input name='expdate' type='date' id='expdate' placeholder='mm/dd/yyyy'/> <br />",
 					"<input name='cardholder' type='text' size='16' placeholder='Cardholder Name' id='cardholder'/>",
-					"<input name='cardnumber' type='text' size='16' placeholder='Card Number' id='cardnumber'/><br /> <br />",
+					"<input name='cardnumber' type='text' size='16' maxlength='16' placeholder='Card Number' id='cardnumber'/><br /> <br />",
 					"<input type='submit' name='Submit' value='Enroll' id='submit' disabled='disabled' />",
 					"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
 					"</div><div id='right'>",
@@ -175,9 +175,14 @@ $(document).ready(function() {
 	$(document).on('change keyup input', '#firstName', function() { //Check if first name field isn't blank
 		var firstName = $(this).val();
 		var pattern = /\s/;
-		if (firstName.match(pattern) || firstName.trim() == "") //If there is a space in the first name field or the box is empty
+		if (firstName.match(pattern) || firstName.trim() == "") { //If there is a space in the first name field or the box is empty
+			$('#firstName').css("background-color", "red");
 			validFirstName = false;
-		else validFirstName = true;
+		}
+		else {
+			$('#firstName').css("background-color", "green");
+			validFirstName = true;
+		}
 
 		if (validFirstName && validLastName && validUser && validPassword && validPassword2){
 			$('#create').removeAttr('disabled');
@@ -187,9 +192,14 @@ $(document).ready(function() {
 	$(document).on('change keyup input', '#lastName', function() { //Check if last name field isn't blank
 		var lastName = $(this).val();
 		var pattern = /\s/;
-		if (lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+		if (lastName.match(pattern) || lastName.trim() == "") { //If there is a space in the last name field or the box is empty
+			$('#lastName').css("background-color", "red");
 			validLastName = false;
-		else validLastName = true;
+		}
+		else {
+			$('#lastName').css("background-color", "green");
+			validLastName = true;
+		}
 
 		if (validFirstName && validLastName && validUser && validPassword && validPassword2){
 			$('#create').removeAttr('disabled');
@@ -283,6 +293,7 @@ $(document).ready(function() {
 	var validCardholder = false;
 	var validCardNumber = false;
 	var validLength = false;
+	var validBirthday = false;
 	
 	$(document).bind('change keyup input', '#length', function() {
 	var length1 = $('#length').val();
@@ -304,7 +315,7 @@ $(document).ready(function() {
 		$('#currentcost').html("<span style='color:red'>Your total cost is $"+cost+".00</span>");
 		validLength = true;
 	}
-	if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength){
+	if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength && validBirthday){
 			$('#submit').removeAttr('disabled');
 		}
 		else $('#submit').attr('disabled', 'disabled');
@@ -318,7 +329,7 @@ $(document).ready(function() {
 			validFirstName = false;
 		else validFirstName = true;
 
-		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength){
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength && validBirthday){
 			$('#submit').removeAttr('disabled');
 		}
 		else $('#submit').attr('disabled', 'disabled');
@@ -330,7 +341,7 @@ $(document).ready(function() {
 			validLastName = false;
 		else validLastName = true;
 
-		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength){
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength && validBirthday){
 			$('#submit').removeAttr('disabled');
 		}
 		else $('#ssubmit').attr('disabled', 'disabled');
@@ -343,7 +354,7 @@ $(document).ready(function() {
 			validEmail = false;
 		else validEmail = true;
 
-		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength){
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength && validBirthday){
 			$('#submit').removeAttr('disabled');
 		}
 		else $('#ssubmit').attr('disabled', 'disabled');
@@ -355,7 +366,7 @@ $(document).ready(function() {
 			validPhone = false;
 		else validPhone = true;
 
-		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength){
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength && validBirthday){
 			$('#submit').removeAttr('disabled');
 		}
 		else $('#ssubmit').attr('disabled', 'disabled');
@@ -391,7 +402,7 @@ $(document).ready(function() {
 			validCardholder = false;
 		else validCardholder = true;
 
-		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength){
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength && validBirthday){
 			$('#submit').removeAttr('disabled');
 		}
 		else $('#ssubmit').attr('disabled', 'disabled');
@@ -403,22 +414,27 @@ $(document).ready(function() {
 			validCardNumber = false;
 		else validCardNumber = true;
 
-		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength){
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength && validBirthday){
 			$('#submit').removeAttr('disabled');
 		}
 		else $('#ssubmit').attr('disabled', 'disabled');
 	});
-	/*$(document).on('change keyup input', '#bdate', function() { //Check if last name field isn't blank
-		var lastName = $(this).val();
-		var pattern = /\s/;
-		if (lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
-			validLastName = false;
-		else validLastName = true;
+	$(document).on('change keyup input', '#bdate', function() {
+		var birthday = $(this).val();
+		var pattern = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
+		if (birthday.match(pattern)) { //If there is a space in the last name field or the box is empty
+			$('#bdate').css("background-color", "green");
+			validBirthday = true;
+		}
+		else {
+			$('#bdate').css("background-color", "red");
+			validBirthday = false;
+		}
 
-		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber){
+		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength && validBirthday){
 			$('#submit').removeAttr('disabled');
 		}
 		else $('#ssubmit').attr('disabled', 'disabled');
-	});*/
+	});
 });
 
