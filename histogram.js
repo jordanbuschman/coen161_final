@@ -17,13 +17,20 @@
         var yName = "Students";
         var xName = "Session";
         
- 
+        //For window resize
+        var smallestWidth = 525;
+        
+        window.onresize = function(event) {
+        		displayData()
+        }
+        
         function displayData() {
-            var histogram = document.getElementById("histogram");
-            var ctx = histogram.getContext("2d");
-           	ctx.canvas.width  = window.innerWidth * 0.39;
+        	
+        	var histogram = document.getElementById("histogram");
+        	var ctx = histogram.getContext("2d");
   			ctx.canvas.height = 450;
-  
+  			ctx.canvas.width = ( window.innerWidth * 0.39 > smallestWidth )? window.innerWidth * 0.39 : smallestWidth;
+  		
             // Display axis names
             ctx.fillStyle = "black";
             ctx.font = "18pt Ariel";
