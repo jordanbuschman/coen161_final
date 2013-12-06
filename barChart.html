@@ -5,18 +5,18 @@
     <script type="text/javascript">
        
         // data sets -- set literally or obtain from an ajax call
-        var dataValue;
+        var dataValue = [ 50 ,45 , 30 ,60, 50, 2, 5 ];
  		
+ 		/*
 		$.post("fetchEnrollment.php") 
 		.done(function(data) {
-			dataValue = JSON.parse(data);
+			alert(data);
+			//dataValue = JSON.parse(data);
+			//alert(dataValue);
 		})
 		.fail(function() { alert("AJAX FAILED"); });
- 		
- 		
- 		JSON.parse(data);
- 		
- 		var numSamples = 5;
+ 		*/
+ 		var numWeeks = dataValue.length;
         var maxVal = 60;
         var stepSize = 10;
     	var topPadding = 50;
@@ -29,7 +29,6 @@
         function displayData() {
             var histogram = document.getElementById("histogram");
             var ctx = histogram.getContext("2d");
-            ctx.beginPath();
             
             // Display axis names
             ctx.fillStyle = "black";
@@ -39,12 +38,13 @@
             
             //Compensate for variable size
             var yMultiplier = (histogram.height - topPadding - margin) / (maxVal);
-            var xMultiplier = (histogram.width - rightPadding) / (numSamples + 1);
+            var xMultiplier = (histogram.width - rightPadding) / (numWeeks + 1);
             
             //Background Line
-            ctx.strokeStyle = "rgba(128,128,128, 0.5)";
+            ctx.strokeStyle = "gray";
             //Display Gridlines and Row Numbers
             ctx.font = "12pt Ariel"
+            ctx.beginPath();
             for (var position = maxVal, i = 0; position >= 0; position -= stepSize, i++) {
                 var loc = topPadding + (yMultiplier * i * stepSize);
                 ctx.fillText(position, margin, loc - margin);
@@ -52,26 +52,25 @@
                 ctx.lineTo(histogram.width, loc - margin)
             }
             ctx.stroke();
-            
+            ctx.closePath();
             
             // Label Data
             ctx.font = "14pt Ariel";
             ctx.textBaseline = "bottom";
-            for (var i = 0; i < numSamples; i++) {
+            for (var i = 0; i < numWeeks; i++) {
                 var y = histogram.height - dataValue[i] * yMultiplier - 10;
                 ctx.fillText(dataValue[i], xMultiplier * (i + 1) + 10, y - margin*2);
                 ctx.fillText((i+1), xMultiplier * (i + 1) + 10, histogram.height);
             }
-			ctx.closePath();
 			
             // Draw Data Bars
             ctx.translate(0, histogram.height - margin);
-            for (var i = 0; i < numSamples; i++) {
-            	ctx.fillStyle = "green";
+            for (var i = 0; i < numWeeks; i++) {
+            	ctx.fillStyle = "darkgreen";
                 ctx.fillRect(xMultiplier*(i + 1), -margin, xMultiplier/3, -(dataValue[i]*yMultiplier));
-                ctx.fillStyle = 'rgba(128,128,128, 0.5)';
+                ctx.fillStyle = 'gray';
                 ctx.fillRect(xMultiplier*(i + 1)+(xMultiplier/3), -margin, xMultiplier/10, -(dataValue[i]+1)*yMultiplier);
-                parallelogram(ctx, (i+1)*xMultiplier, -dataValue[i]*yMultiplier -margin, xMultiplier/3, -yMultiplier , 10) ;
+                parallelogram(ctx, (i+1)*xMultiplier, -dataValue[i]*yMultiplier -margin, xMultiplier/3, -yMultiplier , xMultiplier/10) ;
 			}
         }
  		
