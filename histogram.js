@@ -13,20 +13,22 @@
         var stepSize = 10;
     	var topPadding = 50;
         var rightPadding = 70;
-        var margin = 12;
+        var margin = 13;
         var yName = "Students";
-        var xName = "Week";
+        var xName = "Session";
         
  
         function displayData() {
             var histogram = document.getElementById("histogram");
             var ctx = histogram.getContext("2d");
-            
+           	ctx.canvas.width  = window.innerWidth * 0.4;
+  			ctx.canvas.height = 450;
+  
             // Display axis names
             ctx.fillStyle = "black";
             ctx.font = "18pt Ariel";
-            ctx.fillText(yName, 0, topPadding - margin - 20);
-           	ctx.fillText(xName, histogram.width - rightPadding , histogram.height );
+            ctx.fillText(yName, 10, topPadding - margin - 20);
+           	ctx.fillText(xName, histogram.width - rightPadding - 10 , histogram.height - 5);
             
             //Compensate for variable size
             var yMultiplier = (histogram.height - topPadding - margin) / (maxY);

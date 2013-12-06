@@ -128,10 +128,10 @@
 			</div>
 		</section>
 		<section class="centerpage">
-			<iframe src="http://www.google.com/calendar/embed?src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles" 
-				style="border: 0; float:left;" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
+			<iframe src='http://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles&dates=20140601%2F20140830' 
+				style="border: 0; float:left;" width="50%" height="500" frameborder='0' scrolling='no'></iframe>
   			<h2 style="padding-left:60%" >Number of Students Enrolled</h2>
-  			<canvas style="border: 0; float:right;" width="540px" height="550px" id="histogram"></canvas>
+  			<canvas style="border: 0; float:right;" id="histogram"></canvas>
     	</section>
 	</body>
 </html> 
