@@ -161,6 +161,7 @@
 		<section class="centerpage" style="min-width: 600px; width:600px; font-size: 18px; line-height: 20px;">
 		<h1> Testimonials and Reviews </h1>
 		<?php
+	$host = "localhost";
 	$sql_username = "root";
 	$sql_password = "";
 	$db = "kidzcamp";
