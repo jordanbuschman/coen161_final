@@ -31,7 +31,7 @@
 		$result[] = 0;	
 	}
 	while($row = mysql_fetch_assoc($sql)){
-		$temp = $row['sessionNum'];
+		$temp = $row['sessionNum'] - 1;
 		$result[$temp] += 1;
 	}
 	
