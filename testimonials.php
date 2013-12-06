@@ -158,8 +158,8 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage">
-		<h1> Your Account and Enrollment Information </h1>
+		<section class="centerpage" style="min-width: 600px; width:600px; font-size: 18px; line-height: 20px;">
+		<h1> Testimonials and Reviews </h1>
 		<?php
 
 	if (!$_SESSION['user']){ //Return if you maliciously navigated to the page
@@ -172,7 +172,7 @@
 	$sql_password = "";
 	$db = "kidzcamp";
 	$tbl = "user";
-	$tbl2 = "enrollment";
+	$tbl2 = "forum";
 	$id = $_SESSION['user']->id;
 	$num = $_SESSION['user']->numEnrolled;
 	$namef = $_SESSION['user']->firstName;
@@ -182,42 +182,18 @@
 	
 	mysql_connect($host, $sql_username, $sql_password) or die ("Cannot connect to SQL server.");
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
-	$query = "SELECT * FROM $tbl2 WHERE `userId`='$id'";
+	$query = "SELECT * FROM $tbl2 WHERE 1";
 	$result = mysql_query($query);
-	echo "<table><tr><td style='width=150px;'><strong>Your name:</strong></td> <td style='text-align: right;'>$namef $namel </td></tr><tr><td><strong>Username:</strong></td> <td style='text-align: right;'>$username</td></tr><tr><td><strong>Num Enrolled:</strong></td> <td style='text-align: right;'>$nume</td></tr></table> <br />";
-	if ($nume <1){
-		echo "<h1>You have no children enrolled!</h1>";
-	}
 	$i = 1;
 	
 	while($row = mysql_fetch_assoc($result)){
-		$bday = (string)$row['birth'];
-		echo "Child $i : <br /><table class='accountinfo'><tr><th>Name:</th><td> ";
-		echo $row['firstName'];
-		echo " ";
-		echo $row['lastName'];
-		echo "</td><th>Birthdate: </th><td>";
-		echo $bday;
-		echo "</td><th>Grade:</th> <td>";
-		echo $row['grade'];
-		echo "</td><th>School:</th> <td>";
-		echo $row['school'];
-		echo "</td></tr><tr><th> Session#:</th> <td>";
-		echo $row['sessionNum'];
-		echo "</td><th>Length:</th> <td>";
-		echo $row['sessionLength'];
-		echo " weeks</td> <th>Phone:</th> <td>";
-		echo $row['phone'];
-		echo "</td> <th>Email:</th><td>";
-		echo $row['email'];
-		echo "</td></tr><tr><th> Payment Information</th> <td>Credit Card</td> <th> Cost:</th> <td>";
-		echo $row['cost'];
-		echo "</td> <th>Card Type:</th> <td>";
-		echo $row['cardtype'];
-		echo "</td> <th>Card Holder:<td>";
-		echo $row['cardholder'];
-		echo "</td></tr></table><br /><br />";
-		$i++;
+		echo "&nbsp&nbsp&nbsp&nbsp<strong>";
+		echo $row['username'];
+		echo "</strong> gives a rating of <strong>";
+		echo $row['rating'];
+		echo "</strong> and says:<br /> ''";
+		echo $row['review'];
+		echo "'' <br /><br />";
 	}
 	
 	

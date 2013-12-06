@@ -8,12 +8,12 @@
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
 		<link rel="stylesheet" type="text/css" href="mystyles.css">
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="javascript.js" type="text/javascript" ></script>
+		<script src="histogram.js" type="text/javascript" ></script>
 	</head>
 
-	<body>
- 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script src="javascript.js" ></script>
-
+	<body onload="displayData()">
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$.post("getCartCount.php", {userId: <?php echo (isset($_SESSION['user']) ? $_SESSION['user']->id : -1); ?>})
@@ -91,7 +91,7 @@
 			<div id="outer" style="margin-left: auto; margin-right: auto;">
 				<div id="boxes">
 					<div class="crop">
-						<a href="camp.php"><img src="images/childrenplaying.jpg" /></a>
+						<a href="testimonials.php"><img src="images/childrenplaying.jpg" /></a>
 					</div>
 				</div>
 				<div id="boxes">
@@ -127,8 +127,17 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage"><iframe src="http://www.google.com/calendar/embed?src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles" 
-style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></section>
+		<section class="centerpage">
+			<iframe src='http://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles&dates=20140601%2F20140830' 
+				style="border: 0; float:left;" width="50%" height="500" frameborder='0' scrolling='no'></iframe>
+  			<h2 style="padding-left:60%" >Number of Students Enrolled</h2>
+  			<canvas style="border: 0; float:right;" id="histogram"></canvas>
+    	</section>
+		<br />
+		<footer>
+			<center> Web Master:<a href="mailto:jbuschman@scu.edu"> Jordan Buschman </a>  Web Master:<a href="mailto:achung@scu.edu"> Aaron Chung</a> Web Master:<a href="mailto:adeartola@scu.edu"> Andy de Artola</a></center>
+			<center>Copyright 2013 KidzCamp Inc. </center>
+		</footer>
 	</body>
 </html> 
 

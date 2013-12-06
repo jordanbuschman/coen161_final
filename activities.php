@@ -94,7 +94,7 @@
 			<div id="outer" style="margin-left: auto; margin-right: auto;">
 				<div id="boxes">
 					<div class="crop">
-						<a href="camp.php"><img src="images/childrenplaying.jpg" /></a>
+						<a href="testimonials.php"><img src="images/childrenplaying.jpg" /></a>
 					</div>
 				</div>
 				<div id="boxes">
@@ -138,7 +138,7 @@
 				their brains. Below is an example of one of the many in-house developed apps that your child will experience. 
 			</p>
 			<h2>Canvas Draw</h2>
-		    <canvas id="can" width="800" height="400" style="border:2px solid;"></canvas>
+		    <canvas id="canvasDraw" width="1100" height="400" style="border:2px solid;"></canvas>
 			<br>
     		<label><input type="radio" name="size" value="pencil" checked="checked" onclick="color='black';radius=3;" /> Pencil</label>
     		<label><input type="radio" name="size" value="eraser" onclick="color='white';radius=15;" /> Eraser</label>
@@ -146,5 +146,10 @@
     		<input type="button" value="Download" id="btn" size="30" onclick="save()" >
     		<input type="button" value="Clear" id="clr" size="23" onclick="clearCanvas()" >
     	</section>
+		<br />
+		<footer>
+			<center> Web Master:<a href="mailto:jbuschman@scu.edu"> Jordan Buschman </a>  Web Master:<a href="mailto:achung@scu.edu"> Aaron Chung</a> Web Master:<a href="mailto:adeartola@scu.edu"> Andy de Artola</a></center>
+			<center>Copyright 2013 KidzCamp Inc. </center>
+		</footer>
 	</body>
 </html> 
