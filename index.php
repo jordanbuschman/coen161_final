@@ -8,6 +8,14 @@
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
 		<link rel="stylesheet" type="text/css" href="mystyles.css">
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script src="maplocations.js" type="text/javascript"></script>	
+		<style>
+		#map1 {
+        width: 500px;
+        height: 400px;
+      }
+    </style>
 	</head>
 
 	<body>
@@ -16,6 +24,25 @@
 
 
 		<script type="text/javascript">
+			function initialize() {
+				var mapCanvas = document.getElementById('map1');
+				var mapOptions = {
+					center: new google.maps.LatLng(36.3492, -121.9381),
+					zoom: 6,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+					}
+				var map = new google.maps.Map(mapCanvas, mapOptions);
+				var infowindow = new google.maps.InfoWindow();
+			var marker, i;
+			for (i = 0; i < locations.length; i++) {  
+				marker = new google.maps.Marker({
+				position: new google.maps.LatLng(locations[i][1], locations[i][2], locations[i][3]),
+				map: map
+			});
+			}
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+			
 			$(document).ready(function() {
 				$.post("getCartCount.php", {userId: <?php echo (isset($_SESSION['user']) ? $_SESSION['user']->id : -1); ?>})
 				.done(function(data) {
@@ -55,7 +82,7 @@
 	  				<li><a href='index.php'><span style="color: yellow">Home</span></a></li>
 					<li><a href='camp.php'><span style="color: red">The Camp</span></a></li>
 					<li><a href='shop.php'><span style="color: green">Shop</span></a></li>
-					<li><a href='#'><span style="color: blue">About</span></a></li>
+					<li><a href='forum.php'><span style="color: blue">The Forum</span></a></li>
 				</ul>
 			</div>
 			<div class="loginOrWelcome">
@@ -85,17 +112,17 @@
 			<div id="outer" style="margin-left: auto; margin-right: auto;">
 				<div id="boxes">
 					<div class="crop">
-						<img src="images/childrenplaying.jpg" />
-					</div>
-				</div>
-				<div id="boxes">
-					<div class="crop">
-						<img src="images/teencomputer.jpg" />
+						<a href="camp.php"><img src="images/childrenplaying.jpg" /></a>
 					</div>
 				</div>
 				<div id="boxes">
 					<div class="crop">
 						<a href="forum.php"><img src="images/kids.jpg" /></a>
+					</div>
+				</div>
+				<div id="boxes">
+					<div class="crop">
+						<a href="activities.php"><img src="images/teencomputer.jpg" /></a>
 					</div>
 				</div>
 				<div id="boxes">
@@ -122,6 +149,6 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage"></section>
+		<section class="centerpage"><div id="map1" style="width: 900px; height: 400px;"></div></section>
 	</body>
 </html> 

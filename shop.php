@@ -113,7 +113,7 @@
 	  				<li><a href='index.php'><span style="color: yellow">Home</span></a></li>
 					<li><a href='camp.php'><span style="color: red">The Camp</span></a></li>
 					<li><a href='shop.php'><span style="color: green">Shop</span></a></li>
-					<li><a href='#'><span style="color: blue">About</span></a></li>
+					<li><a href='forum.php'><span style="color: blue">The Forum</span></a></li>
 				</ul>
 			</div>
 			<div class="loginOrWelcome">
@@ -143,17 +143,17 @@
 			<div id="outer" style="margin-left: auto; margin-right: auto;">
 				<div id="boxes">
 					<div class="crop">
-						<img src="images/childrenplaying.jpg" />
-					</div>
-				</div>
-				<div id="boxes">
-					<div class="crop">
-						<img src="images/teencomputer.jpg" />
+						<a href="camp.php"><img src="images/childrenplaying.jpg" /></a>
 					</div>
 				</div>
 				<div id="boxes">
 					<div class="crop">
 						<a href="forum.php"><img src="images/kids.jpg" /></a>
+					</div>
+				</div>
+				<div id="boxes">
+					<div class="crop">
+						<a href="activities.php"><img src="images/teencomputer.jpg" /></a>
 					</div>
 				</div>
 				<div id="boxes">
