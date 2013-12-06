@@ -24,7 +24,7 @@ header {
 }
 table.accountinfo {
 	border: 1px solid black;
-	width: 1000px;
+	width: 1px;
 }
 
 
@@ -168,6 +168,7 @@ div#map1
 	width: 60%;
 	left: 17.5%;
 	min-width: 950px;
+	top: 5%;
 }
 #si {
 	background-color: white;
