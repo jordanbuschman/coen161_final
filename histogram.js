@@ -21,7 +21,7 @@
         function displayData() {
             var histogram = document.getElementById("histogram");
             var ctx = histogram.getContext("2d");
-           	ctx.canvas.width  = window.innerWidth * 0.4;
+           	ctx.canvas.width  = window.innerWidth * 0.39;
   			ctx.canvas.height = 450;
   
             // Display axis names
