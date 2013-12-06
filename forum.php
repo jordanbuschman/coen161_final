@@ -87,15 +87,18 @@
 			function submitComment(){
 				
 				var rating = $('input[name="userRating"]:checked').val(); 
-				var comment = document.getElementById("userReview").value
+				var comment = $('#userReview').val();
 				if (comment.length == 0)
 					alert("Please enter a comment");
-
-				$.post( "submitForum.php", { numStars:rating, review:comment })
-					.done(function( data ) {
-			  		}).fail(function() {
-			    		alert( "AJAX FAILED" );
-			  		});
+				else {
+					$.post( "submitForum.php", { numStars:rating, review:comment })
+						.done(function( data ) {
+							$('#forum').remove();
+							$('.centerpage').html('<h3>Thank you for the feedback!</h3>');
+				  		}).fail(function() {
+				    		alert( "AJAX FAILED" );
+				  		});
+				}
 			}
 
 		</script>
@@ -192,7 +195,7 @@
 						echo '<p> You must enroll in at least one session to rate. </p>';
 					} else {
 				?>
-					<form action="javascript:submitComment();">
+					<form id="forum" action="javascript:submitComment();">
          				<span class="rating">
          					Rating:
 							<input type="radio" value="5" class="rating-input"
