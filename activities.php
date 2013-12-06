@@ -138,7 +138,7 @@
 				their brains. Below is an example of one of the many in-house developed apps that your child will experience. 
 			</p>
 			<h2>Canvas Draw</h2>
-		    <canvas id="can" width="800" height="400" style="border:2px solid;"></canvas>
+		    <canvas id="canvasDraw" width="1100" height="400" style="border:2px solid;"></canvas>
 			<br>
     		<label><input type="radio" name="size" value="pencil" checked="checked" onclick="color='black';radius=3;" /> Pencil</label>
     		<label><input type="radio" name="size" value="eraser" onclick="color='white';radius=15;" /> Eraser</label>

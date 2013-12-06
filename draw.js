@@ -15,7 +15,7 @@ var color = "black";
 var radius = 3;
 
 function initializeCanvas() {
-    canvas = document.getElementById('can');
+    canvas = document.getElementById('canvasDraw');
     ctx = canvas.getContext("2d");
     canvasWidth = canvas.width;
     canvasHeight = canvas.height;
