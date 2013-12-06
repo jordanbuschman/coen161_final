@@ -1,23 +1,22 @@
-<html>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <title>Bar Graph</title>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script type="text/javascript">
        
-        // data sets -- set literally or obtain from an ajax call
-        var dataValue = [ 50 ,45 , 30 ,60, 50, 2, 5 ];
+        var dataPerWeek = [ 50 ,45 , 30 ,60, 50, 2, 5 ];
  		
- 		/*
 		$.post("fetchEnrollment.php") 
 		.done(function(data) {
 			alert(data);
-			//dataValue = JSON.parse(data);
-			//alert(dataValue);
+			var parsedData = JSON.parse(data);
+			
 		})
 		.fail(function() { alert("AJAX FAILED"); });
- 		*/
- 		var numWeeks = dataValue.length;
-        var maxVal = 60;
+ 		
+ 		var numWeeks = dataPerWeek.length;
+        var maxY = 60;
         var stepSize = 10;
     	var topPadding = 50;
         var rightPadding = 70;
@@ -37,7 +36,7 @@
            	ctx.fillText(xName, histogram.width - rightPadding , histogram.height );
             
             //Compensate for variable size
-            var yMultiplier = (histogram.height - topPadding - margin) / (maxVal);
+            var yMultiplier = (histogram.height - topPadding - margin) / (maxY);
             var xMultiplier = (histogram.width - rightPadding) / (numWeeks + 1);
             
             //Background Line
@@ -45,7 +44,7 @@
             //Display Gridlines and Row Numbers
             ctx.font = "12pt Ariel"
             ctx.beginPath();
-            for (var position = maxVal, i = 0; position >= 0; position -= stepSize, i++) {
+            for (var position = maxY, i = 0; position >= 0; position -= stepSize, i++) {
                 var loc = topPadding + (yMultiplier * i * stepSize);
                 ctx.fillText(position, margin, loc - margin);
                 ctx.moveTo(rightPadding, loc - margin)
@@ -58,8 +57,8 @@
             ctx.font = "14pt Ariel";
             ctx.textBaseline = "bottom";
             for (var i = 0; i < numWeeks; i++) {
-                var y = histogram.height - dataValue[i] * yMultiplier - 10;
-                ctx.fillText(dataValue[i], xMultiplier * (i + 1) + 10, y - margin*2);
+                var y = histogram.height - dataPerWeek[i] * yMultiplier - 10;
+                ctx.fillText(dataPerWeek[i], xMultiplier * (i + 1) + 10, y - margin*2);
                 ctx.fillText((i+1), xMultiplier * (i + 1) + 10, histogram.height);
             }
 			
@@ -67,10 +66,10 @@
             ctx.translate(0, histogram.height - margin);
             for (var i = 0; i < numWeeks; i++) {
             	ctx.fillStyle = "darkgreen";
-                ctx.fillRect(xMultiplier*(i + 1), -margin, xMultiplier/3, -(dataValue[i]*yMultiplier));
+                ctx.fillRect(xMultiplier*(i + 1), -margin, xMultiplier/3, -(dataPerWeek[i]*yMultiplier));
                 ctx.fillStyle = 'gray';
-                ctx.fillRect(xMultiplier*(i + 1)+(xMultiplier/3), -margin, xMultiplier/10, -(dataValue[i]+1)*yMultiplier);
-                parallelogram(ctx, (i+1)*xMultiplier, -dataValue[i]*yMultiplier -margin, xMultiplier/3, -yMultiplier , xMultiplier/10) ;
+                ctx.fillRect(xMultiplier*(i + 1)+(xMultiplier/3), -margin, xMultiplier/10, -(dataPerWeek[i]+1)*yMultiplier);
+                parallelogram(ctx, (i+1)*xMultiplier, -dataPerWeek[i]*yMultiplier -margin, xMultiplier/3, -yMultiplier , xMultiplier/10) ;
 			}
         }
  		
@@ -92,10 +91,8 @@
     </script>
 </head>
 <body onload="displayData()">
-    <div align="center">
-        <h2>Number of Students Enrolled</h2>
-        <canvas id="histogram" height="400" width="650">
-        </canvas>
-    </div>
+    <h2>Number of Students Enrolled</h2>
+    <canvas id="histogram" height="400" width="650">
+    </canvas>
 </body>
 </html>
