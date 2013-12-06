@@ -347,24 +347,33 @@ $(document).ready(function() {
 		else $('#ssubmit').attr('disabled', 'disabled');
 	});
 
-	$(document).on('change keyup input', '#email', function() { //Check if last name field isn't blank
-		var lastName = $(this).val();
+	$(document).on('change keyup input', '#email', function() {
+		var email = $(this).val();
 		var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		if (lastName.trim() == "") //If there is a space in the last name field or the box is empty
-			validEmail = false;
-		else validEmail = true;
-
+		if (email.match(pattern)) {
+			$('#email').css("background-color", "green");
+			validEmail = true;
+		}
+		else {
+			$('#email').css("background-color", "red");
+			validEmail = false;;
+		}
 		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength && validBirthday){
 			$('#submit').removeAttr('disabled');
 		}
 		else $('#ssubmit').attr('disabled', 'disabled');
 	});
-	$(document).on('change keyup input', '#phone', function() { //Check if last name field isn't blank
-		var lastName = $(this).val();
+	$(document).on('change keyup input', '#phone', function() {
+		var phone = $(this).val();
 		var pattern = /^\d{10}$/;
-		if (!lastName.match(pattern) || lastName.trim() == "") //If there is a space in the last name field or the box is empty
+		if (phone.match(pattern)) {
+			$('#phone').css("background-color", "green");
+			validPhone = true;
+		}
+		else {
+			$('#phone').css("background-color", "red");
 			validPhone = false;
-		else validPhone = true;
+		}
 
 		if (validFirstName && validLastName && validBirth && validEmail && validPhone && validCSV && validExpiration && validCardholder && validCardNumber && validLength && validBirthday){
 			$('#submit').removeAttr('disabled');
