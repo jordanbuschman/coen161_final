@@ -19,6 +19,7 @@ function initializeCanvas() {
     ctx = canvas.getContext("2d");
     canvasWidth = canvas.width;
     canvasHeight = canvas.height;
+	fillWhite();
 
 	// Listener for moving mouse
     canvas.addEventListener("mousemove", function (e) {
@@ -47,6 +48,21 @@ function initializeCanvas() {
     }, false);    
 }
 
+function fillWhite(){
+	ctx.beginPath();
+	ctx.moveTo(0, 0);
+    ctx.lineTo(0, canvasHeight);
+    ctx.lineTo(canvasWidth, canvasHeight);
+    ctx.lineTo(canvasWidth, 0);
+	ctx.lineTo(0, 0);
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "white";
+    ctx.stroke();
+    ctx.fillStyle = "white";
+    ctx.fill();
+	ctx.closePath();
+}
+
 //Set new xy vector based on mouse movement
 function setMouseVectors(e){
 	prevX = nextX;
@@ -66,6 +82,7 @@ function setMouseVectors(e){
 function clearCanvas() {
     if ( confirm("Are you sure you want to clear your drawing?") ) {
         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        fillWhite();
         document.getElementById("canvasimg").style.display = "none";
     }
 }
