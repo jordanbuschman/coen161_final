@@ -14,7 +14,6 @@
  		
 		$.post("fetchEnrollment.php") 
 		.done(function(data) {
-			alert(data);
 			var parsedData = JSON.parse(data);
 			dataPerWeek.push.apply(dataPerWeek, parsedData);
 			numWeeks = dataPerWeek.length;
@@ -22,7 +21,7 @@
 		})		
 		.fail(function() { alert("AJAX FAILED"); });       
 
-        
+		// resizes canvas on window resize
         window.onresize = function(event) {
         		displayData()
         }
