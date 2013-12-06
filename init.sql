@@ -29,7 +29,7 @@ CREATE TABLE enrollment (
 	cost FLOAT NOT NULL,
 	cardtype VARCHAR(32) NOT NULL,
 	csv INT NOT NULL,
-	expiration DATE NOT NULL,
+	expiration VARCHAR(32) NOT NULL,
 	cardholder VARCHAR(40) NOT NULL,
 	cardnumber VARCHAR(16) NOT NULL,
 	PRIMARY KEY (id));
