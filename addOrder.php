@@ -17,4 +17,5 @@
 
 	$query = "INSERT INTO $tbl (userId, total, cardnumber, CSV) VALUES ('$userId', '$total', '$creditCard', '$csv')";
 	mysql_query($query);
+
 ?>

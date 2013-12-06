@@ -163,7 +163,7 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 					userlast,
 					"'/><br />",
 					"<input name='email' type='email' size='16' placeholder='Email' id='email'/>",
-					"<input name='phone' type='tel' size='16' maxlength='10' placeholder='Phone' id='phone'/>",
+					"<input name='phone' type='tel' size='16' maxlength='10' placeholder='Phone' id='phone'/><br />",
 					"You currently have <strong><input hidden id='numenroll' value='",numenrolled,"' />",
 					numenrolled,
 					"</strong> child(ren) enrolled.<br />",
