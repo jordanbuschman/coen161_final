@@ -133,6 +133,11 @@
   			<h2 style="padding-left:60%" >Number of Students Enrolled</h2>
   			<canvas style="border: 0; float:right;" width="540px" height="550px" id="histogram"></canvas>
     	</section>
+		<br />
+		<footer>
+			<center> Web Master:<a href="mailto:jbuschman@scu.edu"> Jordan Buschman </a>  Web Master:<a href="mailto:achung@scu.edu"> Aaron Chung</a> Web Master:<a href="mailto:adeartola@scu.edu"> Andy de Artola</a></center>
+			<center>Copyright 2013 KidzCamp Inc. </center>
+		</footer>
 	</body>
 </html> 
 

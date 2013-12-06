@@ -169,7 +169,7 @@
 			</div>
 		</section>
 		<section class="centerpage">
-		<div id="left1" style="float: left; width: 50%; margin-left: 25px;">
+		<div id="left1" style="float: left; width: 50%; margin-left: 25px; font-size: 18px; line-height: 18px;">
 		<h1>Welcome to KidzCamp!</h1>
 		<p>KidzCamp Inc. is an organization that offers educational summer camps for children aged 10-14. Our camps our offered during the summer and each session lasts 2 weeks, although you can attend our shorter 1 week camp for a discounted price. </p>
 		<p>We aim to give our participants an experience they will cherish and lessons that will help them grow and succeed. Here at KidzCamp we focus on teaching kids the importance of computers in our lives as well as teaching them valuable skills in Computer Science.</p>
@@ -180,7 +180,8 @@
 		</div></section>
 		<br />
 		<footer>
-			Contact: <a href="mailto:jbuschman@scu.edu">Jordan Buschman</a> <a href="mailto:achung@scu.edu"> Aaron Chung</a> <a href="mailto:adeartola@scu.edu">Andy de Artola</a> </address>
-</footer>
+			<center> Web Master:<a href="mailto:jbuschman@scu.edu"> Jordan Buschman </a>  Web Master:<a href="mailto:achung@scu.edu"> Aaron Chung</a> Web Master:<a href="mailto:adeartola@scu.edu"> Andy de Artola</a></center>
+			<center>Copyright 2013 KidzCamp Inc. </center>
+		</footer>
 	</body>
 </html> 

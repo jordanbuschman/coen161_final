@@ -18,6 +18,10 @@ header {
 	z-index: 100;
 	min-width: 1194px;
 }
+footer {
+	color: white;
+	line-height: 20px;
+}
 #cartnum {
 	color: red;
 	text-decoration: strong;
