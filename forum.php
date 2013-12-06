@@ -94,6 +94,7 @@
 					$.post( "submitForum.php", { numStars:rating, review:comment })
 						.done(function( data ) {
 							$('#forum').remove();
+							$('.centerpage').html('<h3>Thank you for the feedback!</h3>');
 				  		}).fail(function() {
 				    		alert( "AJAX FAILED" );
 				  		});
