@@ -169,16 +169,30 @@
 				</div>
 			</div>
 		</section>
+		
+		</div>
 		<section class="centerpage">
-		<div id="left1" style="float: left; width: 50%; margin-left: 25px; font-size: 18px; line-height: 18px;">
+		<div id="left1" style="float: left; width: 59%; margin-left: 25px; font-size: 18px; line-height: 18px;">
 		<h1>Welcome to KidzCamp!</h1>
 		<p>KidzCamp Inc. is an organization that offers educational summer camps for children aged 10-14. Our camps our offered during the summer and each session lasts 2 weeks, although you can attend our shorter 1 week camp for a discounted price. </p>
 		<p>We aim to give our participants an experience they will cherish and lessons that will help them grow and succeed. Here at KidzCamp we focus on teaching kids the importance of computers in our lives as well as teaching them valuable skills in Computer Science.</p>
 		<p>All of our camps are hosted at universities throughout California. The map to the right shows where we currently offer camps.</p>
 		<p>We invite you to navigate through our site where you have the opportunity to <span style="color:red;">Sign-Up</span> and <span style="color:red;">Register</span> your child, Look through our online catalog, leave comments and suggestions, and even take a look at some of the activities we offer at the camp.</p>
+		<p>Navigating through our site is easy! Go to the <span style="color:red;">The Camp</span> page to see some enrollment statistics and the camp schedule. Check out the <span style="color:green;">Shop</span> page to purchase exclusive KidzCamp gear! We encourage you to create an account as it makes navigating through our site easier. </p>
+		
 		</div>
-		<div id="map1" style="width: 45%; height: 400px; float:right;">
-		</div></section>
+		<img src="images/homekids.jpg" style="width: 38%; height: 375px; float:right; margin-top: 10px;" />
+		<div id="map1" style="width: 50%; height: 350px; margin-top: 15px; float: left;"></div>
+		<div style="width: 45%; float: right; margin-top: 20px; margin-right: 15px;">
+		<h1 style="color:blue;">Kidz Camp Locations</h1>
+		<p>This map shows each one of our locations located in California. As you can see they are labeled by the univeristy they are held at.</p>
+		<p>Feel free to click on one of the markers to find out which session is held at which university.</p>
+		<p>Don't forget to enroll your kids!</p>
+		<center><p>**Hints to Our Site!**</p></center>
+		<p> Signing-up and enrolling in a class can earn you discounts on our site. The two discounts we offer are found in the shop page or through registration. If you enroll more than 1 child, you get 10% off each additional child!</p>
+		<p>Don't worry if your child has special requests(allergies, illnesses, etc.) we are fully equiped to handle any situation!</p>
+		</div>
+		</section>
 		<br />
 		<footer>
 			<center> Web Master:<a href="mailto:jbuschman@scu.edu"> Jordan Buschman </a>  Web Master:<a href="mailto:achung@scu.edu"> Aaron Chung</a> Web Master:<a href="mailto:adeartola@scu.edu"> Andy de Artola</a></center>
