@@ -33,7 +33,12 @@
         	var histogram = document.getElementById("histogram");
         	var ctx = histogram.getContext("2d");
   			ctx.canvas.height = 450;
-  			ctx.canvas.width = ( window.innerWidth * 0.39 > smallestWidth )? window.innerWidth * 0.39 : smallestWidth;
+			var disWidth;
+			if ((window.innerWidth*.78) > 1084)
+				disWidth= window.innerWidth * .78;
+			else
+				disWidth= 1084;
+  			ctx.canvas.width = disWidth;
   		
             // Display axis names
             ctx.fillStyle = "black";
@@ -67,11 +72,11 @@
                 ctx.fillText(dataPerWeek[i], xMultiplier * (i + 1) + 15, y - margin*2);
                 ctx.fillText((i+1), xMultiplier * (i + 1) + 15, histogram.height);
             }
-			
+			var colors= new Array("red", "orange", "yellow", "green", "blue", "indigo", "violet")
             // Draw Data Bars
             ctx.translate(0, histogram.height - margin);
             for (var i = 0; i < numWeeks; i++) {
-            	ctx.fillStyle = "darkgreen";
+            	ctx.fillStyle = colors[i];
                 ctx.fillRect(xMultiplier*(i + 1)+10, -margin, xMultiplier/3, -(dataPerWeek[i]*yMultiplier));
                 ctx.fillStyle = 'gray';
                 ctx.fillRect(xMultiplier*(i + 1)+(xMultiplier/3)+10, -margin, xMultiplier/10, -(dataPerWeek[i]+1)*yMultiplier);

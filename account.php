@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="mystyles.css">
 		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		<script src="maplocations.js" type="text/javascript"></script>	
+		<link rel="icon" href="images/flavicon.png" type="image/x-icon" />
 		<style>
 		td {
 			min-width: 100px;
@@ -99,7 +100,7 @@
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
 						echo '<p>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</p>';
-						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
+						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id .', ' . $_SESSION['user']->didEnroll . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
 						echo '<button type="button" onclick="logout();">Logout</button>';
 						echo '</div>';
 					}

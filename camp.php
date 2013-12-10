@@ -11,6 +11,7 @@
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
 		<script src="javascript.js" type="text/javascript" ></script>
 		<script src="histogram.js" type="text/javascript" ></script>
+		<link rel="icon" href="images/flavicon.png" type="image/x-icon" />
 	</head>
 
 	<body onload="initHistogram();">
@@ -69,7 +70,7 @@
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
 						echo '<p>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</p>';
-						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
+						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id .', ' . $_SESSION['user']->didEnroll . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
 						echo '<button type="button" onclick="logout();">Logout</button>';
 						echo '</div>';
 					}
@@ -128,10 +129,13 @@
 			</div>
 		</section>
 		<section class="centerpage">
+			<h1>The Camp</h1>
+			<p style="font-size: 20px;">Kidz Camp is offered for children aged 10-14 who are interested in technology. Check out the details of the upcoming Summer 2014 camp sessions. The data below represents the number of students currently enrolled in each session.</p>
+			
+  			<h2 style="padding-left:38%" >Number of Students Enrolled</h2>
+  			<canvas style="border: 0; float:right;" id="histogram"></canvas><br/><br /><p style="font-size: 20px; margin-top: 450px;">The calendar below shows the sessions we offer for the summer of 2014. Each location is at a different university within California. Check it out!</p>
 			<iframe src='http://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles&dates=20140601%2F20140830' 
-				style="border: 0; float:left;" width="50%" height="500" frameborder='0' scrolling='no'></iframe>
-  			<h2 style="padding-left:60%" >Number of Students Enrolled</h2>
-  			<canvas style="border: 0; float:right;" id="histogram"></canvas>
+				style="border: 0; float:left;" width="100%" height="500" frameborder='0' scrolling='no'></iframe><br />
     	</section>
 		<br />
 		<footer>

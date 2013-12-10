@@ -85,6 +85,7 @@
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
 		<link rel="stylesheet" type="text/css" href="mystyles.css">
+		<link rel="icon" href="images/flavicon.png" type="image/x-icon" />
 		<style type="text/css">
 		#signup2 {
 	width: 47.5%;
@@ -193,8 +194,9 @@
 				<?php
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
-						echo '<span>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</span><br />';
-						echo '<button type="button" onclick="logout();" style="margin-top: 5px;">Logout</button>';
+						echo '<p>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</p>';
+						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id .', ' . $_SESSION['user']->didEnroll . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
+						echo '<button type="button" onclick="logout();">Logout</button>';
 						echo '</div>';
 					}
 					else {

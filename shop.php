@@ -8,11 +8,13 @@
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
 		<link rel="stylesheet" type="text/css" href="mystyles.css">
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="javascript.js" ></script>
+		
 	</head>
 
 	<body>
- 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script src="javascript.js" ></script>
+ 		
 
 		<script type="text/javascript">
 			function handleLogin() { //Calls check.php to handle logging in
@@ -74,7 +76,11 @@
 						items.push('<h3>', rows[i].name, '</h3>');
 						items.push('<div class="itemImg"><img src="images/', rows[i].location, '" /></div>');
 						items.push('<p>Price: $', rows[i].price, '</p>');
-						<?php if(!$_SESSION['user']->didEnroll) { ?> //If person is not logged in/did not enroll
+						<?php if(!(isset($_SESSION['user']))) { ?> //If person is not logged in/did not enroll
+							if (rows[i].discount != 0)
+								items.push('<p style="color: red">Enroll in a class to get a ', rows[i].discount, '% discount!</p><p style="color: red;">Log in or create an account<br/> to purchase items!</p>');
+							else items.push('<p style="color: red;">Log in or create an account<br/> to purchase items!</p>');
+						<?php } elseif(!($_SESSION['user']->didEnroll)) { ?>	
 							if (rows[i].discount != 0)
 								items.push('<p style="color: red">Enroll in a class to get a ', rows[i].discount, '% discount!</p>');
 							else items.push('<p></br></p>');
@@ -140,7 +146,7 @@
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
 						echo '<p>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</p>';
-						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
+						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id .', ' . $_SESSION['user']->didEnroll . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
 						echo '<button type="button" onclick="logout();">Logout</button>';
 						echo '</div>';
 					}

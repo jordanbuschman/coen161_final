@@ -9,6 +9,7 @@
 		<title>Kidz Camp</title>
 		<link rel="stylesheet" type="text/css" href="mystyles.css">
 		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<link rel="icon" href="images/flavicon.png" type="image/x-icon" />
 		<script src="maplocations.js" type="text/javascript"></script>	
 		<style>
 		td {
@@ -99,7 +100,7 @@
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
 						echo '<p>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</p>';
-						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
+						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id .', ' . $_SESSION['user']->didEnroll . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
 						echo '<button type="button" onclick="logout();">Logout</button>';
 						echo '</div>';
 					}
@@ -158,8 +159,9 @@
 				</div>
 			</div>
 		</section>
-		<section class="centerpage" style="min-width: 600px; width:600px; font-size: 18px; line-height: 20px;">
+		<section class="centerpage" style="min-width: 600px; width:40%; font-size: 18px; line-height: 20px;">
 		<h1> Testimonials and Reviews </h1>
+		<p>See what people have to say about us!</p>
 		<?php
 	$host = "localhost";
 	$sql_username = "root";
@@ -167,27 +169,30 @@
 	$db = "kidzcamp";
 	$tbl = "user";
 	$tbl2 = "forum";
-	$id = $_SESSION['user']->id;
-	$num = $_SESSION['user']->numEnrolled;
-	$namef = $_SESSION['user']->firstName;
-	$namel = $_SESSION['user']->lastName;
-	$username = $_SESSION['user']->username;
-	$nume = $_SESSION['user']->numEnrolled;
+	//$id = $_SESSION['user']->id;
+	//$num = $_SESSION['user']->numEnrolled;
+	//$namef = $_SESSION['user']->firstName;
+	//$namel = $_SESSION['user']->lastName;
+	//$username = $_SESSION['user']->username;
+	//$nume = $_SESSION['user']->numEnrolled;
 	
 	mysql_connect($host, $sql_username, $sql_password) or die ("Cannot connect to SQL server.");
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
 	$query = "SELECT * FROM $tbl2 WHERE 1";
 	$result = mysql_query($query);
-	$i = 1;
+	$i = 0;
+	
+	$colors = array("red", "orange", "#e5e500", "green", "blue", "indigo", "violet");
 	
 	while($row = mysql_fetch_assoc($result)){
-		echo "&nbsp&nbsp&nbsp&nbsp<strong>";
+		echo "<div id='testimonial1'>&nbsp&nbsp&nbsp&nbsp<strong style='color: ".$colors[$i%8].";'>";
 		echo $row['username'];
-		echo "</strong> gives a rating of <strong>";
+		echo "</strong> gives a rating of <strong style='color: ".$colors[$i%8].";'>";
 		echo $row['rating'];
-		echo "</strong> and says:<br /> ''";
+		echo "</strong> and says:<br /></div><br /><div id='testimonial'> ''";
 		echo $row['review'];
-		echo "'' <br /><br />";
+		echo "'' </div><br />";
+		$i++;
 	}
 	
 	

@@ -41,7 +41,7 @@ function displaySignup() {
 		$('#signup').html(data.join(''));
 	});
 }
-function showCart(uId) {
+function showCart(uId, enrolled) {
     $.post( "fetchCart.php", { userId: uId }) //Runs fetchCart.php, which fetches the cart for the userUsername.php
   	.done(function( encoded ) {
 		var cart = JSON.parse(encoded);
@@ -58,7 +58,12 @@ function showCart(uId) {
 			"<th>Quantity</th>",
 			"</tr>");
 		for (var i = 0; i < cart.length; i++) {
-			var priceForOne = ((100 - cart[i]['discount']) * cart[i]['price'] / 100).toFixed(2);
+			var priceForOne; 
+			if(enrolled){
+				priceForOne = ((100 - cart[i]['discount']) * cart[i]['price'] / 100).toFixed(2);
+			}
+			else
+				priceForOne = ((100)*(cart[i]['price'] / 100)).toFixed(2);
 			var priceForAll = priceForOne * cart[i]['count'];
 			total += priceForAll;
 			data.push("<tr>",
@@ -115,6 +120,7 @@ function checkOut1(uId, total) {
 	$('#checkOut').attr('disabled', 'disabled');	
 
 	$('#cart').append('<div>Credit Card number <input size="16" id="checkoutCreditCard" maxlength="16"/><input size="4" id="checkoutCsv" maxlength="4" placeholder="CSV"/></div><br/>');
+	//$('#cart').append("<div><strong>Payment Information:</strong><br />Card Type: <select name='cardtype'><option value='visa'>Visa</option><option value='mastercard'>Mastercard</option><option value=discover'>Discover</option><option value='amex'>AMEX</option></select> CSV: <input name='csv' type='text' size='4' maxlength='4' placeholder='CSV' id='csv'/><br />Expiration: <input name='expdate' type='text' id='expdate' maxlength='10' size='16' placeholder='mm/dd/yyyy'/><br />Cardholder Name: <input name='cardholder' type='text' size='16' placeholder='Cardholder Name' id='cardholder'/><br />Card Number: <input name='cardnumber' type='text' size='16' maxlength='16' placeholder='Card Number' id='cardnumber'/><br /> <br /></div><br/>");
 	var text = '<input id="purchace" type="button" value="Place purchace" disabled="disabled" onclick="javascript: checkOut2(' + uId + ', ' + total + ')" />';
 	$('#cart').append(text);
 }
@@ -150,20 +156,20 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 	signup.method = 'post';
 	signup.action = 'registration.php';
 	var data = [];
-	data.push("<div id='left' style='margin-top: -20px;'><h2>Registration Form</h2> Please complete the following information.<br />",
-					"<input name='firstName' type='text' size='16' placeholder='Child First Name' id='firstName'/>",
-					"<input name='lastName' type='text' size='16' placeholder='Child Last Name' id='lastName'/><br />",
-					"Birthday: <input name='bdate' type='text' id='bdate' maxlength='10' placeholder='mm/dd/yyyy'/><br />",
-					"Grade Level: <input name='grade' type='number' size='16' id='grade' min='4' max ='9'/>",
-					"<input name='school' type='text' size='16' placeholder='School Name' id='school'/><br />",
-					"<input name='parentFirstName' type='text' size='16' placeholder='Parent First Name' id='parentfirstName' value='",
+	data.push("<div id='left' style='margin-top: -20px; width: 387px; text-align: right; padding-right: -10px;'><h2>Registration Form</h2> Please complete the following information.<br />",
+					"Child's First Name:* <input name='firstName' type='text' size='16' placeholder='Child First Name' id='firstName'/><br/>",
+					"Child's Last Name:* <input name='lastName' type='text' size='16' placeholder='Child Last Name' id='lastName'/><br />",
+					"Birthday:* <input name='bdate' type='text' id='bdate' maxlength='10' size='16' placeholder='mm/dd/yyyy'/><br />",
+					"Grade Level: <input name='grade' type='number' size='16' id='grade' min='4' max ='9'/><br />",
+					"School Name: <input name='school' type='text' size='16' placeholder='School Name' id='school'/><br />",
+					"Parent First Name<input name='parentFirstName' type='text' size='16' placeholder='Parent First Name' id='parentfirstName' value='",
 					userfirst,
-					"'/>",
-					"<input name='parentLastName' type='text' size='16' id='parentlastName' value='",
+					"'/><br />",
+					"Parent Last Name: <input name='parentLastName' type='text' size='16' id='parentlastName' value='",
 					userlast,
 					"'/><br />",
-					"<input name='email' type='email' size='16' placeholder='Email' id='email'/>",
-					"<input name='phone' type='tel' size='16' maxlength='10' placeholder='Phone' id='phone'/><br />",
+					"Email Address: <input name='email' type='email' size='16' placeholder='Email' id='email'/><br />",
+					"Phone Number: <input name='phone' type='tel' size='16' maxlength='10' placeholder='Phone' id='phone'/><br />",
 					"You currently have <strong><input hidden id='numenroll' value='",numenrolled,"' />",
 					numenrolled,
 					"</strong> child(ren) enrolled.<br />",
@@ -172,12 +178,12 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 					"<div id='currentcost' style='color: red'><br /></div>",
 					"<strong>Payment Information:</strong><br />",
 					"Card Type: <select name='cardtype'><option value='visa'>Visa</option><option value='mastercard'>Mastercard</option><option value=discover'>Discover</option><option value='amex'>AMEX</option></select> CSV: <input name='csv' type='text' size='4' maxlength='4' placeholder='CSV' id='csv'/><br />",
-					"Expiration:<input name='expdate' type='text' id='expdate' maxlength='10' placeholder='mm/dd/yyyy'/> <br />",
-					"<input name='cardholder' type='text' size='16' placeholder='Cardholder Name' id='cardholder'/>",
-					"<input name='cardnumber' type='text' size='16' maxlength='16' placeholder='Card Number' id='cardnumber'/><br /> <br />",
+					"Expiration: <input name='expdate' type='text' id='expdate' maxlength='10' size='16' placeholder='mm/dd/yyyy'/><br />",
+					"Cardholder Name: <input name='cardholder' type='text' size='16' placeholder='Cardholder Name' id='cardholder'/><br />",
+					"Card Number: <input name='cardnumber' type='text' size='16' maxlength='16' placeholder='Card Number' id='cardnumber'/><br /> <br />",
 					"<input type='submit' name='Submit' value='Enroll' id='submit' disabled='disabled' />",
 					"<input type='button' value='Go back' onclick='window.location = window.location.pathname;' />",
-					"</div><div id='right'>",
+					"</div><div id='right' style='width: 525px;'>",
 					/*"Session 1: June 24-June 30<br/>",
 					"Session 2: June 24-June 30<br/>",
 					"Session 3: June 24-June 30<br/>",
@@ -187,7 +193,7 @@ function displayRegistration(userfirst,userlast, numenrolled) {
 					"Session 7: June 24-June 30<br/>",
 					"Session 8: June 24-June 30<br/>",
 					"Session 9: June 24-June 30",*/
-					"<center>We appreciate your interest in KidzCamp. The calendar below shows the next sessions we have. Please fill out the form on the left with your child's information (Your information has been autofilled). All fields are required!</center><br /><iframe src='http://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles&dates=20140601%2F20140830' style='border: 0' width='600' height='500' frameborder='0' scrolling='no'></iframe>",
+					"<center>We appreciate your interest in KidzCamp. The calendar below shows the next sessions we have. Please fill out the form on the left with your child's information (Your information has been autofilled). All fields are required!</center><br /><iframe src='http://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;src=scu.edu_86oe3fanhm15i4daq4ghq9rmhg%40group.calendar.google.com&ctz=America/Los_Angeles&dates=20140601%2F20140830' style='border: 0' width='525' height='500' frameborder='0' scrolling='no'></iframe>",
 					"</div>");
 	$('#background').fadeTo( "slow" , 0.6, function() {
 		document.body.appendChild(signup);

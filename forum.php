@@ -7,6 +7,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Kidz Camp</title>
+		<link rel="icon" href="images/flavicon.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" href="mystyles.css">
 
 
@@ -127,7 +128,7 @@
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
 						echo '<p>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</p>';
-						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
+						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id .', ' . $_SESSION['user']->didEnroll . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
 						echo '<button type="button" onclick="logout();">Logout</button>';
 						echo '</div>';
 					}

@@ -72,7 +72,7 @@
 					if(isset($_SESSION['user'])) {
 						echo '<div>';
 						echo '<p>Welcome, <strong>' . $_SESSION['user']->firstName . '</strong>!</p>';
-						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
+						echo '<button type="button" onclick="showCart(' . $_SESSION['user']->id .', ' . $_SESSION['user']->didEnroll . ')">Cart: <span id="cartnum">0</span> item(s)</button>';
 						echo '<button type="button" onclick="logout();">Logout</button>';
 						echo '</div>';
 					}
@@ -138,7 +138,7 @@
 				their brains. Below is an example of one of the many in-house developed apps that your child will experience. 
 			</p>
 			<h2>Canvas Draw</h2>
-		    <canvas id="canvasDraw" width="900" height="400" style="border:2px solid;"></canvas>
+		    <canvas id="canvasDraw" width="900" height="400" style="border:2px solid; margin-left: 90px;"></canvas>
 			<br>
     		<label><input type="radio" name="size" value="pencil" checked="checked" onclick="color='black';radius=3;" /> Pencil</label>
     		<label><input type="radio" name="size" value="eraser" onclick="color='white';radius=15;" /> Eraser</label>

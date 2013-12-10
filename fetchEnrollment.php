@@ -7,7 +7,7 @@
 	$db = "kidzcamp";
 	$tbl1 = "enrollment";
 
-	$userId = $_POST['userId'];
+	//$userId = $_POST['userId'];
 
 	mysql_connect($host, $sql_username, $sql_password) or die ("Cannot connect to SQL server.");
 	mysql_select_db("$db") or die ("Cannot select kidzcamp database. (Did you run init.sql yet?)");
@@ -26,9 +26,9 @@
 	
 	
 	$sql = mysql_query($query);
-	$result = array();
+	//$result = new array();
 	for ($i = 0; $i<7; $i++){
-		$result[] = 0;	
+		$result[$i] = 0;	
 	}
 	while($row = mysql_fetch_assoc($sql)){
 		$temp = $row['sessionNum'] - 1;
